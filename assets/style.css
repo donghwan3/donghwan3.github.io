@@ -1,8 +1,8 @@
-:root{color-scheme:dark;--bg:#1c1c1c;--text:#efefef;--muted:#aaa;--blue:#3d85c6;--line:#464646;--sidebar:256px}
+:root{color-scheme:dark;--bg:#1c1c1c;--text:#efefef;--muted:#aaa;--blue:#3d85c6;--link:#70b4ed;--link-hover:#a8d8ff;--line:#464646;--sidebar:256px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:24px}
 body{margin:0;background:var(--bg);color:var(--text);font:400 1.375rem/1.5 Montserrat,Arial,sans-serif}
-a{color:#70b4ed;text-underline-offset:3px;overflow-wrap:anywhere}
+a{color:var(--link);text-underline-offset:3px;overflow-wrap:anywhere}
 button,input{font:inherit}
 button{cursor:pointer}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #77c8f1;outline-offset:5px}
@@ -35,7 +35,10 @@ main{margin-left:var(--sidebar);min-height:calc(100vh - 100px);padding:0 3.5vw 3
 .rich-text li p{margin-top:0}
 .rich-text table{border-collapse:collapse;max-width:100%}
 .rich-text td,.rich-text th{border:1px solid var(--line);padding:8px}
-.rich-text a{color:inherit;text-decoration:underline}
+/* Override inline link colors retained from the Google Sites import. */
+main a:not(.button){color:var(--link)!important;text-decoration:underline!important}
+main a:not(.button) *{color:inherit!important}
+main a:not(.button):is(:hover,:focus-visible){color:var(--link-hover)!important}
 .rich-text [id]{scroll-margin-top:30px}
 .divider-section{padding-block:5px}
 hr{border:0;border-top:1px solid var(--line);margin:0}
@@ -43,11 +46,13 @@ figure{margin:0;line-height:0}
 figure img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
 .button{display:block;border:1px solid #0b5394;background:#0b5394;color:#f9f9f9;text-align:center;text-decoration:none;padding:10px 18px;font-size:1.05rem;line-height:1.5;margin-top:14px;border-radius:2px}
 .button:hover{background:#176bad}
+.book-lectures{font-size:1rem;line-height:1.6;text-align:center;margin:16px 0 0}
 .video{aspect-ratio:16/9;background:#151515}
 .video iframe{display:block;width:100%;height:100%;border:0}
-.video-link{font-size:.875rem;display:inline-block;margin-top:9px;color:#aaa}
+.video-link{font-size:.875rem;display:inline-block;margin-top:9px}
 .site-footer{margin-left:var(--sidebar);max-width:1400px;padding:28px calc(3.5vw + 9px);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:.875rem;color:#aaa;border-top:1px solid #303030}
-.site-footer a{color:#bbb}
+.site-footer a{color:var(--link)}
+.site-footer a:hover{color:var(--link-hover)}
 .mobile-header,.menu-backdrop{display:none}
 .search-toggle{position:fixed;right:14px;top:10px;z-index:25;width:42px;height:42px;border:0;border-radius:50%;background:var(--bg);color:white;display:grid;place-items:center}
 .search-toggle:hover{background:#333}
@@ -92,4 +97,4 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
  .button{padding-block:12px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sidebar{transition:none}}
-@media print{.sidebar,.mobile-header,.search-toggle,.site-footer{display:none}main{margin:0;padding:0}body{background:white;color:black;font-size:11pt}.rich-text span{color:inherit!important}.content-section{padding-block:8px}a{color:black}}
+@media print{.sidebar,.mobile-header,.search-toggle,.site-footer{display:none}main{margin:0;padding:0}body{background:white;color:black;font-size:11pt}.rich-text span{color:inherit!important}.content-section{padding-block:8px}a,main a:not(.button){color:black!important}}
