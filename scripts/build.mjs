@@ -1,10 +1,12 @@
 import { readFile, writeFile, mkdir, cp } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
 const site = JSON.parse(await readFile(path.join(root, 'content/site.json'), 'utf8'));
+const styleVersion = createHash('sha256').update(await readFile(path.join(root, 'assets/style.css'))).digest('hex').slice(0, 12);
 const escape = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const pagePath = slug => slug === 'home' ? 'index.html' : `${slug}.html`;
 await mkdir(out, { recursive: true });
@@ -25,7 +27,7 @@ function document(page, content) {
   <title>${escape(title)}</title>
   <link rel="icon" href="${site.logo}">
   <link rel="stylesheet" href="assets/fonts.css">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=${styleVersion}">
   <script src="assets/site.js" defer></script>
 </head>
 <body data-page="${page.slug}">

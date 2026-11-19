@@ -11,7 +11,7 @@ for(const name of files){
     const url=match[1];
     if(/^(https?:|mailto:|tel:|data:)/i.test(url)) continue;
     const [target,fragment]=url.split('#');
-    const file=path.resolve(root,decodeURIComponent(target||name));
+    const file=path.resolve(root,decodeURIComponent(target.split('?')[0]||name));
     if(file!==root&&!file.startsWith(root+path.sep)){errors.push(`${name}: invalid path ${url}`);continue;}
     try{
       if(!(await stat(file)).isFile()) throw new Error();
