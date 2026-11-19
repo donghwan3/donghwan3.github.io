@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, cp } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, cp, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -72,4 +72,16 @@ for (const page of site.navigation) {
 await writeFile(path.join(out, 'assets/search-index.json'), JSON.stringify(search));
 await writeFile(path.join(out, '.nojekyll'), '');
 await writeFile(path.join(out, '404.html'), document({ slug:'not-found',label:'Page not found' }, '<section class="content-section"><h1>Page not found</h1><p>This page may have moved. Choose a page from the menu or return to <a href="index.html">Home</a>.</p></section>'));
-console.log(`Built ${site.navigation.length} pages with local images and fonts in dist/.`);
+// Paper projects use their own presentation layout, separate from the lab sidebar.
+const projects = (await readdir(path.join(root, 'content/projects'))).filter(name => name.endsWith('.html'));
+const projectStyleVersion = createHash('sha256').update(await readFile(path.join(root, 'assets/projects/project.css'))).digest('hex').slice(0, 12);
+const projectScriptVersion = createHash('sha256').update(await readFile(path.join(root, 'assets/projects/project.js'))).digest('hex').slice(0, 12);
+for (const name of projects) {
+  const target = path.join(out, 'projects', path.basename(name, '.html'));
+  const source = await readFile(path.join(root, 'content/projects', name), 'utf8');
+  await mkdir(target, { recursive: true });
+  await writeFile(path.join(target, 'index.html'), source
+    .replaceAll('{{projectStyleVersion}}', projectStyleVersion)
+    .replaceAll('{{projectScriptVersion}}', projectScriptVersion));
+}
+console.log(`Built ${site.navigation.length} lab pages and ${projects.length} paper project(s) with local images and fonts in dist/.`);
