@@ -1,0 +1,147 @@
+{
+  "source": "https://sites.google.com/site/donghwanleehome",
+  "pages": [
+    {
+      "slug": "home",
+      "label": "Home",
+      "source": "https://sites.google.com/site/donghwanleehome/home",
+      "sections": 28,
+      "images": 7,
+      "videos": 0,
+      "links": 2
+    },
+    {
+      "slug": "research",
+      "label": "Research",
+      "source": "https://sites.google.com/site/donghwanleehome/research",
+      "sections": 13,
+      "images": 3,
+      "videos": 0,
+      "links": 12
+    },
+    {
+      "slug": "collaboration",
+      "label": "Collaboration",
+      "source": "https://sites.google.com/site/donghwanleehome/collaboration",
+      "sections": 12,
+      "images": 1,
+      "videos": 0,
+      "links": 0
+    },
+    {
+      "slug": "publication",
+      "label": "Publication",
+      "source": "https://sites.google.com/site/donghwanleehome/publication",
+      "sections": 76,
+      "images": 0,
+      "videos": 0,
+      "links": 126
+    },
+    {
+      "slug": "presentations",
+      "label": "Presentations",
+      "source": "https://sites.google.com/site/donghwanleehome/presentations",
+      "sections": 25,
+      "images": 0,
+      "videos": 12,
+      "links": 15
+    },
+    {
+      "slug": "video-lectures",
+      "label": "Video Lectures",
+      "source": "https://sites.google.com/site/donghwanleehome/video-lectures",
+      "sections": 1,
+      "images": 0,
+      "videos": 0,
+      "links": 0
+    },
+    {
+      "slug": "books",
+      "label": "Books",
+      "source": "https://sites.google.com/site/donghwanleehome/books",
+      "sections": 3,
+      "images": 2,
+      "videos": 0,
+      "links": 4
+    },
+    {
+      "slug": "people",
+      "label": "People",
+      "source": "https://sites.google.com/site/donghwanleehome/people",
+      "sections": 22,
+      "images": 0,
+      "videos": 0,
+      "links": 1
+    },
+    {
+      "slug": "pi",
+      "label": "PI",
+      "source": "https://sites.google.com/site/donghwanleehome/pi",
+      "sections": 19,
+      "images": 1,
+      "videos": 0,
+      "links": 1
+    },
+    {
+      "slug": "teaching",
+      "label": "Teaching",
+      "source": "https://sites.google.com/site/donghwanleehome/teaching",
+      "sections": 3,
+      "images": 0,
+      "videos": 0,
+      "links": 0
+    },
+    {
+      "slug": "contact",
+      "label": "Contact",
+      "source": "https://sites.google.com/site/donghwanleehome/contact",
+      "sections": 3,
+      "images": 0,
+      "videos": 0,
+      "links": 3
+    }
+  ],
+  "images": [
+    {
+      "path": "assets/images/992ff41771035a85a67b.jpg",
+      "bytes": 26068
+    },
+    {
+      "path": "assets/images/17868b77003e82d2e3a7.jpg",
+      "bytes": 146288
+    },
+    {
+      "path": "assets/images/a3cea513faedd967954f.jpg",
+      "bytes": 108793
+    },
+    {
+      "path": "assets/images/38be26e43ebf727f0032.jpg",
+      "bytes": 128479
+    },
+    {
+      "path": "assets/images/f6b57a4c5f13418c5558.jpg",
+      "bytes": 200189
+    },
+    {
+      "path": "assets/images/5bc1eabde441c27ca3aa.png",
+      "bytes": 120735
+    },
+    {
+      "path": "assets/images/c47c9761e44af83ecdde.jpg",
+      "bytes": 39077
+    },
+    {
+      "path": "assets/images/8998c96f04ac65562698.jpg",
+      "bytes": 113689
+    },
+    {
+      "path": "assets/images/bf8217f95e6d5338c98c.jpg",
+      "bytes": 102713
+    },
+    {
+      "path": "assets/images/cae1834fe25258f456e9.jpg",
+      "bytes": 123167
+    }
+  ],
+  "external_content": "YouTube players, publisher/arXiv links, and the existing Drive CV link remain external."
+}

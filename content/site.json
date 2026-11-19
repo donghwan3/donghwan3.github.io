@@ -1,0 +1,52 @@
+{
+  "title": "Reinforced Decision Intelligence",
+  "description": "Reliable reinforcement learning and learning-based control with mathematical guarantees for autonomous and industrial systems.",
+  "logo": "assets/images/992ff41771035a85a67b.jpg",
+  "source": "https://sites.google.com/site/donghwanleehome",
+  "navigation": [
+    {
+      "slug": "home",
+      "label": "Home"
+    },
+    {
+      "slug": "research",
+      "label": "Research"
+    },
+    {
+      "slug": "collaboration",
+      "label": "Collaboration"
+    },
+    {
+      "slug": "publication",
+      "label": "Publication"
+    },
+    {
+      "slug": "presentations",
+      "label": "Presentations"
+    },
+    {
+      "slug": "video-lectures",
+      "label": "Video Lectures"
+    },
+    {
+      "slug": "books",
+      "label": "Books"
+    },
+    {
+      "slug": "people",
+      "label": "People"
+    },
+    {
+      "slug": "pi",
+      "label": "PI"
+    },
+    {
+      "slug": "teaching",
+      "label": "Teaching"
+    },
+    {
+      "slug": "contact",
+      "label": "Contact"
+    }
+  ]
+}

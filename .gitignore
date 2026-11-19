@@ -1,0 +1,7 @@
+.tools/
+source-snapshot/
+dist/
+qa/
+node_modules/
+*.log
+.env*
