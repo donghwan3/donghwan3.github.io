@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="매끄러운 다항식 조건으로 Q-learning과 여러 평활 Bellman 갱신의 안정성 분석을 통합합니다.">
+  <meta property="og:title" content="A Smooth Polynomial Lyapunov Certificate for Convergence of Q-Learning and Its Smooth Variants">
+  <meta property="og:description" content="매끄러운 다항식 조건으로 Q-learning과 여러 평활 Bellman 갱신의 안정성 분석을 통합합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/smooth-polynomial-q-learning/index.html">
+  
+  <title>A Smooth Polynomial Lyapunov Certificate for Convergence of Q-Learning and Its Smooth Variants</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/smooth-polynomial-q-learning/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/smooth-polynomial-q-learning/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/smooth-polynomial-q-learning/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2404.14442">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/smooth-polynomial-q-learning/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Lyapunov 안정성 · 확률 근사 · 평활 Q-learning · 상미분방정식</p><h1>A Smooth Polynomial Lyapunov Certificate for Convergence of Q-Learning and Its Smooth Variants</h1>
+      <p class="publication-status">arXiv:2404.14442 · 2024</p><p class="authors"><a href="/ko/pi.html">Donghwan Lee</a>, Hyunjun Na</p><p class="affiliation">Department of Electrical Engineering, Korea Advanced Institute of Science and Technology (KAIST), Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2404.14442">논문 PDF</a> <a href="https://arxiv.org/abs/2404.14442">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>연산자 선택</h2><p>Maximum, log-sum-exp, mellowmax 또는 Boltzmann 갱신을 지정합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>평균 동역학의 안정성 보장</h2><p>양의 대각 스케일링에 맞춘 매끄러운 다항식을 사용합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>표본 기반 학습으로 확장</h2><p>표본 가정하에서 고정점 또는 불변 집합으로의 거의 확실한 수렴을 얻습니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">매끄러운 다항식 조건으로 Q-learning과 여러 평활 Bellman 갱신의 안정성 분석을 통합합니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>매끄럽지 않은 축약 노름을 위한 매끄러운 조건</h3><p>가중 짝수 차수 다항식으로 무한대 노름의 직접 미분을 대체합니다. 충분히 큰 유한 차수를 선택하면 명시된 무한대 노름 축약 인자에 대해 엄밀한 Lyapunov 감소를 얻습니다.</p></article>
+<article><h3>양의 대각 평균장 스케일링</h3><p>대각 성분에 반비례하는 가중치로 불균일한 갱신 빈도를 반영합니다. 비동기 단일 좌표 표본 추출과 별도로 정의한 동기식 전체 갱신 알고리즘을 구분합니다.</p></article>
+<article><h3>하나의 틀, 서로 다른 결론</h3><p>축약인 maximum, log-sum-exp, mellowmax 연산자는 고정점 수렴을 제공합니다. Boltzmann 평활화에는 균일 섭동 상한을 사용해, 정당화되지 않은 유일 고정점 주장 대신 불변 집합 보장을 얻습니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>Q-learning 수렴 증명은 흔히 매끄럽지 않은 무한대 노름을 사용합니다. 이 논문은 무한대 노름 축약을 매끄러운 유한 차수 다항식 Lyapunov 함수로 옮깁니다. 이 구성은 비동기 갱신의 평균 동역학을 포함한 양의 대각 스케일링을 다룹니다. Maximum, log-sum-exp, mellowmax 연산자에 대응하는 ODE의 전역 지수 안정성을 증명하고, 독립 표본 확률 근사가 각각의 고정점으로 거의 확실하게 수렴함을 보입니다. 일반적으로 축약이 아닌 Boltzmann 연산자에는 섭동 논증으로 명시적인 불변 오차 집합으로의 접근을 보장합니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">매끄러운 안정성 증명에 비동기 갱신을 어떻게 반영할까요?</h2><p>무한대 노름은 Bellman 축약을 자연스럽게 포착하지만 모든 점에서 미분 가능하지는 않습니다. 불균일한 좌표 갱신 빈도도 대응하는 연속시간 동역학을 바꿉니다. 이 스케일링을 반영하는 하나의 매끄러운 Lyapunov 함수를 구성하고, 이를 통해 축약 연산자의 정확한 수렴과 축약이 아닐 수 있는 평활 연산자의 유계 근사 오차를 구분하는 것이 과제입니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>다항식 가중치를 평균 동역학에 맞추기</h3><p>드리프트가 D(F(x)-x)인 ODE에서 D의 양의 대각 성분의 역수를 가중치로 사용합니다. 유한 차원 노름 비교로 무한대 노름 축약을 짝수 차수 다항식의 감소로 바꿉니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2404.14442v8#page=5">Equation (2) and Theorem 1, pp. 4-5</a></p></article>
+<article class="method-step"><h3>축약과 섭동 구분</h3><p>Maximum, log-sum-exp, mellowmax 갱신에는 축약 조건을 적용합니다. Boltzmann 갱신은 maximum 연산자와 비교하고 균일 근사 항을 유지합니다. 마지막으로 표본 점화식의 확률 근사 조건을 확인합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2404.14442v8#page=7">Theorems 2-4, pp. 6-7; Section K, pp. 39-40</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">W<sub>p</sub>(x) = (1 / 2p) ∑<sub>i</sub> w<sub>i</sub>x<sub>i</sub><sup>2p</sup>, &nbsp; w<sub>i</sub> = 1 / d<sub>i</sub></div><p class="source-note">x는 해당 고정점에 대한 오차이며, 섭동 결과에서는 일반 최적 Q-함수에 대한 오차입니다. 양의 가중치는 불균일한 갱신률을 보정합니다. 짝수 정수 지수 덕분에 오차가 0인 경우를 포함한 모든 곳에서 매끄럽습니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>축약 ODE의 전역 지수 안정성</h3></div><div><p>Maximum, log-sum-exp, mellowmax ODE는 각각 유일하고 전역 지수적으로 안정적인 평형점을 갖습니다. 다항식 차수는 명시된 축약 여유 조건을 만족해야 하며, 평활 연산자들의 고정점은 일반적으로 서로 다릅니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2404.14442v8#page=7">Theorem 3, p. 7</a></p></div></article>
+<article class="result-row"><div><h3>감소 스텝 크기에서의 거의 확실한 수렴</h3></div><div><p>독립 표본, 모든 상태–행동 쌍의 양의 확률, 합은 발산하고 제곱합은 수렴하는 통상적인 스텝 크기 조건하에서 세 축약 확률 점화식은 각각의 고정점으로 거의 확실하게 수렴합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2404.14442v8#page=39">Section 6 and Theorem 11, pp. 9 and 39</a></p></div></article>
+<article class="result-row"><div><h3>온도에 의존하는 Boltzmann 오차 집합</h3></div><div><p>Boltzmann 점화식은 일반 최적 Q-함수의 명시적인 불변 근방으로 확률 1로 접근합니다. 보장된 반지름은 온도 매개변수 lambda가 0에 접근할수록 줄어듭니다. 이는 상한이며 실제 오차의 양의 하한은 아닙니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2404.14442v8#page=40">Theorem 12, p. 40</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>이 결과는 ODE 안정성과 점근 수렴의 틀이며, 유한 시간 표본 복잡도 상한은 아닙니다. 확률 결과는 독립적인 재표본 추출과 모든 상태–행동 쌍의 방문을 요구합니다. 정상 행동 분포만으로 연속 경로 표본이 독립이 되는 것은 아닙니다. 학습률은 명시된 합산 조건에 따라 감소합니다. Boltzmann 평활화에는 최적 Q-함수로의 정확한 수렴 대신 불변 집합 보장을 제공합니다. 이론은 표 기반이며 일반 신경망 함수 근사의 수렴을 입증하지 않습니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2404.14442v8">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2024_240414442,
+  title={A Smooth Polynomial Lyapunov Certificate for Convergence of Q-Learning and Its Smooth Variants},
+  author={Donghwan Lee and Hyunjun Na},
+  year={2024},
+  eprint={2404.14442},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2404.14442}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2404.14442v8">arXiv:2404.14442v8</a>(Donghwan Lee, Hyunjun Na)의 논문을 바탕으로 합니다. 요약과 개념도는 이 페이지를 위해 작성했습니다. 정확한 내용은 연결된 논문을 확인해 주세요.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

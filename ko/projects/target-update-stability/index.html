@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="정확한 전환 동역학으로 하드·소프트 타깃이 결정론적 선형 Q-learning을 언제 안정화하는지 설명합니다.">
+  <meta property="og:title" content="Target Updates May Stabilize Linear Q-Learning: Periodic and Soft Dynamics">
+  <meta property="og:description" content="정확한 전환 동역학으로 하드·소프트 타깃이 결정론적 선형 Q-learning을 언제 안정화하는지 설명합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/target-update-stability/index.html">
+  
+  <title>Target Updates May Stabilize Linear Q-Learning: Periodic and Soft Dynamics</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/target-update-stability/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/target-update-stability/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/target-update-stability/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2606.02645">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/target-update-stability/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">타깃 네트워크 · 선형 Q-learning · 전환 시스템 · 안정성</p><h1>Target Updates May Stabilize Linear Q-Learning: Periodic and Soft Dynamics</h1>
+      <p class="publication-status">arXiv:2606.02645 · 2026</p><p class="authors"><a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">School of Electrical Engineering, KAIST, Daejeon, Republic of Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2606.02645">논문 PDF</a> <a href="https://arxiv.org/abs/2606.02645">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>타깃 고정 또는 평균</h2><p>주기적인 직접 복사 또는 두 가지 소프트 타깃 갱신 순서 중 하나를 선택합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>피드백 시스템 도출</h2><p>하드 타깃에는 경계 사상, 소프트 타깃에는 확장 상태를 사용합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>적절한 보장 조건 확인</h2><p>엄밀한 공동 스펙트럴 반지름 상한으로 결정론적 수렴을 얻습니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">정확한 전환 동역학으로 하드·소프트 타깃이 결정론적 선형 Q-learning을 언제 안정화하는지 설명합니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>정확한 타깃 경계 동역학</h3><p>닫힌 형태의 주기 사상은 한 단계 선형 Q-learning과 투영 Q-가치 반복을 연결하고, 하드 타깃 안정성을 결정하는 행렬군을 식별합니다.</p></article>
+<article><h3>서로 다른 두 소프트 타깃 시스템</h3><p>새 온라인 매개변수로 타깃을 갱신하는 것과 이전 온라인 매개변수로 갱신하는 것은 특히 타깃 이득이 클 때 다른 확장 동역학을 만듭니다.</p></article>
+<article><h3>조건부 정확 수렴</h3><p>공동 스펙트럴 반지름 조건으로 정규화나 잔차 근방 목표를 추가하지 않고 결정론적 반복값이 투영 Bellman 해로 수렴함을 보입니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>타깃 네트워크는 부트스트래핑 학습의 피드백 동역학을 바꿉니다. 이 논문은 결정론적 선형 Q-learning에서 주기적 하드 타깃과 두 소프트 타깃 갱신 순서의 정확한 전환 선형 시스템을 도출합니다. 명시된 온라인 스텝 범위에서 긴 하드 타깃 주기는 투영 Q-가치 반복에 접근합니다. 이 끝점의 안정성은 충분히 느리지만 양의 속도로 움직이는 소프트 타깃의 안정성도 보장합니다. 갱신 순서와 끝점 조건·중간 영역을 구분하며, 명시된 스펙트럼 조건하에서 투영 Bellman 해로의 수렴을 확립합니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">타깃 네트워크는 왜 안정성을 바꿀 수 있을까요?</h2><p>일반 선형 Q-learning은 수렴하지 않을 수 있으며, 온라인 스텝을 줄이는 것만으로 타깃 네트워크의 효과를 충분히 설명할 수 없습니다. 논문은 직접 복사와 소프트 평균이 어떤 피드백 동역학을 만드는지 살펴봅니다. 정확한 전환 행렬군을 비교하고, 타깃 장치가 같은 투영 Bellman 해에 도달하는 조건을 밝힙니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>하드 타깃의 완전한 한 주기 분석</h3><p>온라인 갱신 m번 동안 타깃을 고정한 뒤 온라인 매개변수를 복사합니다. 경계 행렬은 투영 Q-가치 반복 항과 I − αΦᵀDΦ의 잔여 거듭제곱으로 나뉘며, 그 감소에는 명시적인 스텝 조건이 필요합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=14">Lemma 6.3 and Eq. (6.4), pp. 14–15</a></p></article>
+<article class="method-step"><h3>온라인–타깃 확장 상태 추적</h3><p>소프트 타깃에서는 두 오차를 쌓고, 갱신된 온라인 매개변수를 평균하는지 현재 매개변수를 평균하는지 구분합니다. 공통 전환 행렬군의 축약으로 두 좌표를 함께 제어합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=17">Sections 7–8, pp. 17–22</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">0 &lt; α &lt; 2 / λ<sub>max</sub>(Φ<sup>T</sup>DΦ)</div><p class="source-note">고정 타깃의 온라인 스텝 크기 조건입니다. I − αΦᵀDΦ를 Schur 안정적으로 만들며, 전체 알고리즘에는 해당 공동 스펙트럴 반지름 조건도 필요합니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>긴 하드 타깃 주기가 이어받는 끝점 안정성</h3></div><div><p>완전 랭크 특징, 양의 가중치, 0 &lt; α &lt; 2/λ_max(ΦᵀDΦ)에서 투영 Q-가치 반복의 공동 스펙트럴 반지름이 1보다 작으면 충분히 큰 모든 타깃 주기가 안정적입니다. 주기 1인 끝점은 일반 결정론적 선형 Q-learning과 정확히 같습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=16">Theorem 6.1, p. 16</a></p></div></article>
+<article class="result-row"><div><h3>느린 양의 소프트 갱신으로 두 순서 안정화</h3></div><div><p>같은 온라인 스텝 조건과 안정적인 투영 Q-가치 반복 행렬군하에서, 두 소프트 타깃 순서 모두 충분히 작은 양의 타깃 이득 β에 대해 안정적입니다. 정확히 β = 0이면 타깃이 고정되며 공동 스펙트럴 반지름은 1입니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=19">Theorems 7.1 and 8.1, pp. 19 and 22</a></p></div></article>
+<article class="result-row"><div><h3>큰 이득 끝점은 순서에 따라 달라짐</h3></div><div><p>일반 결정론적 선형 Q-learning이 안정적이면 온라인 갱신 후 타깃을 갱신하는 규칙은 β가 1에 충분히 가까울 때 안정적입니다. 온라인 갱신 전 타깃을 갱신하는 규칙은 β = 1에서도 지연 좌표를 유지하므로 이 결론이 자동으로 적용되지는 않습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=22">Theorem 7.2 and discussion following Theorem 8.1, pp. 19–22</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>이는 결정론적 선형 근사에 대한 조건부 결과입니다. 전이 표본 잡음에는 추가 분석이 필요하며, 확률적 유한 표본 보장은 제시하지 않습니다. 공동 스펙트럴 반지름이 1보다 작은 것은 충분조건이고, 1보다 크다고 모든 실제 경로가 발산하는 것은 아닙니다. 끝점 조건은 모든 중간 타깃 주기나 이득을 포함하지 않습니다. 경계 시점당 측정한 하드 타깃 수렴률을 내부 갱신당 속도 향상으로 해석해서는 안 됩니다. 투영 Bellman 해는 정확한 최적 Q-함수를 나타내지 않을 수 있습니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2606.02645v1">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2026_260602645,
+  title={Target Updates May Stabilize Linear Q-Learning: Periodic and Soft Dynamics},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2606.02645},
+  archivePrefix={arXiv},
+  primaryClass={stat.ML},
+  url={https://arxiv.org/abs/2606.02645}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2606.02645v1">arXiv:2606.02645v1</a>, 저자: Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.portrait-figure{position:relative;isolation:isolate;width:100%;max-width:440px;margin:-24px auto 0;line-height:1.65}
+.portrait-visual{position:relative;aspect-ratio:600/780;mask-image:linear-gradient(0deg,transparent,#000 12%,#000 98%,transparent)}
+.portrait-visual:before{content:"";position:absolute;inset:4% -8% 10%;z-index:-1;background:radial-gradient(ellipse at 53% 42%,#213d5038,transparent 66%)}
+.portrait-visual>svg{display:block;width:100%;height:auto}
+.portrait-visual>canvas{position:absolute;inset:0;display:none;width:100%;height:100%;touch-action:pan-y}
+[data-portrait-ready=true] .portrait-visual>canvas{display:block}
+[data-portrait-ready=true] .portrait-visual>svg{visibility:hidden}
+.portrait-caption{margin-top:2px;color:#a9becf;font-size:14px;text-align:center;line-height:1.6}
+.portrait-caption .portrait-instruction{display:none}
+[data-portrait-ready=true] .portrait-instruction{display:block;margin-top:5px;color:#91a3b7}
+@media(max-width:760px){.portrait-figure{max-width:380px;margin:10px auto 0}}
+@media(prefers-reduced-motion:reduce){.portrait-instruction{display:none!important}}
+@media print{.portrait-visual>canvas{display:none!important}.portrait-visual>svg{visibility:visible!important}.portrait-instruction{display:none!important}}

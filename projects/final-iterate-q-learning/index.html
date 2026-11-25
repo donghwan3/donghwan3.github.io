@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Comparison systems yield a finite-time bound for the Q-learning estimate used at the final iteration.">
+  <meta property="og:title" content="Final Iteration Convergence Bound of Q-Learning: Switching System Approach">
+  <meta property="og:description" content="Comparison systems yield a finite-time bound for the Q-learning estimate used at the final iteration.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/projects/final-iterate-q-learning/">
+  
+  <title>Final Iteration Convergence Bound of Q-Learning: Switching System Approach</title>
+  <link rel="icon" href="../../assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="../../assets/fonts.css">
+  <link rel="stylesheet" href="../../assets/projects/project.css?v=14e19d7f218e">
+  <script src="../../assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/projects/final-iterate-q-learning/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/final-iterate-q-learning/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/final-iterate-q-learning/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2205.05455">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="project-nav" aria-label="Project navigation"><a class="lab-link" href="../../index.html">REDI Lab</a><div><a href="#problem">Problem</a><a href="#method">Method</a><a href="#results">Results</a><a href="#video">Video</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/ko/projects/final-iterate-q-learning/index.html" lang="ko" hreflang="ko" aria-label="한국어 페이지로 전환">한국어</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Q-learning · Final iterates · Stochastic switching systems · Finite-time bounds</p><h1>Final Iteration Convergence Bound of Q-Learning: Switching System Approach</h1>
+      <p class="publication-status">arXiv:2205.05455 · 2022</p><p class="authors"><a href="../../pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="Paper resources"><a href="https://arxiv.org/pdf/2205.05455">Paper (PDF)</a> <a href="https://arxiv.org/abs/2205.05455">arXiv</a> <a href="https://ieeexplore.ieee.org/document/10402068/">Journal</a> <a href="#video">Video</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>The central idea</span><span>From the research question to the result</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">Problem</span><h2>Switching update</h2><p>The greedy policy selects a mode in the stochastic Q-learning recursion.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Approach</span><h2>Two comparison systems</h2><p>A lower system and an upper system enclose the estimate.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Insight</span><h2>Final-iterate guarantee</h2><p>Moment bounds and a noise-canceling difference bound control expected error.</p></div></div><figcaption>Explanatory diagram created for this page from the paper; not an experimental result. See the methods and source references below.</figcaption></figure>
+    <p class="takeaway">Comparison systems yield a finite-time bound for the Q-learning estimate used at the final iteration.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Key Contributions</h2><div class="contributions"><article><h3>Analyze the actual final estimate</h3><p>The bound concerns the last Q iterate directly, removing the averaging operation required by an earlier switching-system analysis while retaining the standard learning update.</p></article>
+<article><h3>Propagate second moments</h3><p>For the lower comparison system, the analysis follows an autocorrelation-matrix recursion. This supplies a tractable route to expected error bounds for the stochastic dynamics.</p></article>
+<article><h3>Separate transients from residual error</h3><p>The final bound distinguishes terms that decay with iteration count from a constant-step residual. It makes the roles of discounting and state-action sampling frequencies explicit.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p class="source-note abstract-note">A summary of the paper, written for this page.</p><p>This paper develops a finite-time analysis of standard tabular Q-learning with a constant step size. Rather than bounding an average of past estimates, it studies the final iterate through a stochastic switching-system representation. A linear lower comparison system captures the noise contribution, while the difference between upper and lower systems reveals a recursion in which their common noise cancels. Combining these bounds yields expected sup-norm error estimates with decaying transient terms and a step-size-dependent residual. The result provides a control-theoretic explanation under independent sampling and a fixed behavior policy.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">The problem</p><h2 id="problem-title">Bounding the estimate available now</h2><p>Q-learning changes one sampled state-action value and then uses maximization to choose future targets. Its update is stochastic and nonlinear, so a useful finite-time bound must account for both effects. Bounds on averaged estimates do not directly describe the final learned value table. The problem is to quantify that table&#x27;s expected error without adding an averaging step to the algorithm.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">From problem to solution</p><h2 id="method-title">How the method works</h2><article class="method-step"><h3>Enclose the Q-learning dynamics</h3><p>Express the update as an affine switching system, with switching induced by the greedy policy. Construct upper and lower trajectories that bound the original iterate componentwise and share its stochastic noise.</p><p class="source-note"><a href="https://arxiv.org/pdf/2205.05455v4#page=4">Sections III.A–III.C, pp. 3–6</a></p></article>
+<article class="method-step"><h3>Use moment propagation and cancellation</h3><p>Bound the lower system through its autocorrelation recursion. Subtract the lower system from the upper one so that their shared noise cancels, then combine the resulting gap bound with the lower-system bound.</p><p class="source-note"><a href="https://arxiv.org/pdf/2205.05455v4#page=5">Sections III.B and III.D, pp. 5–6</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="Key equation">ρ = 1 − αd<sub>min</sub>(1 − γ)</div><p class="source-note">Equation (5), p. 3: the geometric decay factor, where alpha is the constant step size, d_min is the smallest state-action sampling probability, and gamma is the discount factor.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">Main results</p><h2 id="results-title">What the analysis establishes</h2><article class="result-row"><div><h3>An expected final-iterate bound</h3></div><div><p>Theorem 2 bounds expected sup-norm error for every iteration under the stated assumptions. Its transient terms decay, while a residual proportional to sqrt(alpha) remains when the step size is held fixed.</p><p class="source-note"><a href="https://arxiv.org/pdf/2205.05455v4#page=6">Theorem 2, pp. 6–7</a></p></div></article>
+<article class="result-row"><div><h3>Interpretable decay forms</h3></div><div><p>Corollary 1 replaces the polynomial-times-geometric transient with simpler geometric upper bounds. The decay factor depends on the minimum state-action sampling probability, linking sufficient exploration to the speed represented by the bound.</p><p class="source-note"><a href="https://arxiv.org/pdf/2205.05455v4#page=7">Definition 1 and Corollary 1, pp. 3, 7</a></p></div></article>
+<article class="result-row"><div><h3>Complementary rather than universal improvement</h3></div><div><p>The paper reports a better sample-complexity dependence than the earlier averaged switching-system result, but explicitly states that its bounds are not consistently tighter than other approaches, which also use different observation assumptions.</p><p class="source-note"><a href="https://arxiv.org/pdf/2205.05455v4#page=7">Section IV, Table I, p. 7</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">Reading the guarantees</p><h2 id="scope-title">Assumptions and scope</h2><p>The theorem assumes a finite discounted tabular problem, bounded rewards and initialization, a constant step size in (0,1), and independent samples from a fixed distribution with positive probability for every state-action pair. It does not cover a general Markov trajectory or the usual Q-dependent epsilon-greedy policy. Its primary result is in expectation; a separate remark derives a probability bound using Markov&#x27;s inequality. The fixed-step residual must not be described as exact asymptotic convergence, and no empirical superiority is established.</p><p class="source-note">See the <a href="https://arxiv.org/pdf/2205.05455v4">reviewed paper version</a> for complete hypotheses, constants, and proofs.</p></section>
+    <section class="section band" id="video" aria-labelledby="video-title"><div class="prose">
+      <p class="eyebrow">Paper presentation</p><h2 id="video-title">Watch the explanation</h2>
+      <p>A presentation of this paper on <a href="https://www.youtube.com/@nextstateai3">Next State AI</a>.</p>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/kkR1Ub6EYDk" title="Final Iteration Convergence Bound of Q-Learning: Switching System Approach — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=kkR1Ub6EYDk">Watch on YouTube</a></p></div></section>
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">Copy BibTeX</button></div><p class="source-note">Citation for the arXiv version.</p><pre><code id="citation">@misc{lee2022_220505455,
+  title={Final Iteration Convergence Bound of Q-Learning: Switching System Approach},
+  author={Donghwan Lee},
+  year={2022},
+  eprint={2205.05455},
+  archivePrefix={arXiv},
+  primaryClass={eess.SY},
+  url={https://arxiv.org/abs/2205.05455}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="../../index.html">Reinforced Decision Intelligence Lab</a> · <a href="../../publication.html">All publications</a> · <a href="#top">Back to top</a></p>
+    <p>Based on <a href="https://arxiv.org/abs/2205.05455v4">arXiv:2205.05455v4</a>, by Donghwan Lee. The summaries and conceptual diagram were prepared for this page. The linked paper is the authoritative source.</p>
+    <p>Page structure inspired by <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

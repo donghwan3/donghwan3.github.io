@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Exact switching dynamics explain when hard and soft targets stabilize deterministic linear Q-learning.">
+  <meta property="og:title" content="Target Updates May Stabilize Linear Q-Learning: Periodic and Soft Dynamics">
+  <meta property="og:description" content="Exact switching dynamics explain when hard and soft targets stabilize deterministic linear Q-learning.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/projects/target-update-stability/">
+  
+  <title>Target Updates May Stabilize Linear Q-Learning: Periodic and Soft Dynamics</title>
+  <link rel="icon" href="../../assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="../../assets/fonts.css">
+  <link rel="stylesheet" href="../../assets/projects/project.css?v=14e19d7f218e">
+  <script src="../../assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/projects/target-update-stability/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/target-update-stability/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/target-update-stability/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2606.02645">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="project-nav" aria-label="Project navigation"><a class="lab-link" href="../../index.html">REDI Lab</a><div><a href="#problem">Problem</a><a href="#method">Method</a><a href="#results">Results</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/ko/projects/target-update-stability/index.html" lang="ko" hreflang="ko" aria-label="한국어 페이지로 전환">한국어</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Target networks · Linear Q-learning · Switched systems · Stability</p><h1>Target Updates May Stabilize Linear Q-Learning: Periodic and Soft Dynamics</h1>
+      <p class="publication-status">arXiv:2606.02645 · 2026</p><p class="authors"><a href="../../pi.html">Donghwan Lee</a></p><p class="affiliation">School of Electrical Engineering, KAIST, Daejeon, Republic of Korea</p>
+      <div class="resource-links" aria-label="Paper resources"><a href="https://arxiv.org/pdf/2606.02645">Paper (PDF)</a> <a href="https://arxiv.org/abs/2606.02645">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>The central idea</span><span>From the research question to the result</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">Problem</span><h2>Freeze or average the target</h2><p>Choose periodic hard copies or one of two soft-target orderings.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Approach</span><h2>Derive the feedback system</h2><p>Use boundary maps for hard targets and augmented states for soft targets.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Insight</span><h2>Check the relevant certificate</h2><p>A strict joint-spectral-radius bound yields deterministic convergence.</p></div></div><figcaption>Explanatory diagram created for this page from the paper; not an experimental result. See the methods and source references below.</figcaption></figure>
+    <p class="takeaway">Exact switching dynamics explain when hard and soft targets stabilize deterministic linear Q-learning.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Key Contributions</h2><div class="contributions"><article><h3>Exact target-boundary dynamics</h3><p>A closed-form period map connects one-step linear Q-learning with projected Q-value iteration and identifies the matrix family that governs hard-target stability.</p></article>
+<article><h3>Two distinct soft-target systems</h3><p>Updating the target from the new online parameter and updating it from the old online parameter produce different augmented dynamics, particularly at large target gains.</p></article>
+<article><h3>Conditional exact convergence</h3><p>Joint-spectral-radius certificates yield convergence of the deterministic iterates to the projected Bellman solution without adding regularization or a residual-neighborhood target.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p class="source-note abstract-note">A summary of the paper, written for this page.</p><p>Target networks change the feedback dynamics of bootstrapped learning. This paper derives exact switching linear systems for periodic hard targets and two soft-target update orderings in deterministic linear Q-learning. Under an explicit online step-size range, long hard-target periods approach projected Q-value iteration. Stability of that endpoint also certifies sufficiently slow, positively moving soft targets. The analysis separates update orderings, distinguishes endpoint certificates from intermediate regimes, and establishes convergence to the projected Bellman solution when the stated spectral conditions hold.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">The problem</p><h2 id="problem-title">Why can a target network change stability?</h2><p>Plain linear Q-learning can fail to converge, and reducing its online step size does not fully describe the effect of a target network. The paper asks which feedback dynamics hard copies and soft averaging actually create. It compares their exact switching families and identifies conditions under which a target mechanism reaches the same projected Bellman solution.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">From problem to solution</p><h2 id="method-title">How the method works</h2><article class="method-step"><h3>Analyze one complete hard-target period</h3><p>Freeze the target for m online updates, then copy the online parameter. The boundary matrix separates a projected Q-value iteration term from a residual power of I − αΦᵀDΦ, whose decay requires an explicit step-size condition.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=14">Lemma 6.3 and Eq. (6.4), pp. 14–15</a></p></article>
+<article class="method-step"><h3>Track the augmented online-target state</h3><p>For soft targets, stack both errors and retain whether the target averages the updated or current online parameter. A common switching-family contraction then controls both coordinates.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=17">Sections 7–8, pp. 17–22</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="Key equation">0 &lt; α &lt; 2 / λ<sub>max</sub>(Φ<sup>T</sup>DΦ)</div><p class="source-note">The frozen-target online step-size condition. It makes I − αΦᵀDΦ Schur-stable; the full algorithm additionally needs the relevant joint-spectral-radius condition.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">Main results</p><h2 id="results-title">What the analysis establishes</h2><article class="result-row"><div><h3>Long hard-target periods inherit a stable endpoint</h3></div><div><p>With full-rank features, positive weighting and 0 &lt; α &lt; 2/λ_max(ΦᵀDΦ), a projected-Q-value-iteration joint spectral radius below one certifies every sufficiently large target period. The period-one endpoint exactly matches ordinary deterministic linear Q-learning.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=16">Theorem 6.1, p. 16</a></p></div></article>
+<article class="result-row"><div><h3>Slow positive soft updates can stabilize both orderings</h3></div><div><p>Under the same online step-size condition and a stable projected-Q-value-iteration family, both soft-target orderings are stable for sufficiently small positive target gain β. Exactly β = 0 freezes the target and has joint spectral radius one.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=19">Theorems 7.1 and 8.1, pp. 19 and 22</a></p></div></article>
+<article class="result-row"><div><h3>The large-gain endpoint depends on ordering</h3></div><div><p>When ordinary deterministic linear Q-learning is stable, the after-online-update target rule is stable for β sufficiently close to one. The before-online-update rule retains a delayed coordinate at β = 1, so that conclusion does not transfer automatically.</p><p class="source-note"><a href="https://arxiv.org/pdf/2606.02645v1#page=22">Theorem 7.2 and discussion following Theorem 8.1, pp. 19–22</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">Reading the guarantees</p><h2 id="scope-title">Assumptions and scope</h2><p>These are conditional results for deterministic linear approximation. Transition-sampling noise requires additional analysis; the paper does not establish a stochastic finite-sample guarantee. Joint spectral radius below one is sufficient, while a value above one does not establish divergence of every realized trajectory. Endpoint certificates do not cover every intermediate target period or gain. Hard-target rates measured per boundary should not be interpreted as per-inner-step speedups. The projected Bellman solution need not represent the exact optimal Q-function.</p><p class="source-note">See the <a href="https://arxiv.org/pdf/2606.02645v1">reviewed paper version</a> for complete hypotheses, constants, and proofs.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">Copy BibTeX</button></div><p class="source-note">Citation for the arXiv version.</p><pre><code id="citation">@misc{lee2026_260602645,
+  title={Target Updates May Stabilize Linear Q-Learning: Periodic and Soft Dynamics},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2606.02645},
+  archivePrefix={arXiv},
+  primaryClass={stat.ML},
+  url={https://arxiv.org/abs/2606.02645}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="../../index.html">Reinforced Decision Intelligence Lab</a> · <a href="../../publication.html">All publications</a> · <a href="#top">Back to top</a></p>
+    <p>Based on <a href="https://arxiv.org/abs/2606.02645v1">arXiv:2606.02645v1</a>, by Donghwan Lee. The summaries and conceptual diagram were prepared for this page. The linked paper is the authoritative source.</p>
+    <p>Page structure inspired by <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

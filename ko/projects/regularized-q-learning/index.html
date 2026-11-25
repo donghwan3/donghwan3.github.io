@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="명시된 선형 특징 가정하에서 단순한 매개변수 축소 항으로 Q-learning을 안정화할 수 있습니다.">
+  <meta property="og:title" content="Regularized Q-Learning">
+  <meta property="og:description" content="명시된 선형 특징 가정하에서 단순한 매개변수 축소 항으로 Q-learning을 안정화할 수 있습니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/regularized-q-learning/index.html">
+  
+  <title>Regularized Q-Learning</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/regularized-q-learning/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/regularized-q-learning/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/regularized-q-learning/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2202.05404">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#video">영상</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/regularized-q-learning/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">정규화 Q-learning · 선형 함수 근사 · 전환 시스템 · 수렴</p><h1>Regularized Q-Learning</h1>
+      <p class="publication-status">arXiv:2202.05404 · 2024</p><p class="authors">Han-Dong Lim, <a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">Electrical Engineering, Korea Advanced Institute of Science and Technology (KAIST)</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2202.05404">논문 PDF</a> <a href="https://arxiv.org/abs/2202.05404">arXiv</a> <a href="https://openreview.net/forum?id=4sueqIwb4o">학회</a> <a href="#video">영상</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>매개변수 축소 추가</h2><p>선형 TD 갱신에 정규화 항을 더합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>평균 동역학 안정화</h2><p>비교 시스템 조건과 정규화 Bellman 목표를 확인합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>극한 해 평가</h2><p>수렴과 수렴 후 남는 근사 편향을 구분합니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">명시된 선형 특징 가정하에서 단순한 매개변수 축소 항으로 Q-learning을 안정화할 수 있습니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>학습 갱신의 작은 변경</h3><p>RegQ는 일반 선형 Q-learning 증가량과 매개변수 축소를 결합합니다. 하나의 매개변수 벡터를 유지하면서 동역학과 극한 방정식에 모두 관여하는 정규화 강도를 도입합니다.</p></article>
+<article><h3>정규화 Bellman 목표</h3><p>정규화 투영으로 해를 특징짓습니다. 축약 조건은 존재성과 유일성을 보장하며, 충분한 정규화 조건은 전환 시스템의 안정성을 뒷받침합니다.</p></article>
+<article><h3>정확도와의 절충을 명시한 안정성</h3><p>정규화 해로의 거의 확실한 수렴을 최적 Q-함수에 대한 오차 상한과 연결합니다. 정규화하지 않은 선형 Q-learning이 발산하는 고전적 예제에서의 동작도 별도로 보여 줍니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>Q-learning은 off-policy 표본 추출, 부트스트래핑, 함수 근사가 결합하면 발산할 수 있습니다. RegQ는 매개변수 갱신에 선형 정규화 항을 추가하고, 정규화 투영 Bellman 방정식을 연구합니다. 전환 시스템 비교로 평균 ODE의 안정성을 보이고, 확률 근사 이론으로 특징·표본·학습률·정규화 조건하에서 거의 확실한 수렴을 얻습니다. 근사 오차도 제한하고 알려진 발산 예제에서 수렴을 보여 줍니다. 안정화에는 해의 변화가 따르며, 정규화된 극한 근사는 일반 최적 Q-함수와 같지 않을 수 있습니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">정규화는 불안정한 선형 Q-learning을 어떻게 제어할까요?</h2><p>선형 특징은 저장 공간을 줄이지만, off-policy 부트스트래핑과의 상호작용으로 표 기반 Q-learning의 수렴성이 사라질 수 있습니다. 매개변수가 유계라는 사실만으로도 충분하지 않으며, 도달하는 해가 의미 있는 Bellman 해석을 가져야 합니다. 이 연구는 매개변수 축소가 언제 안정적인 학습을 만드는지, 극한이 어떤 방정식을 푸는지, 정규화가 얼마의 근사 편향을 도입하는지를 살펴봅니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>표본 기반 매개변수 갱신의 정규화</h3><p>각 TD 기반 갱신에서 현재 매개변수 벡터의 eta배를 뺍니다. 평균 점화식은 특징 공분산과 단위행렬의 eta배를 포함하는 수정된 투영 Bellman 방정식을 풉니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2202.05404v8#page=8">Equations (9)-(10) and (13), pp. 5 and 8</a></p></article>
+<article class="method-step"><h3>비교 시스템으로 ODE 제한</h3><p>아핀 전환 오차 동역학의 상한 및 하한 시스템을 구성합니다. 충분한 정규화로 공통 안정성 조건을 얻고, ODE 방법으로 이 안정성을 Robbins–Monro 스텝을 사용하는 독립 표본 확률 점화식에 전달합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2202.05404v8#page=9">Equation (15), Theorems 5.1-5.2, pp. 8-9</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">θ<sub>k+1</sub> = θ<sub>k</sub> + α<sub>k</sub>[x(s<sub>k</sub>, a<sub>k</sub>)δ<sub>k</sub> − ηθ<sub>k</sub>]</div><p class="source-note">일반적인 특징 가중 TD 증가량과 매개변수 벡터 축소를 결합합니다. Eta는 정규화 강도이며, 정리는 Robbins–Monro 조건을 만족하는 감소 스텝 크기를 사용합니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>명시된 조건하의 거의 확실한 수렴</h3></div><div><p>전체 표본 범위, 유계 자료, 열들이 직교하는 완전 랭크 비음수 특징, 충분한 정규화, 정규화 Bellman 해의 존재를 가정하면 RegQ는 그 유일한 해로 확률 1로 수렴합니다. 더 강한 S1 정규화 임계값은 해의 존재도 보장합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2202.05404v8#page=9">Assumptions 2.1-2.3 and Theorem 5.2, pp. 4 and 9</a></p></div></article>
+<article class="result-row"><div><h3>극한 근사 오차의 상한</h3></div><div><p>정규화 투영 Bellman 사상이 축약이면, 가치 오차는 정규화 투영 오차를 축약 여유로 나눈 값으로 제한됩니다. 정규화를 강화하면 안정성이 개선될 수 있지만 목표가 달라지며, 정규화 강도가 무한히 커지면 매개변수 해는 0에 접근합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2202.05404v8#page=7">Lemmas 3.6-3.7, p. 7</a></p></div></article>
+<article class="result-row"><div><h3>발산 예제에서의 설명</h3></div><div><p>실험에는 Tsitsiklis–Van Roy와 Baird 예제가 포함되며, 부록에서는 추가 매개변수 연구와 Mountain Car 결과를 제시합니다. 선택된 실험은 방법을 설명하며 다른 Q-learning 알고리즘에 대한 보편적 개선을 입증하지 않습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2202.05404v8#page=9">Section 6, Figure 2 and Appendix B</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>주요 수렴 정리는 임의의 선형 특징을 포함하지 않습니다. 열들이 직교하고 선형 독립인 비음수 특징, 독립 표본, 감소하는 Robbins–Monro 스텝을 가정합니다. 정규화 조건은 충분조건이며 필요조건은 아닙니다. 더 강한 명시 조건으로 보장하지 않는 한 정규화 Bellman 해의 존재는 별도 전제입니다. 수렴 대상은 편향된 정규화 근사이며 일반적으로 최적 가치 함수를 복원하지 않습니다. 비선형 심층 신경망의 수렴은 증명하지 않습니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2202.05404v8">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    <section class="section band" id="video" aria-labelledby="video-title"><div class="prose">
+      <p class="eyebrow">논문 발표</p><h2 id="video-title">설명 영상 보기</h2>
+      <p>이 논문의 발표 채널: <a href="https://www.youtube.com/@nextstateai3">Next State AI</a>.</p>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/nBoTGFjJnRc" title="Regularized Q-Learning — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=nBoTGFjJnRc">YouTube에서 보기</a></p></div></section>
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lim2024_220205404,
+  title={Regularized Q-learning},
+  author={Han-Dong Lim and Donghwan Lee},
+  year={2024},
+  eprint={2202.05404},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2202.05404}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2202.05404v8">arXiv:2202.05404v8</a>, 저자: Han-Dong Lim, Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

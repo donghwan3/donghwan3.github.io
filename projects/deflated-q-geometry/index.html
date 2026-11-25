@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Remove the slow constant shift in value error while preserving the greedy-policy sequence.">
+  <meta property="og:title" content="Switching-Geometry Analysis of Deflated Q-Value Iteration">
+  <meta property="og:description" content="Remove the slow constant shift in value error while preserving the greedy-policy sequence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/projects/deflated-q-geometry/">
+  
+  <title>Switching-Geometry Analysis of Deflated Q-Value Iteration</title>
+  <link rel="icon" href="../../assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="../../assets/fonts.css">
+  <link rel="stylesheet" href="../../assets/projects/project.css?v=14e19d7f218e">
+  <script src="../../assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/projects/deflated-q-geometry/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/deflated-q-geometry/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/deflated-q-geometry/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2605.10811">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="project-nav" aria-label="Project navigation"><a class="lab-link" href="../../index.html">REDI Lab</a><div><a href="#problem">Problem</a><a href="#method">Method</a><a href="#results">Results</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/ko/projects/deflated-q-geometry/index.html" lang="ko" hreflang="ko" aria-label="한국어 페이지로 전환">한국어</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Q-value iteration · Rank-one correction · Quotient geometry · Joint spectral radius</p><h1>Switching-Geometry Analysis of Deflated Q-Value Iteration</h1>
+      <p class="publication-status">arXiv:2605.10811 · 2026</p><p class="authors"><a href="../../pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="Paper resources"><a href="https://arxiv.org/pdf/2605.10811">Paper (PDF)</a> <a href="https://arxiv.org/abs/2605.10811">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>The central idea</span><span>From the research question to the result</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">Problem</span><h2>Separate the offset</h2><p>Distinguish the common scalar shift from action-value differences.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Approach</span><h2>Recenter through the residual</h2><p>Cancel the autonomous slow constant mode with a rank-one correction.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Insight</span><h2>Preserve decisions</h2><p>The full numerical error changes while the projected path and greedy policies remain identical.</p></div></div><figcaption>Explanatory diagram created for this page from the paper; not an experimental result. See the methods and source references below.</figcaption></figure>
+    <p class="takeaway">Remove the slow constant shift in value error while preserving the greedy-policy sequence.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Key Contributions</h2><div class="contributions"><article><h3>A precise geometric rate decomposition</h3><p>The analysis identifies the all-ones direction responsible for the sharp worst-case γ rate and isolates the transverse switching dynamics.</p></article>
+<article><h3>An exact deflated-family rate</h3><p>Removing the autonomous constant mode makes the full deflated switching-family joint spectral radius equal to the projected radius, with a finite-time full-error estimate.</p></article>
+<article><h3>A clear interpretation of the correction</h3><p>Scalar-shift equivalence proves that deflation changes full value-error convergence while leaving the projected path and greedy decisions unchanged under matching initialization and tie-breaking.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p class="source-note abstract-note">A summary of the paper, written for this page.</p><p>A uniform shift of every action value changes numerical error without changing greedy decisions. This paper separates that constant direction from the remaining dynamics of discounted Q-value iteration. Standard iteration has joint spectral radius exactly γ, while a rank-one residual correction removes the autonomous constant mode. The corrected family&#x27;s rate becomes the projected joint spectral radius, which is no larger than γ and can be smaller. Crucially, the corrected trajectory differs from ordinary iteration only by scalar shifts, so matching initialization preserves the greedy-policy sequence.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">The problem</p><h2 id="problem-title">Which part of value error is slowing down?</h2><p>Standard Q-value iteration can retain a slowly decaying common offset even after its action preferences are accurate. A full-vector error bound mixes that offset with policy-relevant differences. The paper asks how a rank-one residual correction changes this geometry, which convergence rate it can improve, and whether its numerical gains imply a different sequence of greedy policies.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">From problem to solution</p><h2 id="method-title">How the method works</h2><article class="method-step"><h3>Split constant and transverse errors</h3><p>Project the error onto the subspace orthogonal to the all-ones vector. Every Bellman switching mode preserves the constant direction with eigenvalue γ, while the projected family has joint spectral radius ρ̄ ≤ γ.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=9">Propositions 1–2 and Lemmas 6–7, pp. 8–10</a></p></article>
+<article class="method-step"><h3>Apply a scalar residual correction</h3><p>Add γ/(1 − γ) times the residual average in the all-ones direction. The augmented error matrix has a zero autonomous scalar block. Any fixed probability distribution may replace the uniform residual average without changing the associated projected rate.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=13">Eq. (7), Proposition 3 and Theorem 3, pp. 10–17</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="Key equation">Q<sub>k+1</sub> = F(Q<sub>k</sub>) + [γ/(1 − γ)]d<sup>T</sup>[F(Q<sub>k</sub>) − Q<sub>k</sub>]1</div><p class="source-note">F is the discounted Bellman optimality map, 1 is the all-ones vector, and d is a fixed probability distribution over state-action pairs. Uniform d gives the empirical-mean residual correction.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">Main results</p><h2 id="results-title">What the analysis establishes</h2><article class="result-row"><div><h3>A sharper full-error certificate</h3></div><div><p>The deflated switching-family radius equals ρ̄. For any ε &gt; 0 with ρ̄ + ε &lt; 1, Theorem 2 bounds the full error at k ≥ 1 by a constant times (ρ̄ + ε)^(k−1) times the initial projected error. Strict improvement over the classical γ rate requires ρ̄ &lt; γ.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=14">Theorems 1–2, pp. 13–14</a></p></div></article>
+<article class="result-row"><div><h3>No faster policy identification from recentering alone</h3></div><div><p>For identical initial Q-vectors, the corrected and ordinary iterates differ only by a scalar multiple of the all-ones vector. Their projected trajectories and tie-broken greedy policies therefore coincide at every iteration.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=11">Lemma 9, p. 11</a></p></div></article>
+<article class="result-row"><div><h3>An exact example separates the rates</h3></div><div><p>In a one-state, two-action MDP, every projected mode is zero. Thus the projected and deflated-family radii are zero, whereas the standard full-family radius is γ for every 0 &lt; γ &lt; 1. Numerical illustrations also examine full value error on FrozenLake and Taxi-v3.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=14">Example 1 and Section 11, pp. 13–19</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">Reading the guarantees</p><h2 id="scope-title">Assumptions and scope</h2><p>The result concerns deterministic Bellman updates in finite discounted MDPs and a fixed residual-averaging distribution. It does not establish guarantees for adaptively changing weights or sampled Q-learning. The improved rate is a full-value-error certificate; the projected trajectory and greedy-policy sequence are unchanged from standard iteration with the same initialization. Strict improvement requires a projected radius below γ, and the family rate can be conservative for a particular trajectory. Numerical illustrations do not establish a universal wall-clock speedup.</p><p class="source-note">See the <a href="https://arxiv.org/pdf/2605.10811v2">reviewed paper version</a> for complete hypotheses, constants, and proofs.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">Copy BibTeX</button></div><p class="source-note">Citation for the arXiv version.</p><pre><code id="citation">@misc{lee2026_260510811,
+  title={Switching-Geometry Analysis of Deflated Q-Value Iteration},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2605.10811},
+  archivePrefix={arXiv},
+  primaryClass={math.OC},
+  url={https://arxiv.org/abs/2605.10811}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="../../index.html">Reinforced Decision Intelligence Lab</a> · <a href="../../publication.html">All publications</a> · <a href="#top">Back to top</a></p>
+    <p>Based on <a href="https://arxiv.org/abs/2605.10811v2">arXiv:2605.10811v2</a>, by Donghwan Lee. The summaries and conceptual diagram were prepared for this page. The linked paper is the authoritative source.</p>
+    <p>Page structure inspired by <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

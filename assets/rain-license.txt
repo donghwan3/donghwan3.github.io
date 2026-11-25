@@ -1,0 +1,22 @@
+Rain Rig (CC) Blender Foundation | studio.blender.org
+
+Original model: Rain v3.3 (archive contains rain_v3.2.blend)
+Publisher: Blender Studio / Blender Foundation
+Source: https://studio.blender.org/characters/rain/v3/
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+The original file's ReadMe.txt states:
+"This character rig is provided under the CC-BY license by the Blender Studio."
+
+Changes in this website: extracted head, hair, eyebrows, eyelashes and eyes;
+adjusted the ponytail pose; baked blink and surprise expressions; converted
+geometry to a blue point-and-line rendering with interactive gaze and rotation.
+Added a spatially blended procedural smile for the mouth corners and cheeks,
+with a subtle eyelid narrowing using the existing blink deformation.
+This adaptation is not endorsed by Blender Studio or Blender Foundation.
+
+The adapted model data is shared under CC BY 4.0. Keep this attribution and
+license notice with redistributed copies or adaptations of that data.
+Original archive SHA-256:
+80217f163f6392dc829233d63c2cfb5e1376775bc34101ad14f39631fea70d24

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="안정적인 연속시간 동역학을 먼저 설계한 뒤 off-policy 시간차 학습 알고리즘을 도출합니다.">
+  <meta property="og:title" content="Backstepping Temporal Difference Learning">
+  <meta property="og:description" content="안정적인 연속시간 동역학을 먼저 설계한 뒤 off-policy 시간차 학습 알고리즘을 도출합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/backstepping-td/index.html">
+  
+  <title>Backstepping Temporal Difference Learning</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/backstepping-td/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/backstepping-td/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/backstepping-td/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2302.09875">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#video">영상</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/backstepping-td/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Off-policy 학습 · 시간차 학습 · Backstepping · 선형 함수 근사</p><h1>Backstepping Temporal Difference Learning</h1>
+      <p class="publication-status">arXiv:2302.09875 · 2023</p><p class="authors">Han-Dong Lim, <a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2302.09875">논문 PDF</a> <a href="https://arxiv.org/abs/2302.09875">arXiv</a> <a href="https://openreview.net/forum?id=YPChvOgRXRA">학회</a> <a href="#video">영상</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>TD 고정점</h2><p>평형점이 투영 Bellman 방정식을 만족하는 평균 동역학을 찾습니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>Backstepping 설계</h2><p>가상 피드백과 복합 Lyapunov 함수로 동역학을 안정화합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>표본 기반 알고리즘</h2><p>단일 시간 척도의 갱신식을 도출하고 확률적 근사 조건 아래 수렴성을 증명합니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">안정적인 연속시간 동역학을 먼저 설계한 뒤 off-policy 시간차 학습 알고리즘을 도출합니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>일반적인 설계 순서를 뒤집다</h3><p>최적화 목적함수를 먼저 정하는 대신 안정적인 ODE 동역학을 구성하고, 평균 동작이 그 동역학을 따르는 표본 기반 TD 갱신식을 도출합니다.</p></article>
+<article><h3>새로운 단일 시간 척도 알고리즘군</h3><p>Backstepping TD는 설계 파라미터를 도입하고 하나의 스텝 크기 수열을 공유하는 보조 변수·가치 변수의 결합 갱신을 사용합니다. 제안된 알고리즘군에서 이 파라미터를 0으로 설정하면 GTD2가 됩니다.</p></article>
+<article><h3>기존 보정 방법들을 연결하다</h3><p>관련 backstepping 구성을 통해 단일 시간 척도 TDC 및 TDC++ 변형을 도출하거나 일반화합니다. 목적함수뿐 아니라 안정화 피드백 설계를 통해 여러 off-policy 알고리즘을 연결합니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>Off-policy 표본 추출, 부트스트래핑 및 함수 근사를 함께 사용하면 일반 TD 학습이 발산할 수 있습니다. 이 논문은 선형 근사 환경에서 안정적인 알고리즘을 설계하는 제어이론적 접근을 제시합니다. 투영 Bellman 방정식과 연결된 연속시간 동역학에서 출발해 backstepping으로 안정화 피드백을 구성하고, 이를 구현 가능한 확률적 갱신식으로 변환합니다. 도출된 backstepping TD는 단일 시간 척도를 사용하며 GTD2를 특수한 경우로 포함합니다. 확률적 근사 가정 아래 점근적 수렴을 증명하고 보정 기반 TD 방법들과의 관계를 설명하며, 표준 정책 평가 벤치마크에서 동작을 평가합니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">Off-policy 평가의 안정성</h2><p>정책 평가에서는 목표 정책과 다른 행동 정책으로 수집한 데이터를 사용할 수 있습니다. 중요도 가중치는 이 차이를 보정하지만, 선형 특징을 사용하는 일반 TD의 평균 동역학은 불안정할 수 있습니다. 핵심 과제는 투영 Bellman 고정점을 유지하면서 동역학의 안정성을 보장하고, 표본 전이와 특징 벡터로 구현 가능한 갱신식을 설계하는 것입니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>가상의 안정화 입력 구성</h3><p>파라미터 오차와 보조 변수를 서로 연결된 연속시간 상태로 나타냅니다. 첫 번째 하위 시스템의 불안정한 결합을 제거하고 안정적인 특징 공분산 항을 남기는 가상 피드백을 선택합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2302.09875v3#page=6">Section 3.1 and Lemma 3.1, p. 6</a></p></article>
+<article class="method-step"><h3>Backstepping과 동역학의 표본화</h3><p>실제 상태와 가상 입력 사이의 오차를 도입하고 복합 Lyapunov 함수를 구성한 뒤 전체 시스템의 피드백을 선택합니다. 폐루프 방정식을 표본 기반 갱신식으로 바꾸고 ODE 기반 확률적 근사 정리를 적용합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2302.09875v3#page=7">Section 3.1; Appendix 7.4.1, pp. 7, 14–15</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">V<sub>c</sub>(λ,z) = ½‖λ‖<sup>2</sup> + ½‖z‖<sup>2</sup>, &nbsp; z = x − ηλ</div><p class="source-note">Section 3.1 및 Appendix 7.4.1: backstepping 좌표 변환 후의 복합 Lyapunov 함수입니다. x는 가치 파라미터 오차, λ는 보조 상태, η는 설계 파라미터입니다. 함수의 시간 미분이 0 이하임을 보인 뒤 LaSalle 불변 원리를 적용합니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>확률 1의 점근적 수렴</h3></div><div><p>Theorem 3.1은 Robbins–Monro 스텝 크기 조건과 논문의 확률적 근사 설정 아래 BTD의 가치 파라미터가 확률 1로 투영 Bellman 고정점에 수렴함을 보입니다. 이는 유한시간 오차율 정리가 아닙니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2302.09875v3#page=7">Theorem 3.1; Assumption 7.1, pp. 7, 12</a></p></div></article>
+<article class="result-row"><div><h3>알려진 알고리즘의 복원</h3></div><div><p>Remark 3.1은 설계 파라미터가 0일 때 GTD2가 됨을 확인합니다. 다른 구성에서도 보정 기반 변형의 수렴 결과를 얻지만, 파라미터 제약이 서로 다르므로 각각 확인해야 합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2302.09875v3#page=7">Remark 3.1 and Sections 3.2–3.3, pp. 7–9</a></p></div></article>
+<article class="result-row"><div><h3>파라미터에 대한 실험적 민감도</h3></div><div><p>Baird 반례, 다양한 random walk 및 Boyan chain에서 투영 Bellman 오차를 측정합니다. 성능은 설계 파라미터에 따라 달라지며, 여러 과제에서 유리했던 설정이 Baird 예제에서는 최선이 아닙니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2302.09875v3#page=9">Section 4, Table 1, p. 9</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>이론적 설정은 유한 MDP, 열들이 선형 독립인 선형 특징, 잘 정의된 중요도 가중치 및 적절히 정의된 투영 Bellman 고정점을 사용합니다. 확률 1의 수렴은 명시된 확률적 근사 가정과 감소하는 Robbins–Monro 스텝 크기에 의존합니다. 일정 스텝 실험은 실제 동작을 보여주지만 그 자체로 점근적 정리를 입증하지는 않습니다. 연속시간 구성이 안정적이라고 해서 모든 유한 이산 스텝 크기에서 안정적인 것은 아닙니다. 비선형 가치 근사는 향후 과제로 남아 있으며 모든 벤치마크에서 우월한 단일 파라미터 설정을 제시하지 않습니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2302.09875v3">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    <section class="section band" id="video" aria-labelledby="video-title"><div class="prose">
+      <p class="eyebrow">논문 발표</p><h2 id="video-title">설명 영상 보기</h2>
+      <p>이 논문의 발표 채널: <a href="https://www.youtube.com/@nextstateai3">Next State AI</a>.</p>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/wIkmXugdUmc" title="Backstepping Temporal Difference Learning — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=wIkmXugdUmc">YouTube에서 보기</a></p></div></section>
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lim2023_230209875,
+  title={Backstepping Temporal Difference Learning},
+  author={Han-Dong Lim and Donghwan Lee},
+  year={2023},
+  eprint={2302.09875},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2302.09875}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2302.09875v3">arXiv:2302.09875v3</a>, 저자: Han-Dong Lim, Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

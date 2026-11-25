@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Separate common and differential action values to reveal the stability of tabular dueling Q-learning.">
+  <meta property="og:title" content="Spectral Analysis of Dueling Q-Learning">
+  <meta property="og:description" content="Separate common and differential action values to reveal the stability of tabular dueling Q-learning.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/projects/dueling-q-spectral/">
+  
+  <title>Spectral Analysis of Dueling Q-Learning</title>
+  <link rel="icon" href="../../assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="../../assets/fonts.css">
+  <link rel="stylesheet" href="../../assets/projects/project.css?v=14e19d7f218e">
+  <script src="../../assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/projects/dueling-q-spectral/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/dueling-q-spectral/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/dueling-q-spectral/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2607.08340">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="project-nav" aria-label="Project navigation"><a class="lab-link" href="../../index.html">REDI Lab</a><div><a href="#problem">Problem</a><a href="#method">Method</a><a href="#results">Results</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/ko/projects/dueling-q-spectral/index.html" lang="ko" hreflang="ko" aria-label="한국어 페이지로 전환">한국어</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Reinforcement learning · Dueling Q-learning · Switching systems</p><h1>Spectral Analysis of Dueling Q-Learning</h1>
+      <p class="publication-status">arXiv:2607.08340 · 2026</p><p class="authors"><a href="../../pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, Korea Advanced Institute of Science and Technology (KAIST), Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="Paper resources"><a href="https://arxiv.org/pdf/2607.08340">Paper (PDF)</a> <a href="https://arxiv.org/abs/2607.08340">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>The central idea</span><span>From the research question to the result</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">Problem</span><h2>Center the Q-vector</h2><p>Split state-wise action averages from zero-mean differences.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Approach</span><h2>Apply two gains</h2><p>Precondition the shared Bellman residual in the two subspaces.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Insight</span><h2>Certify switching</h2><p>Use matrix products to bound deterministic and sampled errors.</p></div></div><figcaption>Explanatory diagram created for this page from the paper; not an experimental result. See the methods and source references below.</figcaption></figure>
+    <p class="takeaway">Separate common and differential action values to reveal the stability of tabular dueling Q-learning.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Key Contributions</h2><div class="contributions"><article><h3>A centered decomposition</h3><p>Represent each Q-vector uniquely as its state-wise action average plus a zero-mean action-differential component. These are coordinates of Q, rather than automatically conventional policy-dependent values and advantages.</p></article>
+<article><h3>Equivalent learning descriptions</h3><p>Prove that centered value–advantage updates and a Q-only update generate identical iterates. Their switching representations have the same joint spectral radius, so changing coordinates introduces no extra stability conservatism.</p></article>
+<article><h3>Finite-time stochastic analysis</h3><p>Treat the unregularized, unprojected sampled recursion under i.i.d. observations. Reference-gain stability and a sufficiently small common gain yield bounded second moments and a shrinking expected-error residual bound.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p class="source-note abstract-note">A summary of the paper, written for this page.</p><p>Dueling architectures motivate separate value and advantage updates, but their tabular learning dynamics need a precise stability account. This paper studies a centered, unregularized dueling recursion and shows that it is exactly a preconditioned Q-learning update. Orthogonal action-common and action-differential coordinates reveal how its two gains act. A switching-system representation yields deterministic convergence certificates through the joint spectral radius. For independent samples and sufficiently small gains in a fixed ratio, the analysis also bounds expected error without projecting the iterates. A simple deterministic example illustrates the rate separation.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">The problem</p><h2 id="problem-title">What does the dueling decomposition change?</h2><p>Separating a state value from action advantages changes how a temporal-difference residual is shared across actions. The resulting updates are coupled, and their behavior is not explained by analyzing two independent learners. The problem is to identify the exact tabular recursion, its relationship to ordinary Q-learning, and conditions that control both deterministic switching and stochastic sampling errors.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">From problem to solution</p><h2 id="method-title">How the method works</h2><article class="method-step"><h3>Give two subspaces different gains</h3><p>The preconditioner is C = |A|αΠ + βΠ⊥, where Π averages actions within each state. Equal effective gains |A|α = β recover standard Q-learning; other choices change the relative common and differential dynamics.</p><p class="source-note"><a href="https://arxiv.org/pdf/2607.08340v1#page=15">Section 5.3, Eqs. 19–20, PDF p. 15</a></p></article>
+<article class="method-step"><h3>Study the switched error system</h3><p>Bellman differences give exact policy-indexed modes I − CD(I − γPΓμ). Stochastic-policy modes lie in the convex hull of deterministic modes, allowing a finite-family JSR certificate to control the nonlinear mean recursion.</p><p class="source-note"><a href="https://arxiv.org/pdf/2607.08340v1#page=16">Lemma 5.7, PDF pp. 16–17</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="Key equation">Q<sub>k+1</sub> = Q<sub>k</sub> + (|𝒜|αΠ + βΠ<sub>⊥</sub>)D(F(Q<sub>k</sub>) − Q<sub>k</sub>)</div><p class="source-note">The deterministic Q-only recursion applies separate gains to the action-common and action-differential parts of the residual (Eq. 19).</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">Main results</p><h2 id="results-title">What the analysis establishes</h2><article class="result-row"><div><h3>Deterministic convergence to Q*</h3></div><div><p>A JSR below one is sufficient for global convergence of the tabular mean recursion to the optimal Q-function, with a geometric norm bound at any rate slightly above that JSR. An explicit conservative gain interval is also supplied.</p><p class="source-note"><a href="https://arxiv.org/pdf/2607.08340v1#page=18">Proposition 5.1 and Lemma 5.9, PDF pp. 18–20</a></p></div></article>
+<article class="result-row"><div><h3>An expected-error bound for small gains</h3></div><div><p>Under i.i.d. sampling, stable reference gains, fixed gain ratio β/α, and α no larger than the Appendix D.6 threshold, Theorem 6.1 gives decaying transients plus an O(√α) residual upper bound for fixed initialization.</p><p class="source-note"><a href="https://arxiv.org/pdf/2607.08340v1#page=26">Theorem 6.1; Lemma D.6, PDF pp. 26 and 40</a></p></div></article>
+<article class="result-row"><div><h3>An illustrative rate separation</h3></div><div><p>The one-state, two-action example uses γ = 0.9 and η = α = β = 0.2, with Q* = (9, 10). Its common component benefits from a different gain; the comparison is a deterministic illustration, not a general empirical speedup claim.</p><p class="source-note"><a href="https://arxiv.org/pdf/2607.08340v1#page=22">Example 5.1 and Figure 1, PDF pp. 21–23</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">Reading the guarantees</p><h2 id="scope-title">Assumptions and scope</h2><p>The analysis concerns a centered tabular algorithm, not the nonlinear neural-network dueling DQN architecture. The components remain coupled in general MDPs. JSR stability is a sufficient certificate; failure of that certificate is not itself a proof of divergence along the Bellman-generated path. The stochastic theorem requires i.i.d. observations, a stable reference gain pair, fixed gain ratio, and sufficiently small gains. Its residual is an upper bound, not a claim of zero error at a fixed nonzero gain or an unavoidable positive error floor.</p><p class="source-note">See the <a href="https://arxiv.org/pdf/2607.08340v1">reviewed paper version</a> for complete hypotheses, constants, and proofs.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">Copy BibTeX</button></div><p class="source-note">Citation for the arXiv version.</p><pre><code id="citation">@misc{lee2026_260708340,
+  title={Spectral Analysis of Dueling Q-Learning},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2607.08340},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2607.08340}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="../../index.html">Reinforced Decision Intelligence Lab</a> · <a href="../../publication.html">All publications</a> · <a href="#top">Back to top</a></p>
+    <p>Based on <a href="https://arxiv.org/abs/2607.08340v1">arXiv:2607.08340v1</a>, by Donghwan Lee. The summaries and conceptual diagram were prepared for this page. The linked paper is the authoritative source.</p>
+    <p>Page structure inspired by <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A switching-system view of linear Q-learning: joint spectral radius, Lyapunov certificates, finite-time bounds, and regularization. Research by Donghwan Lee and Han-Dong Lim, KAIST.">
+  <meta property="og:title" content="A Switching System Theory of Q-Learning with Linear Function Approximation">
+  <meta property="og:description" content="Understanding linear Q-learning through switching dynamics and the joint spectral radius.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/linear-q-switching/index.html">
+  <meta property="og:image" content="https://donghwan3.github.io/assets/projects/linear-q-switching/lyapunov-norm-ball.png">
+  
+  <title>A Switching System Theory of Q-Learning with Linear Function Approximation</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/linear-q-switching/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/linear-q-switching/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/linear-q-switching/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴">
+    <a class="lab-link" href="/ko/index.html">REDI Lab</a>
+    <div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#video">영상</a><a href="#bibtex">BibTeX</a></div>
+  <a class="language-switch" href="/projects/linear-q-switching/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top">
+      <p class="eyebrow">강화학습 · 전환 시스템</p>
+      <h1>A Switching System Theory of Q-Learning <span>with Linear Function Approximation</span></h1>
+      <p class="publication-status">arXiv preprint · 2026</p>
+      <p class="authors"><a href="/ko/pi.html">Donghwan Lee</a><span class="author-separator">,</span> Han-Dong Lim</p>
+      <p class="affiliation">Department of Electrical Engineering<br>Korea Advanced Institute of Science and Technology (KAIST)</p>
+      <div class="resource-links" aria-label="논문 자료">
+        <a href="https://arxiv.org/pdf/2605.11021">논문 PDF</a>
+        <a href="https://arxiv.org/abs/2605.11021">arXiv</a>
+        <a href="#video">영상</a>
+        <a href="#bibtex">BibTeX</a>
+      </div>
+    </header>
+
+    <figure class="overview wide">
+      <div class="overview-heading"><span>핵심 아이디어</span><span>비선형 갱신에서 안정성 조건까지</span></div>
+      <div class="concept-flow">
+        <div class="concept"><span class="concept-tag">학습</span><h2>선형 Q-learning</h2><p class="math">Q<sub>θ</sub>(s, a) = φ(s, a)<sup>⊤</sup>θ</p><p>Bellman 최댓값 연산이 활성 정책을 바꿉니다.</p></div>
+        <div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div>
+        <div class="concept"><span class="concept-tag">표현</span><h2>전환 동역학</h2><p class="math">x<sub>k+1</sub> = A<sub>μ<sub>k</sub></sub>x<sub>k</sub> + αw<sub>k</sub></p><p>정책 의존 선형 모드와 표본 잡음입니다.</p></div>
+        <div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div>
+        <div class="concept"><span class="concept-tag">보장 조건</span><h2>공동 스펙트럴 반지름</h2><p class="math">ρ(𝒜<sub>α</sub>) &lt; 1</p><p>공통 Lyapunov 노름으로 모든 전환 모드를 제어합니다.</p></div>
+      </div>
+      <figcaption>논문의 개념적 개요입니다. 여기서 x<sub>k</sub> = θ<sub>k</sub> − θ<sup>⋆</sup>이며, 결정론적 점화식에는 잡음 항이 없습니다. 확률적 보장에는 아래의 표본 및 스텝 크기 조건도 필요합니다.</figcaption>
+    </figure>
+    <p class="takeaway">분석 대상은 <strong>갱신 행렬들의 곱</strong> 이며, 이를 통해 선형 Q-learning이 언제 안정적인지 이해합니다.</p>
+
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title">
+      <h2 id="contributions-title">주요 기여</h2>
+      <div class="contributions">
+        <article><p class="eyebrow">핵심 통찰</p><h3>정확한 전환 표현</h3><p>Bellman 최댓값은 유한 차분의 확률 정책 표현을 허용합니다. 이를 이용해 비선형 평균 갱신을 정확한 전환 선형 오차 점화식으로 바꿉니다.</p></article>
+        <article><p class="eyebrow">방법</p><h3>행렬 곱으로 구성하는 Lyapunov 노름</h3><p>공동 스펙트럴 반지름(JSR)은 전환 순서 전체에서 최악의 성장을 측정합니다. 1보다 작으면 공통 Lyapunov 노름으로 축약을 보장합니다.</p></article>
+        <article><p class="eyebrow">결과</p><h3>안정성에서 유한 시간 상한으로</h3><p>이 틀은 결정론적 수렴, 독립 동일 분포 표본의 확률 오차 상한, 정규화된 선형 Q-learning의 안정성 조건을 제공합니다.</p></article>
+      </div>
+    </section>
+
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">논문 요약</h2>
+      <p>Q-learning은 강화학습의 기본 알고리즘입니다. 이 논문은 선형 함수 근사를 사용하는 Q-learning을 전환 선형 시스템(SLS) 관점에서 분석하는 새로운 틀을 개발합니다. 선형 Q-learning 오차의 확률적 SLS 표현을 도출하고, 관련 SLS 행렬군의 공동 스펙트럴 반지름(JSR)을 통해 유한 시간 오차 분석을 얻습니다. JSR은 해당 SLS의 정확한 최악 지수 수렴률입니다. JSR 기반 수렴률은 SLS 표현의 고유한 최악 지수 수렴률과 연결됩니다. 또한 한 단계 노름 상한보다 덜 보수적일 수 있는 JSR 기반 선형 Q-learning 수렴 조건을 제시합니다.</p>
+    </section>
+
+    <section class="section band" id="problem" aria-labelledby="problem-title">
+      <div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">선형 특징, 비선형 동역학</h2>
+        <p>선형 특징으로 Q-함수를 근사하면 매개변수 수가 줄어듭니다. 그러나 최댓값을 주는 행동이 현재 매개변수에 따라 바뀌므로 학습 동역학은 여전히 비선형입니다.</p>
+        <p>단일 갱신의 상한만으로는 연속한 모드들이 상호작용하는 방식을 놓칠 수 있습니다. 이 논문은 대신 Bellman 최댓값이 유도하는 행렬군과 이들이 생성하는 곱을 연구합니다.</p>
+        <blockquote>어떤 기하 구조에서 모든 허용 평균 갱신이 축약될까요?</blockquote>
+        <p>전환 행렬 곱으로 구성한 노름이 그 답을 제공합니다. 축약률은 관련 임의 전환 행렬군의 JSR에 접근할 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="section wide" id="method" aria-labelledby="method-title">
+      <p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">바뀌는 정책을 위한 공통 기하 구조</h2>
+      <div class="method-grid">
+        <div>
+          <h3>갱신의 정확한 표현</h3>
+          <p>임의의 매개변수 쌍에 대해 적절한 확률 정책 μ로 두 평균 갱신의 차이를 나타냅니다:</p>
+          <div class="equation"><math display="block" aria-label="T alpha of theta minus T alpha of theta bar equals A mu times theta minus theta bar"><mrow><msub><mi>T</mi><mi>α</mi></msub><mo>(</mo><mi>θ</mi><mo>)</mo><mo>−</mo><msub><mi>T</mi><mi>α</mi></msub><mo>(</mo><mover><mi>θ</mi><mo>¯</mo></mover><mo>)</mo><mo>=</mo><msub><mi>A</mi><mi>μ</mi></msub><mo>(</mo><mi>θ</mi><mo>−</mo><mover><mi>θ</mi><mo>¯</mo></mover><mo>)</mo></mrow></math></div>
+          <p>각 확률 정책 모드는 유한 결정론적 정책 행렬군 𝒜<sub>α</sub>의 볼록 껍질에 속합니다. 이 볼록화는 JSR을 바꾸지 않습니다.</p>
+          <h3>행렬 곱의 성장 측정</h3>
+          <div class="equation"><math display="block" aria-label="The joint spectral radius is the limit of the largest norm of a length k mode product to the power one over k"><mrow><mi>ρ</mi><mo>(</mo><msub><mi>𝒜</mi><mi>α</mi></msub><mo>)</mo><mo>=</mo><munder><mi>lim</mi><mrow><mi>k</mi><mo>→</mo><mi>∞</mi></mrow></munder><munder><mi>max</mi><mrow><msub><mi>A</mi><mi>i</mi></msub><mo>∈</mo><msub><mi>𝒜</mi><mi>α</mi></msub></mrow></munder><msup><mrow><mo>‖</mo><msub><mi>A</mi><mi>k</mi></msub><mo>⋯</mo><msub><mi>A</mi><mn>1</mn></msub><mo>‖</mo></mrow><mrow><mn>1</mn><mo>/</mo><mi>k</mi></mrow></msup></mrow></math></div>
+          <p>한 단계 노름 상한과 달리 이 값은 전환의 장기적인 효과를 포착합니다. 얻어진 조건은 실제 Bellman 연산으로 생성되는 점화식에 대한 충분조건입니다.</p>
+          <p class="source-note"><a href="https://arxiv.org/html/2605.11021v3#Thmproposition1">Proposition 1</a> · <a href="https://arxiv.org/html/2605.11021v3#Thmtheorem1">Theorem 1</a></p>
+        </div>
+        <figure class="paper-figure">
+          <a href="/assets/projects/linear-q-switching/lyapunov-norm-ball.png" aria-label="원본 Lyapunov 노름 단위구 그림 보기"><img src="/assets/projects/linear-q-switching/lyapunov-norm-ball.png" width="560" height="598" alt="전환 행렬 곱이 유도하는 비유클리드 기하 구조를 보여 주는 빨간색 3차원 절단 JSR Lyapunov 노름 단위구입니다." loading="lazy"></a>
+          <figcaption><strong>안정성 조건의 기하 구조.</strong> Example 3의 원본 그림으로, 특징 3개, 결정론적 정책 모드 8개, 절단 깊이 T = 4, β = 0.975를 사용합니다. 표시된 단위구는 무한 시간 Lyapunov 노름을 근사하며, 실험 학습 곡선은 아닙니다. <a href="https://arxiv.org/html/2605.11021v3#S4.F1">Lee &amp; Lim, 2026</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section band" id="results" aria-labelledby="results-title">
+      <div class="wide"><p class="eyebrow">주요 이론 결과</p><h2 id="results-title">전환 시스템 관점이 밝히는 내용</h2>
+        <div class="result-row"><div><span class="result-label">결정론적 동역학</span><h3>유일한 고정점과 지수 수렴</h3></div><div><p>ρ(𝒜<sub>α</sub>) &lt; 1이면 평균 갱신은 구성된 Lyapunov 노름에서 전역 축약입니다. 유일한 투영 Bellman 고정점 θ<sup>⋆</sup>가 존재하고, 결정론적 반복값은 지수적으로 접근합니다.</p><p class="math result-equation">‖θ<sub>k</sub> − θ<sup>⋆</sup>‖<sub>2</sub> ≤ √C<sub>ε</sub> β<sub>ε</sub><sup>k</sup> ‖θ<sub>0</sub> − θ<sup>⋆</sup>‖<sub>2</sub></p><p class="source-note">β<sub>ε</sub> = ρ(𝒜<sub>α</sub>) + ε, with 0 &lt; ε &lt; 1 − ρ(𝒜<sub>α</sub>). <a href="https://arxiv.org/html/2605.11021v3#Thmtheorem1">Theorem 1</a>.</p></div></div>
+        <div class="result-row"><div><span class="result-label">확률적 동역학</span><h3>작은 스텝의 잔차 상한을 포함하는 유한 시간 오차</h3></div><div><p>독립 동일 분포 표본에서 오차는 감소하는 초기 조건 항, 전환 관련 과도 항, 잡음 항으로 나뉩니다. 문제 자료를 고정하고 기준 스텝 크기에서 안정성이 성립하며 상수 α가 충분히 작으면, 투영하지 않은 점화식은 평균제곱 의미에서 유계입니다.</p><p class="math result-equation">기대 오차 ≤ 감소하는 과도 항 + O(√α)</p><p>O(√α)는 초기값을 고정한 채 α가 0에 접근할 때 마지막 오차 상한 항의 크기를 나타냅니다. 고정된 0이 아닌 스텝에서는 일반적으로 잔차 항이 남습니다. 이는 실제 오차의 양의 하한을 뜻하지 않습니다.</p><p class="source-note"><a href="https://arxiv.org/html/2605.11021v3#Thmtheorem5">Theorem 5</a> · <a href="https://arxiv.org/html/2605.11021v3#Thmtheorem6">Theorem 6</a>.</p></div></div>
+        <div class="result-row"><div><span class="result-label">정규화</span><h3>모드를 이동한 뒤 스텝 크기 확인</h3></div><div><p>가중치 η인 ℓ<sub>2</sub> 벌점을 추가하면 모든 직접 모드가 −αηI만큼 이동합니다. 이를 통해 정규화에 의존하는 JSR 상한과 충분 안정성 조건을 얻습니다.</p><p class="math result-equation">A<sub>π</sub><sup>η</sup> = A<sub>π</sub> − αηI</p><p>정규화와 스텝 크기는 함께 고려해야 합니다. 강한 정규화는 안정성 상한의 한 부분을 개선하는 동시에 허용 스텝 크기 범위를 좁힐 수 있습니다.</p><p class="source-note"><a href="https://arxiv.org/html/2605.11021v3#S6">Section 6</a> · <a href="https://arxiv.org/html/2605.11021v3#Thmcorollary1">Corollary 1</a>.</p></div></div>
+        <details class="conditions"><summary>확률적 결과의 가정 확인</summary><div><p>유한 할인 MDP, 열들이 선형 독립인 특징 행렬, 양의 상태–행동 표본 확률, 독립 동일 분포 관측을 사용합니다. Theorems 5–6에서는 α가 달라져도 전이 커널·보상·할인율·특징·표본 분포를 고정하며, 기준 스텝 크기 ᾱ는 ρ(𝒜<sub>ᾱ</sub>) &lt; 1.</p><p>이 결과는 결정론적 초기값과 0 &lt; α ≤ min{ᾱ, 1/(2C<sub>1</sub>σ<sub>1</sub><sup>2</sup>)}에 적용하며, 상수는 논문에 정의되어 있습니다. 최솟값의 두 번째 항은 σ<sub>1</sub> = 0일 때 +∞로 해석합니다. 작은 스텝 결과는 반복값의 유계성을 미리 가정하지 않고 유계성을 증명합니다. 반면 앞선 Theorems 3–4는 반복값이 유계라는 가정을 사용합니다.</p><p>목표는 특징 함수군 안의 투영 Bellman 고정점입니다. 명시된 보장은 임의의 Markov 표본 추출이나 제한 없는 스텝 크기를 포함하지 않습니다.</p><p><a href="https://arxiv.org/html/2605.11021v3#Thmtheorem6">Theorem 6에서 전체 정리와 상수 확인</a>.</p></div></details>
+      </div>
+    </section>
+
+    <section class="section prose" id="interpretation" aria-labelledby="interpretation-title">
+      <p class="eyebrow">안정성 조건의 해석</p><h2 id="interpretation-title">충분조건이 필요조건을 뜻하지는 않음</h2>
+      <p>JSR은 모든 전환 순서를 허용합니다. 실제 Q-learning은 Bellman 동역학이 선택하는 모드만 따릅니다. 따라서 행렬군이 임의 전환 안정성 검사를 통과하지 못해도 Bellman 연산으로 생성되는 경로는 수렴할 수 있습니다.</p>
+      <div class="example">
+        <div><h3>상태 하나, 행동 두 개</h3><p>논문의 Example 4에서 두 스칼라 모드는 <strong>0.397</strong> 및 <strong>−1.304</strong>이며, 이들의 JSR은 <strong>1.304 &gt; 1</strong>.</p><p>음의 매개변수는 두 번째 모드를 한 번 사용한 뒤 양수가 됩니다. 이후의 모든 갱신은 축약 모드 0.397을 사용합니다.</p></div>
+        <div class="trajectory" aria-label="초기 θ가 −1인 Example 4의 설명 예제"><p class="trajectory-label">Bellman 연산으로 생성되는 경로 · θ<sub>0</sub> = −1</p><p class="trajectory-values">−1 <span>→</span> 1.304 <span>→</span> 0.518 <span>→</span> 0.206 <span>→</span> 0</p><p class="trajectory-note">처음 단계들은 반올림한 값이며, 마지막 화살표는 극한을 나타냅니다.</p><hr><p class="trajectory-label">임의 전환은 불안정 모드를 반복할 수 있음</p><p class="math">x<sub>k</sub> = (−1.304)<sup>k</sup>x<sub>0</sub></p><p class="trajectory-note">전환 행렬군에서는 허용되지만, 이 Bellman 점화식에서는 반복적으로 발생하지 않습니다.</p></div>
+      </div>
+      <p class="source-note">정확한 점화식의 수치적 설명 예제: <a href="https://arxiv.org/html/2605.11021v3#Thmexample4">Example 4</a>. 이는 벤치마크 실험이 아닙니다. JSR은 관련 전환 행렬군의 정확한 최악 지수 수렴률을 제공하며, 개별 Q-learning 경로의 수렴률과 반드시 같지는 않습니다.</p>
+    </section>
+
+    <section class="section band" id="video" aria-labelledby="video-title">
+      <div class="prose"><p class="eyebrow">논문 발표</p><h2 id="video-title">설명 영상 보기</h2><p>이 논문의 발표 영상은 <a href="https://www.youtube.com/@nextstateai3">Next State AI 채널</a>에서 볼 수 있으며, Q-learning·전환 시스템·안정성 분석의 관계를 설명합니다.</p>
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/pR0qhoFVWBo" title="A Switching System Theory of Q-Learning with Linear Function Approximation — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p class="video-fallback"><a href="https://www.youtube.com/watch?v=pR0qhoFVWBo">YouTube에서 보기</a></p>
+      </div>
+    </section>
+
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title">
+      <div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div>
+      <pre><code id="citation">@misc{lee2026switchingtheoryqlearninglinear,
+  title={A Switching System Theory of Q-Learning with
+         Linear Function Approximation},
+  author={Donghwan Lee and Han-Dong Lim},
+  year={2026},
+  eprint={2605.11021},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2605.11021}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p><p>내용의 근거: <a href="https://arxiv.org/abs/2605.11021v3">arXiv:2605.11021v3</a> (2026년 7월 3일, Donghwan Lee 및 Han-Dong Lim). 초록과 원본 그림은 다음 라이선스에 따라 재현했습니다: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. 설명 요약과 개요 도식은 이 페이지에 맞게 작성했습니다.</p><p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

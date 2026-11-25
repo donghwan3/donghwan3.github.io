@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="가상 적대자를 도입해 여러 Q-추정기로 최댓값 연산의 편향을 조절하는 틀을 만듭니다.">
+  <meta property="og:title" content="Suppressing Overestimation in Q-Learning through Adversarial Behaviors">
+  <meta property="og:description" content="가상 적대자를 도입해 여러 Q-추정기로 최댓값 연산의 편향을 조절하는 틀을 만듭니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/dummy-adversarial-q-learning/index.html">
+  
+  <title>Suppressing Overestimation in Q-Learning through Adversarial Behaviors</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/dummy-adversarial-q-learning/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/dummy-adversarial-q-learning/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/dummy-adversarial-q-learning/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2310.06286">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/dummy-adversarial-q-learning/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Q-learning · 과대추정 편향 · Markov 게임 · 앙상블 추정기</p><h1>Suppressing Overestimation in Q-Learning through Adversarial Behaviors</h1>
+      <p class="publication-status">arXiv:2310.06286 · 2023</p><p class="authors">HyeAnn Lee, <a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2310.06286">논문 PDF</a> <a href="https://arxiv.org/abs/2310.06286">arXiv</a> <a href="https://ieeexplore.ieee.org/document/10735317/">학회</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>관측된 전이</h2><p>하나의 환경에서 상태, 행동, 보상, 다음 상태를 얻습니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>가상 상대</h2><p>추정기에 따른 이동과 min/max 순서가 학습 목표값을 바꿉니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>정책 학습</h2><p>원래 전이 모델을 유지하면서 여러 추정값으로 편향을 조절합니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">가상 적대자를 도입해 여러 Q-추정기로 최댓값 연산의 편향을 조절하는 틀을 만듭니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>추정기의 게임 해석</h3><p>가상 상대는 추정기 번호를 선택하고 보상 이동에 영향을 주지만 전이 확률은 바꾸지 않습니다. 이를 통해 편향 제어 갱신을 기존 Markov 게임 학습 틀과 연결합니다.</p></article>
+<article><h3>두 연산자 순서</h3><p>Maxmin DAQ와 minmax DAQ는 행동의 최대화와 추정기의 최소화 순서를 반대로 적용합니다. 보상 이동이 0이면 각각의 비이동 알고리즘으로 돌아가므로 하나의 구성 안에서 비교할 수 있습니다.</p></article>
+<article><h3>이론과 벤치마크 근거</h3><p>논문은 표 기반 DAQ에 전환 시스템 수렴 분석을 적용하고, 보상 구조가 다른 grid-world, Sutton, Weng MDP 예제에서 학습 특성을 별도로 실험합니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>잡음이 있는 가치 추정값을 최대화하면 Q-learning이 지나치게 낙관적으로 될 수 있습니다. 이 논문은 여러 추정기를 유지하면서 추정기에 따른 보상 이동을 더하는 dummy adversarial Q-learning을 제안합니다. 추정기 번호는 영합 게임에서 가상 상대의 행동으로 해석할 수 있습니다. 이 상대는 환경의 전이를 바꾸지 않으므로 원래 의사결정 문제에 대한 다른 학습 방식을 제공합니다. Maxmin과 minmax 변형을 포함하며, 표 기반 유한 시간 분석과 함께 과대추정·과소추정의 영향을 드러내는 소규모 MDP 벤치마크에서 평가합니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">과제를 유지하면서 낙관성 조절</h2><p>불확실한 행동 가치의 최댓값은 우연히 높게 추정된 행동을 선호하게 만들 수 있습니다. 추정기 사이의 최솟값은 이를 상쇄할 수 있지만, 지나친 비관성 역시 학습을 방해합니다. 의사결정 문제를 유지하면서 균형을 조절할 설계 선택지를 밝히고, 추정값의 수렴 보장과 특정 환경에서의 실험적 이점을 구분하는 것이 과제입니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>추정기별 보상 이동</h3><p>여러 Q 추정값을 유지하고 관측 보상에 추정기별 상수를 더합니다. 행동 최대화 후 추정기 최소화 목표값 또는 그 반대 순서로 갱신합니다. 동기식과 비동기식 구현은 매 단계 계산량과 추정기 갱신 빈도 사이의 절충을 제공합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2310.06286v3#page=3">Sections IV.A–IV.C, pp. 3–4</a></p></article>
+<article class="method-step"><h3>갱신을 게임으로 해석</h3><p>추정기 번호를 가상 적대자의 행동으로 봅니다. 적대자는 인위적인 보상 성분에 영향을 주며 전이 법칙은 바꾸지 않습니다. 두 연산자 순서를 서로 다른 차례 순서로 해석하면서 유한 시간 minimax Q-learning 분석을 적용할 수 있습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2310.06286v3#page=4">Sections IV.D–IV.E, pp. 4–5</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">y<sub>i</sub> = r + b<sub>i</sub> + γ max<sub>a′</sub> min<sub>j</sub> Q<sub>j</sub>(s′, a′)</div><p class="source-note">Maxmin DAQ 갱신의 목표값으로, equation (2), p. 3에 해당합니다. b_i는 추정기별 보상 이동이며, y_i는 목표값을 설명하기 위한 약식 표기이지 새로운 정리가 아닙니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>유한 시간 기대 오차 제어</h3></div><div><p>Theorem 1은 비동기 DAQ의 기대 최대 노름 오차를 해당 이동 최적값에 대해 제한합니다. 고정 스텝 크기에서는 감소하는 과도 항과 스텝 크기의 제곱근에 비례하는 잔차가 상한에 포함됩니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2310.06286v3#page=5">Theorem 1, p. 5</a></p></div></article>
+<article class="result-row"><div><h3>조건에 따라 달라지는 벤치마크 개선</h3></div><div><p>보고된 grid-world 및 최대화 편향 실험은 특정 DAQ 설정에서 학습 개선을 보여 줍니다. 결과는 보상 이동과 환경 구조에 의존하며, 낙관성이나 비관성에 따라 더 빠르게 학습하는 알고리즘이 달라지는 사례도 보여 줍니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2310.06286v3#page=6">Section V.B, Figures 4–6, pp. 6–7</a></p></div></article>
+<article class="result-row"><div><h3>정리와 실험의 조건 차이</h3></div><div><p>이론은 독립 표본과 모든 항목을 포함하는 고정 표본 분포를 사용합니다. 실험은 epsilon-greedy 행동을 사용하며 일부 에피소드 예제에는 할인이 없습니다. 따라서 이 실험은 명시된 정리의 가정을 벗어난 동작도 보여 줍니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2310.06286v3#page=5">Sections IV.E and V, pp. 4–7</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>유한 시간 결과는 유한 표 기반 공간과 명시된 유계성·표본·고정 스텝 조건에 해당하며, 일반 신경망 구현을 보장하지 않습니다. 보상 이동과 추정기 개수는 환경에 따라 적절한 설정이 달라지는 설계 선택입니다. 고정 스텝 크기에서는 잔차 상한이 남으므로 모든 고정 스텝에서의 정확한 수렴 정리는 아닙니다. 벤치마크는 일률적인 우월성을 입증하지 않습니다. Deep Q-learning과 actor-critic 확장은 입증된 보장이 아닌 향후 방향으로 제시됩니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2310.06286v3">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2023_231006286,
+  title={Suppressing Overestimation in Q-Learning through Adversarial Behaviors},
+  author={HyeAnn Lee and Donghwan Lee},
+  year={2023},
+  eprint={2310.06286},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2310.06286}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2310.06286v3">arXiv:2310.06286v3</a>(HyeAnn Lee, Donghwan Lee)의 논문을 바탕으로 합니다. 요약과 개념도는 이 페이지를 위해 작성했습니다. 정확한 내용은 연결된 논문을 확인해 주세요.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

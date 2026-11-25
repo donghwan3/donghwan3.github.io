@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="공유 상수 모드와 수직 방향의 스펙트럴 간격으로 모멘텀이 Q-가치 반복을 언제 가속하는지 설명합니다.">
+  <meta property="og:title" content="Spectral Analysis of Heavy-Ball Q-value Iteration">
+  <meta property="og:description" content="공유 상수 모드와 수직 방향의 스펙트럴 간격으로 모멘텀이 Q-가치 반복을 언제 가속하는지 설명합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/heavy-ball-qvi/index.html">
+  
+  <title>Spectral Analysis of Heavy-Ball Q-value Iteration</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/heavy-ball-qvi/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/heavy-ball-qvi/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/heavy-ball-qvi/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2607.22627">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#video">영상</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/heavy-ball-qvi/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Q-가치 반복 · Heavy-ball 모멘텀 · 스펙트럼 분석 · 전환 시스템</p><h1>Spectral Analysis of Heavy-Ball Q-value Iteration</h1>
+      <p class="publication-status">arXiv:2607.22627 · 2026</p><p class="authors"><a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2607.22627">논문 PDF</a> <a href="https://arxiv.org/abs/2607.22627">arXiv</a> <a href="#video">영상</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>한 단계 지연 추가</h2><p>현재와 이전의 Bellman 오차를 하나의 확장 상태로 나타냅니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>공통 모드 분리</h2><p>스칼라 오프셋이 2차원 동반 시스템이 됩니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>수직 방향의 스펙트럴 간격 확인</h2><p>전체 행렬군의 가속을 보장하려면 두 스펙트럼 성분이 모두 개선되어야 합니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">공유 상수 모드와 수직 방향의 스펙트럴 간격으로 모멘텀이 Q-가치 반복을 언제 가속하는지 설명합니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>정확한 확장 전환 모델</h3><p>연속한 Q-오차를 쌓아 최적 Bellman 고정점을 유지하면서 모멘텀과 Bellman 정책 전환을 포착합니다.</p></article>
+<article><h3>필요조건과 충분조건의 구분</h3><p>상수 방향 블록의 개선은 전체 행렬군 가속의 필요조건입니다. 수직 방향의 엄밀한 간격과 충분히 작은 양의 모멘텀은 전체 행렬군에 대한 충분조건을 제공합니다.</p></article>
+<article><h3>투영 선형 특징으로의 확장</h3><p>특징 공간에 상수 함수가 포함되면 같은 분해를 통해 완전 랭크 특징과 양의 가중치를 갖는 투영 Q-가치 반복에서 작은 모멘텀의 조건부 개선을 얻습니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>Q-가치 반복에 heavy-ball 모멘텀을 추가하면 기억을 갖는 전환 시스템이 되므로, 고정 정책 하나의 고유값 계산만으로 전역적 가속을 입증할 수 없습니다. 이 연구는 정확한 확장 오차 동역학을 도출하고 공유 상수 방향 블록과 정책 의존 수직 행렬군을 분리합니다. 상수 블록의 정확한 개선 구간과 전체 공동 스펙트럴 반지름 개선의 충분 스펙트럴 간격 조건을 제시합니다. 부록에서는 선형 특징의 투영 반복으로 확장하고, 유한 상태 예제로 수치적 가치 오차 감소를 보여 줍니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">스칼라 모멘텀 이득이 전환 과정을 개선할 수 있을까요?</h2><p>Q-가치 반복 중 탐욕 행동이 바뀔 수 있으므로 오차는 하나의 고정 선형 모델이 아닌 행렬군을 따릅니다. Heavy-ball 모멘텀은 지연 상태를 추가하고 상수 동역학과 수직 동역학을 모두 바꿉니다. 논문은 단일 정책이나 방향에서의 개선을 넘어, 어떤 스펙트럼 조건이 더 작은 최악 수렴 인자를 보장하는지 연구합니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>이전 오차로 상태 확장</h3><p>0 &lt; α ≤ 1에서 Q_next = Q + α(F(Q) − Q) + η(Q − Q_previous) 점화식을 사용합니다. Bellman 차이의 선택 행렬로 고정점이 (Q*, Q*)인 정확한 전환 표현을 얻습니다.</p><p class="source-note"><a href="https://arxiv.org/html/2607.22627v2#S5">Section 5, Eqs. (5.1)–(5.4), p. 5</a></p></article>
+<article class="method-step"><h3>두 스펙트럼 성분 분리</h3><p>상수 방향은 2차원 동반 블록이 됩니다. 전체 공동 스펙트럴 반지름은 이 블록의 스펙트럴 반지름과 투영 heavy-ball 행렬군의 공동 스펙트럴 반지름 중 최댓값입니다.</p><p class="source-note"><a href="https://arxiv.org/html/2607.22627v2#S6.Thmlemma2">Lemmas 5.3–5.4 and 6.2, pp. 5–6</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">Q<sub>k+1</sub> = Q<sub>k</sub> + α[F(Q<sub>k</sub>) − Q<sub>k</sub>] + η(Q<sub>k</sub> − Q<sub>k−1</sub>)</div><p class="source-note">결정론적 heavy-ball Q-가치 반복 갱신입니다. F는 Bellman 최적 연산자, α는 완화 스텝, η는 모멘텀 계수입니다. 여기서는 잔차 보정 논문의 αη 표기와 달리 계수가 η입니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>상수 모드 구간은 필요조건이며 충분조건은 아님</h3></div><div><p>r = 1 − α(1 − γ)라 두면, 상수 동반 블록이 표준 완화 Q-가치 반복보다 개선되는 정확한 조건은 0 &lt; η &lt; r²입니다. 전체 행렬군의 개선에는 수직 전환 동역학의 제어도 필요합니다.</p><p class="source-note"><a href="https://arxiv.org/html/2607.22627v2#S5.Thmproposition1">Proposition 5.1, p. 5</a></p></div></article>
+<article class="result-row"><div><h3>엄밀한 간격으로 얻는 전체 행렬군 개선</h3></div><div><p>투영된 표준 행렬군의 공동 스펙트럴 반지름이 r보다 엄밀히 작으면, 어떤 η₀ &gt; 0이 존재하여 0 &lt; η &lt; min(r², η₀)에서 heavy-ball 공동 스펙트럴 반지름이 r보다 작아지고 결정론적 오차가 전역 지수 수렴합니다.</p><p class="source-note"><a href="https://arxiv.org/html/2607.22627v2#S6.Thmtheorem1">Theorem 6.1, p. 6</a></p></div></article>
+<article class="result-row"><div><h3>작은 MDP로 보여 주는 수치 효과</h3></div><div><p>보고된 상태 2개, 행동 2개 예제는 γ = 0.95, α = 1, η = 0.60과 영 초기값을 사용합니다. 120번째 반복의 최대 노름 오차는 표준 Q-가치 반복에서 약 2.779 × 10⁻², heavy-ball 반복에서 약 1.211 × 10⁻¹⁰입니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2607.22627v2#page=7">Section 7 and Figure 1, p. 7</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>모멘텀이 항상 유리한 것은 아닙니다. 정확한 상수 모드 구간만으로 수직 행렬군을 제어할 수 없으며, 정리의 양의 모멘텀 임계값은 엄밀한 투영 스펙트럴 간격에 의존합니다. 공동 스펙트럴 반지름은 최악의 전환 행렬 곱을 측정하므로 개별 경로는 그 보장보다 빠르게 수렴할 수 있습니다. 분석은 결정론적이고 모델 기반입니다. 비균일 좌표 표본 추출은 공통 고유벡터 구조를 깨뜨릴 수 있어 별도의 확률 분석이 필요합니다. 수치 비교는 하나의 유한 상태 예제이며 일반적인 속도 향상 보장은 아닙니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2607.22627v2">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    <section class="section band" id="video" aria-labelledby="video-title"><div class="prose">
+      <p class="eyebrow">논문 발표</p><h2 id="video-title">설명 영상 보기</h2>
+      <p>이 논문의 발표 채널: <a href="https://www.youtube.com/@nextstateai3">Next State AI</a>.</p>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/kj_hl04g598" title="Spectral Analysis of Heavy-Ball Q-value Iteration — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=kj_hl04g598">YouTube에서 보기</a></p></div></section>
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2026_260722627,
+  title={Spectral Analysis of Heavy-Ball Q-value Iteration},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2607.22627},
+  archivePrefix={arXiv},
+  primaryClass={math.OC},
+  url={https://arxiv.org/abs/2607.22627}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2607.22627v2">arXiv:2607.22627v2</a>, 저자: Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

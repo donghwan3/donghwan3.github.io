@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A continuous target-period parameter connects one-step linear Q-learning with projected Q-value iteration.">
+  <meta property="og:title" content="Geometrically Averaged Hard Target Updates for Linear Q-Learning">
+  <meta property="og:description" content="A continuous target-period parameter connects one-step linear Q-learning with projected Q-value iteration.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/projects/geometric-target-updates/">
+  
+  <title>Geometrically Averaged Hard Target Updates for Linear Q-Learning</title>
+  <link rel="icon" href="../../assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="../../assets/fonts.css">
+  <link rel="stylesheet" href="../../assets/projects/project.css?v=14e19d7f218e">
+  <script src="../../assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/projects/geometric-target-updates/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/geometric-target-updates/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/geometric-target-updates/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2606.10835">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="project-nav" aria-label="Project navigation"><a class="lab-link" href="../../index.html">REDI Lab</a><div><a href="#problem">Problem</a><a href="#method">Method</a><a href="#results">Results</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/ko/projects/geometric-target-updates/index.html" lang="ko" hreflang="ko" aria-label="한국어 페이지로 전환">한국어</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Linear Q-learning · Target networks · Geometric averaging · Joint spectral radius</p><h1>Geometrically Averaged Hard Target Updates for Linear Q-Learning</h1>
+      <p class="publication-status">arXiv:2606.10835 · 2026</p><p class="authors"><a href="../../pi.html">Donghwan Lee</a></p><p class="affiliation">School of Electrical Engineering, KAIST, Daejeon, Republic of Korea</p>
+      <div class="resource-links" aria-label="Paper resources"><a href="https://arxiv.org/pdf/2606.10835">Paper (PDF)</a> <a href="https://arxiv.org/abs/2606.10835">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>The central idea</span><span>From the research question to the result</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">Problem</span><h2>Freeze a target</h2><p>Hold the boundary parameter and its greedy policy fixed.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Approach</span><h2>Weight candidate periods</h2><p>Geometrically average the outcomes of one, two, and longer inner periods.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Insight</span><h2>Compute the next boundary</h2><p>Use an exact correction solve or a separately analyzed inverse-free recursion.</p></div></div><figcaption>Explanatory diagram created for this page from the paper; not an experimental result. See the methods and source references below.</figcaption></figure>
+    <p class="takeaway">A continuous target-period parameter connects one-step linear Q-learning with projected Q-value iteration.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Key Contributions</h2><div class="contributions"><article><h3>Continuous target-period interpolation</h3><p>Geometric weighting turns discrete target-copy periods into a continuous family while preserving the projected Bellman fixed-point equation.</p></article>
+<article><h3>Computable implementations</h3><p>An exact linear correction replaces the conceptual infinite sum. An inverse-free auxiliary iteration tracks the same correction equation with different augmented dynamics.</p></article>
+<article><h3>Separate stability guarantees</h3><p>Endpoint, inverse-free, and random-period results explicitly use the switching family appropriate to each implementation.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p class="source-note abstract-note">A summary of the paper, written for this page.</p><p>Rather than select one fixed target-copy period, this work averages hard-target boundary maps using geometric weights. The resulting λ-target family connects ordinary deterministic linear Q-learning at λ = 0 with projected Q-value iteration as λ approaches one. Exact switching-system models explain how stability certificates transfer near these endpoints. A closed-form correction computes the infinite average through one linear solve, while an auxiliary recursion avoids the inverse. A separate random-period implementation admits pathwise and mean-square bounds under a stronger uniform switching condition.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">The problem</p><h2 id="problem-title">What changes when target periods are averaged?</h2><p>Target networks introduce a discrete choice of how many online updates occur before a copy. The paper asks how to vary that choice continuously and identify the resulting stability mechanism in linear Q-learning. Its central object is the map between target boundaries, where the frozen target and its greedy policy remain fixed during each candidate inner period.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">From problem to solution</p><h2 id="method-title">How the method works</h2><article class="method-step"><h3>Average frozen-target boundary maps</h3><p>Weight the period-m candidate by (1 − λ)λ^(m−1), for 0 ≤ λ &lt; 1. The continuous λ = 1 endpoint is defined by the limiting projected Q-value iteration map, not by a geometric distribution.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S7">Section 7, Eq. (17) and Lemma 7.4, pp. 11–15</a></p></article>
+<article class="method-step"><h3>Solve or track one correction equation</h3><p>The matrix (1 − λ)I + λαΦᵀDΦ converts a projected Bellman residual into the exact averaged correction. Richardson updates provide an inverse-free implementation; simultaneous target movement changes its switching dynamics.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S8.Thmproposition1">Proposition 8.1 and Section 9, pp. 16–24</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="Key equation">w<sub>m</sub> = (1 − λ)λ<sup>m−1</sup>, &nbsp; m ≥ 1, &nbsp; 0 ≤ λ &lt; 1</div><p class="source-note">The weights average hard-target boundary maps. λ = 0 selects one inner step; λ approaching one yields the continuous projected Q-value iteration endpoint under the inner-step stability condition.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">Main results</p><h2 id="results-title">What the analysis establishes</h2><article class="result-row"><div><h3>Endpoint stability transfers locally</h3></div><div><p>With full-rank features, positive weighting and 0 &lt; α &lt; 2/λ_max(ΦᵀDΦ), λ near zero inherits the strict joint-spectral-radius status of ordinary linear Q-learning; λ near one inherits that of projected Q-value iteration. This is a neighborhood result.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S7.Thmtheorem1">Theorem 7.1, p. 15</a></p></div></article>
+<article class="result-row"><div><h3>An inverse-free stability result</h3></div><div><p>If the inverse-form switching family is stable and the auxiliary Richardson step satisfies its eigenvalue bound, sufficiently small positive boundary step β makes the augmented two-line recursion stable. At β = 0 its joint spectral radius equals one.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S9.Thmtheorem1">Theorem 9.1, p. 24</a></p></div></article>
+<article class="result-row"><div><h3>Random periods with a uniform certificate</h3></div><div><p>If the union of all deterministic-policy, finite-period boundary matrices has joint spectral radius below one, the random-period recursion obeys a geometric squared-error bound, pathwise and in expectation, around the assumed unique projected Bellman solution.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S10.Thmtheorem1">Theorem 10.1, p. 26</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">Reading the guarantees</p><h2 id="scope-title">Assumptions and scope</h2><p>Geometric averaging concerns target-copy periods, not multi-step reward returns or eligibility traces. Stable endpoints do not certify every intermediate λ, and a joint spectral radius above one does not prove divergence of a realized greedy trajectory. The random-period theorem randomizes the period while retaining model-based inner updates; it is not a finite-sample theorem for noisy transition data. Its uniform all-period condition is stronger than stability of the averaged map. The analysis concerns linear features, not nonlinear deep-network training.</p><p class="source-note">See the <a href="https://arxiv.org/pdf/2606.10835v1">reviewed paper version</a> for complete hypotheses, constants, and proofs.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">Copy BibTeX</button></div><p class="source-note">Citation for the arXiv version.</p><pre><code id="citation">@misc{lee2026_260610835,
+  title={Geometrically Averaged Hard Target Updates for Linear Q-Learning},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2606.10835},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2606.10835}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="../../index.html">Reinforced Decision Intelligence Lab</a> · <a href="../../publication.html">All publications</a> · <a href="#top">Back to top</a></p>
+    <p>Based on <a href="https://arxiv.org/abs/2606.10835v1">arXiv:2606.10835v1</a>, by Donghwan Lee. The summaries and conceptual diagram were prepared for this page. The linked paper is the authoritative source.</p>
+    <p>Page structure inspired by <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

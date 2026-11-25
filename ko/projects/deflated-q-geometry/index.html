@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="탐욕 정책의 순서를 유지하면서 가치 오차에 남는 느린 상수 이동을 제거합니다.">
+  <meta property="og:title" content="Switching-Geometry Analysis of Deflated Q-Value Iteration">
+  <meta property="og:description" content="탐욕 정책의 순서를 유지하면서 가치 오차에 남는 느린 상수 이동을 제거합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/deflated-q-geometry/index.html">
+  
+  <title>Switching-Geometry Analysis of Deflated Q-Value Iteration</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/deflated-q-geometry/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/deflated-q-geometry/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/deflated-q-geometry/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2605.10811">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/deflated-q-geometry/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Q-value iteration · 랭크 1 보정 · 몫공간 기하학 · 공동 스펙트럴 반지름</p><h1>Switching-Geometry Analysis of Deflated Q-Value Iteration</h1>
+      <p class="publication-status">arXiv:2605.10811 · 2026</p><p class="authors"><a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2605.10811">논문 PDF</a> <a href="https://arxiv.org/abs/2605.10811">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>공통 오프셋 분리</h2><p>공통 스칼라 이동과 행동 가치의 차이를 구분합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>잔차를 통한 재중심화</h2><p>랭크 1 보정으로 자율적인 느린 상수 모드를 제거합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>의사결정 보존</h2><p>전체 수치 오차는 바뀌지만 투영 경로와 탐욕 정책은 동일하게 유지됩니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">탐욕 정책의 순서를 유지하면서 가치 오차에 남는 느린 상수 이동을 제거합니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>수렴률의 정밀한 기하학적 분해</h3><p>최악의 경우 γ 수렴률이 정확하게 나타나는 원인인 모든 성분이 1인 방향을 밝히고, 이에 수직인 전환 동역학을 분리합니다.</p></article>
+<article><h3>상수 모드를 제거한 행렬군의 정확한 수렴률</h3><p>자율적인 상수 모드를 제거하면 전체 전환 행렬군의 공동 스펙트럴 반지름이 투영된 반지름과 같아지며, 전체 오차의 유한 시간 추정식을 얻습니다.</p></article>
+<article><h3>보정의 의미를 명확하게 해석</h3><p>초기값과 동률 처리 방식이 같을 때, 스칼라 이동의 동등성은 보정이 전체 가치 오차의 수렴을 바꾸면서도 투영된 경로와 탐욕적 결정을 그대로 유지함을 보여 줍니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>모든 행동 가치에 같은 상수를 더하면 탐욕적 결정은 유지되지만 수치 오차는 달라집니다. 이 논문은 할인 Q-가치 반복에서 이 상수 방향과 나머지 동역학을 분리합니다. 표준 반복의 공동 스펙트럴 반지름은 정확히 γ이며, 랭크 1 잔차 보정은 자율적인 상수 모드를 제거합니다. 보정된 행렬군의 수렴률은 투영된 공동 스펙트럴 반지름으로 결정되며, 이는 γ 이하이고 더 작을 수도 있습니다. 보정된 경로와 일반 반복의 차이는 스칼라 이동뿐이므로, 같은 초기값에서는 탐욕 정책의 순서가 유지됩니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">가치 오차의 어느 부분이 수렴을 늦출까요?</h2><p>표준 Q-가치 반복에서는 행동의 선호 순서가 정확해진 뒤에도 천천히 감소하는 공통 오프셋이 남을 수 있습니다. 전체 벡터의 오차 상한은 이 오프셋과 정책에 영향을 주는 차이를 함께 다룹니다. 이 논문은 랭크 1 잔차 보정이 이러한 기하 구조를 어떻게 바꾸는지, 어떤 수렴률을 개선할 수 있는지, 수치적 개선이 탐욕 정책의 순서도 바꾸는지를 살펴봅니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>상수 오차와 수직 방향 오차 분리</h3><p>오차를 모든 성분이 1인 벡터에 수직인 부분공간으로 투영합니다. 모든 Bellman 전환 모드는 고유값 γ를 갖는 상수 방향을 보존하며, 투영된 행렬군의 공동 스펙트럴 반지름은 ρ̄ ≤ γ를 만족합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=9">Propositions 1–2 and Lemmas 6–7, pp. 8–10</a></p></article>
+<article class="method-step"><h3>스칼라 잔차 보정 적용</h3><p>모든 성분이 1인 방향으로 잔차 평균의 γ/(1 − γ)배를 더합니다. 확장된 오차 행렬에서 자율적인 스칼라 블록은 0이 됩니다. 균등 잔차 평균 대신 임의의 고정된 확률분포를 사용해도 해당 투영 수렴률은 바뀌지 않습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=13">Eq. (7), Proposition 3 and Theorem 3, pp. 10–17</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">Q<sub>k+1</sub> = F(Q<sub>k</sub>) + [γ/(1 − γ)]d<sup>T</sup>[F(Q<sub>k</sub>) − Q<sub>k</sub>]1</div><p class="source-note">F는 할인 Bellman 최적 연산자, 1은 모든 성분이 1인 벡터, d는 상태–행동 쌍에 대한 고정 확률분포입니다. 균등한 d를 사용하면 경험적 평균 잔차 보정이 됩니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>더 정밀한 전체 오차 보장</h3></div><div><p>상수 모드를 제거한 전환 행렬군의 반지름은 ρ̄와 같습니다. ρ̄ + ε &lt; 1을 만족하는 임의의 ε &gt; 0에 대해, Theorem 2는 k ≥ 1에서 전체 오차를 상수 × (ρ̄ + ε)^(k−1) × 초기 투영 오차로 제한합니다. 기존 γ 수렴률보다 엄밀히 개선되려면 ρ̄ &lt; γ가 필요합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=14">Theorems 1–2, pp. 13–14</a></p></div></article>
+<article class="result-row"><div><h3>중심 이동만으로는 정책 식별이 빨라지지 않음</h3></div><div><p>초기 Q-벡터가 같으면 보정된 반복값과 일반 반복값은 모든 성분이 1인 벡터의 스칼라 배수만큼만 다릅니다. 따라서 투영된 경로와 동일한 동률 처리 규칙을 적용한 탐욕 정책은 매 반복에서 일치합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=11">Lemma 9, p. 11</a></p></div></article>
+<article class="result-row"><div><h3>수렴률 차이를 보여 주는 정확한 예제</h3></div><div><p>상태가 하나이고 행동이 두 개인 MDP에서는 모든 투영 모드가 0입니다. 따라서 투영 행렬군과 상수 모드를 제거한 행렬군의 반지름은 0인 반면, 표준 전체 행렬군의 반지름은 모든 0 &lt; γ &lt; 1에 대해 γ입니다. 수치 예제에서는 FrozenLake와 Taxi-v3의 전체 가치 오차도 살펴봅니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2605.10811v2#page=14">Example 1 and Section 11, pp. 13–19</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>결과는 유한 할인 MDP의 결정론적 Bellman 갱신과 고정된 잔차 평균 분포에 관한 것입니다. 적응적으로 바뀌는 가중치나 표본 기반 Q-learning에 대한 보장은 제시하지 않습니다. 개선된 수렴률은 전체 가치 오차에 대한 보장이며, 같은 초기값에서는 투영된 경로와 탐욕 정책의 순서가 표준 반복과 동일합니다. 엄밀한 개선에는 γ보다 작은 투영 반지름이 필요하고, 행렬군의 수렴률은 특정 경로에 대해서는 보수적일 수 있습니다. 수치 예제가 모든 상황에서 실제 실행 시간의 단축을 입증하는 것은 아닙니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2605.10811v2">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2026_260510811,
+  title={Switching-Geometry Analysis of Deflated Q-Value Iteration},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2605.10811},
+  archivePrefix={arXiv},
+  primaryClass={math.OC},
+  url={https://arxiv.org/abs/2605.10811}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2605.10811v2">arXiv:2605.10811v2</a>, 저자: Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

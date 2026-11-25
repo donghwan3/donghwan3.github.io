@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="공통 상수 방향을 복원하여 모멘텀이 Q-learning의 스펙트럴 수렴률을 개선하는 조건을 찾습니다.">
+  <meta property="og:title" content="Heavy-Ball Q-Learning with Residual Weighting Correction">
+  <meta property="og:description" content="공통 상수 방향을 복원하여 모멘텀이 Q-learning의 스펙트럴 수렴률을 개선하는 조건을 찾습니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/corrected-heavy-ball-q/index.html">
+  
+  <title>Heavy-Ball Q-Learning with Residual Weighting Correction</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/corrected-heavy-ball-q/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/corrected-heavy-ball-q/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/corrected-heavy-ball-q/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2606.27112">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/corrected-heavy-ball-q/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Q-learning · Heavy-ball 모멘텀 · 잔차 가중치 · 전환 시스템</p><h1>Heavy-Ball Q-Learning with Residual Weighting Correction</h1>
+      <p class="publication-status">arXiv:2606.27112 · 2026</p><p class="authors"><a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2606.27112">논문 PDF</a> <a href="https://arxiv.org/abs/2606.27112">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>가중 Bellman 잔차</h2><p>불균등한 상태-행동 가중치는 공통 상수 모드를 가립니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>공통 구조 복원</h2><p>저랭크 보정으로 상수 방향 동역학과 횡방향 동역학을 분리합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>제어된 모멘텀 추가</h2><p>엄격한 스펙트럴 간극이 있으면 작은 양의 모멘텀에 대한 개선을 증명할 수 있습니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">공통 상수 방향을 복원하여 모멘텀이 Q-learning의 스펙트럴 수렴률을 개선하는 조건을 찾습니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>구조를 갖춘 잔차 보정</h3><p>불균등한 상태-행동 가중치에서도 표 형식 Bellman 고정점을 보존하면서 모든 전환 모드가 공통 상수 고유벡터를 갖게 합니다.</p></article>
+<article><h3>조건부 스펙트럴 개선</h3><p>상수 방향 모멘텀 동역학과 횡방향 전환 동역학을 분리하여 공동 스펙트럴 반지름이 작아지는 명시적인 충분조건을 제시합니다.</p></article>
+<article><h3>선형 특징과 표본 갱신</h3><p>특징 공간으로 확장한 경우 자체적인 보정 목표를 식별하고, i.i.d. 확률적 구현에 대해 작은 스텝에서의 기대 오차 상계를 제시합니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>불균등한 표본 가중치는 모멘텀의 스펙트럴 분석을 가능하게 하는 공통 방향을 가립니다. 이 논문은 Bellman 잔차 가중치를 보정해 그 구조를 복원한 뒤, 정확한 전환 선형 시스템으로 heavy-ball 갱신을 연구합니다. 상수 방향과 횡방향 동역학 사이의 엄격한 간극을 이용해 공동 스펙트럴 반지름의 조건부 개선을 보입니다. 이 구성은 선형 특징으로 확장되며 그 목표는 보정된 고정점입니다. 별도 분석에서는 작은 스텝·안정성 가정 아래 i.i.d. 표본 구현의 유한시간 상계를 제공합니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">모멘텀은 가중 Q-learning에 언제 도움이 될까?</h2><p>일반 가중 Q-learning에서는 정책 모드들이 공통 상수 고유벡터를 공유하지 않을 수 있습니다. 이 때문에 동기식 Q-value iteration의 스펙트럴 가속 논리를 바로 적용하기 어렵습니다. 논문은 잔차 가중치를 제어된 방식으로 바꾸어 해당 구조와 엄밀한 모멘텀 분석을 복원할 수 있는지 연구하며, 표 형식 최적해와 선형 근사가 유도하는 목표를 구분합니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>잔차 가중치 보정</h3><p>H = δ1dᵀ + D(I − 1dᵀ), D = diag(d)로 설정합니다. 표본 가중치는 양수이며 합이 1이고 δ &gt; 0입니다. 그러면 H1 = δ1이며, 표 형식에서 H는 비특이이고 Q*를 바꾸지 않습니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S4">Definition 4.1 and Lemmas 4.1–4.3, pp. 7–8</a></p></article>
+<article class="method-step"><h3>상수 방향과 횡방향 동역학 분리</h3><p>오차 상태에 직전 값을 추가하여 전환 시스템군을 분해합니다. 갱신식의 모멘텀 계수는 αη입니다. 선형 특징에서는 표현 가능한 상수 특징을 이용해 유일한 보정 고정점 주위에서 유사한 분해를 얻습니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S10">Sections 5 and 10, pp. 12–16 and 24–30</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">Q<sub>k+1</sub> = Q<sub>k</sub> + αH[F(Q<sub>k</sub>) − Q<sub>k</sub>] + αη(Q<sub>k</sub> − Q<sub>k−1</sub>)</div><p class="source-note">결정론적 보정 heavy-ball 갱신식입니다. F는 Bellman 최적성 사상, H는 잔차 가중치 보정이며 실제 모멘텀 계수는 αη입니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>간극 조건 아래 보정 평균 재귀식의 모멘텀 개선</h3></div><div><p>0 &lt; 1 − αδ(1 − γ) &lt; 1이고 횡방향 공동 스펙트럴 반지름이 엄격히 더 작다면, 충분히 작은 양의 αη에서 전체 공동 스펙트럴 반지름은 모멘텀이 없는 보정 Q-learning보다 엄격히 작아집니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S5.Thmtheorem1">Theorem 5.1, p. 16</a></p></div></article>
+<article class="result-row"><div><h3>일반 Q-learning과의 비교에는 추가 조건 필요</h3></div><div><p>엄격한 횡방향 간극과 허용되는 작은 모멘텀 외에 0 &lt; αd(s,a) ≤ 1 및 d_max ≤ δ &lt; 1/[α(1 − γ)]이면 일반 결정론적 Q-learning과 비교해서도 엄격한 개선이 성립합니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S6.Thmcorollary1">Corollary 6.1, pp. 18–19</a></p></div></article>
+<article class="result-row"><div><h3>유한시간 확률적 보장</h3></div><div><p>특징 공간의 유일한 보정 고정점, 고정된 문제·모멘텀 파라미터, 안정적인 기준 보정 전환 시스템군 및 충분히 작은 α 아래, i.i.d. 표본 재귀식은 고정 초기화에 대해 감소하는 과도항과 O(√α)의 기대 오차 잔차를 가집니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S12.Thmtheorem1">Theorem 12.1 and Assumptions 12.1–12.2, pp. 34–41</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>가속 결과는 조건부이며 모멘텀이나 잔차 보정이 항상 유리하다는 뜻은 아닙니다. 공동 스펙트럴 반지름 안정성은 상태 의존 재귀식의 충분조건입니다. 선형 근사에서 보정 고정점은 일반적으로 Q* 및 일반 투영 Bellman 해 모두와 다릅니다. 확률적 결과는 i.i.d. 표본과 작은 일정 스텝을 가정하며, 잔차 상계가 고정 α에서 정확한 수렴을 보장하지는 않습니다. η가 고정되어 있으면 작은 α에서의 개선은 선도 차수의 가속이 아니라 이차 효과입니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2606.27112v2">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2026_260627112,
+  title={Heavy-Ball Q-Learning with Residual Weighting Correction},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2606.27112},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2606.27112}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2606.27112v2">arXiv:2606.27112v2</a>, 저자: Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

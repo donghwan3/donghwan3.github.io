@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A switching-system view of linear Q-learning: joint spectral radius, Lyapunov certificates, finite-time bounds, and regularization. Research by Donghwan Lee and Han-Dong Lim, KAIST.">
+  <meta property="og:title" content="A Switching System Theory of Q-Learning with Linear Function Approximation">
+  <meta property="og:description" content="Understanding linear Q-learning through switching dynamics and the joint spectral radius.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/projects/linear-q-switching/">
+  <meta property="og:image" content="https://donghwan3.github.io/assets/projects/linear-q-switching/lyapunov-norm-ball.png">
+  
+  <title>A Switching System Theory of Q-Learning with Linear Function Approximation</title>
+  <link rel="icon" href="../../assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="../../assets/fonts.css">
+  <link rel="stylesheet" href="../../assets/projects/project.css?v=14e19d7f218e">
+  <script src="../../assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/projects/linear-q-switching/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/linear-q-switching/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/linear-q-switching/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="project-nav" aria-label="Project navigation">
+    <a class="lab-link" href="../../index.html">REDI Lab</a>
+    <div><a href="#problem">Problem</a><a href="#method">Method</a><a href="#results">Results</a><a href="#video">Video</a><a href="#bibtex">BibTeX</a></div>
+  <a class="language-switch" href="/ko/projects/linear-q-switching/index.html" lang="ko" hreflang="ko" aria-label="한국어 페이지로 전환">한국어</a></nav>
+  <main id="main">
+    <header class="hero" id="top">
+      <p class="eyebrow">Reinforcement learning · Switching systems</p>
+      <h1>A Switching System Theory of Q-Learning <span>with Linear Function Approximation</span></h1>
+      <p class="publication-status">arXiv preprint · 2026</p>
+      <p class="authors"><a href="../../pi.html">Donghwan Lee</a><span class="author-separator">,</span> Han-Dong Lim</p>
+      <p class="affiliation">Department of Electrical Engineering<br>Korea Advanced Institute of Science and Technology (KAIST)</p>
+      <div class="resource-links" aria-label="Paper resources">
+        <a href="https://arxiv.org/pdf/2605.11021">Paper (PDF)</a>
+        <a href="https://arxiv.org/abs/2605.11021">arXiv</a>
+        <a href="#video">Video</a>
+        <a href="#bibtex">BibTeX</a>
+      </div>
+    </header>
+
+    <figure class="overview wide">
+      <div class="overview-heading"><span>The central idea</span><span>From nonlinear updates to a stability certificate</span></div>
+      <div class="concept-flow">
+        <div class="concept"><span class="concept-tag">Learning</span><h2>Linear Q-learning</h2><p class="math">Q<sub>θ</sub>(s, a) = φ(s, a)<sup>⊤</sup>θ</p><p>The Bellman maximum changes the active policy.</p></div>
+        <div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div>
+        <div class="concept"><span class="concept-tag">Representation</span><h2>Switching dynamics</h2><p class="math">x<sub>k+1</sub> = A<sub>μ<sub>k</sub></sub>x<sub>k</sub> + αw<sub>k</sub></p><p>Policy-dependent linear modes, plus sampling noise.</p></div>
+        <div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div>
+        <div class="concept"><span class="concept-tag">Certificate</span><h2>Joint spectral radius</h2><p class="math">ρ(𝒜<sub>α</sub>) &lt; 1</p><p>A common Lyapunov norm controls all switching modes.</p></div>
+      </div>
+      <figcaption>Conceptual overview of the paper. Here x<sub>k</sub> = θ<sub>k</sub> − θ<sup>⋆</sup>; the noise term is absent in the deterministic recursion. The stochastic guarantees also require the sampling and step-size conditions below.</figcaption>
+    </figure>
+    <p class="takeaway">Analyze the <strong>products of update matrices</strong> to understand when linear Q-learning is stable.</p>
+
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title">
+      <h2 id="contributions-title">Key Contributions</h2>
+      <div class="contributions">
+        <article><p class="eyebrow">Insight</p><h3>An exact switching representation</h3><p>The Bellman maximum admits a finite-difference stochastic-policy representation. This turns the nonlinear mean update into an exact switched linear error recursion.</p></article>
+        <article><p class="eyebrow">Method</p><h3>A Lyapunov norm built from matrix products</h3><p>The joint spectral radius (JSR) measures worst-case growth across switching sequences. When it is below one, a common Lyapunov norm certifies contraction.</p></article>
+        <article><p class="eyebrow">Results</p><h3>From stability to finite-time bounds</h3><p>The framework yields deterministic convergence, stochastic error bounds under i.i.d. sampling, and stability certificates for regularized linear Q-learning.</p></article>
+      </div>
+    </section>
+
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p>Q-learning is a fundamental algorithmic primitive in reinforcement learning. This paper develops a new framework for analyzing linear Q-learning from a switching linear system (SLS) viewpoint, where linear Q-learning denotes Q-learning with linear function approximation. We derive a stochastic SLS representation of the linear Q-learning error and obtain a finite-time error analysis for linear Q-learning through the joint spectral radius (JSR) of the associated SLS family; the JSR is the exact worst-case exponential rate of the corresponding SLSs. The JSR-based rate is tied to the intrinsic worst-case exponential rate of the SLS representation. Moreover, we provide a JSR-based certificate for convergence of linear Q-learning, which can be less conservative than one-step norm bounds.</p>
+    </section>
+
+    <section class="section band" id="problem" aria-labelledby="problem-title">
+      <div class="prose"><p class="eyebrow">The problem</p><h2 id="problem-title">Linear features. Nonlinear dynamics.</h2>
+        <p>Approximating a Q-function with linear features reduces the number of parameters. The learning dynamics, however, remain nonlinear: the maximizing action can change with the current parameter.</p>
+        <p>A bound on a single update can miss how successive modes interact. The paper instead studies the family of matrices induced by the Bellman maximum and the products they generate.</p>
+        <blockquote>Which geometry makes every admissible mean update contract?</blockquote>
+        <p>The answer is a norm constructed from switched matrix products. Its contraction rate can approach the JSR of the associated arbitrary-switching family.</p>
+      </div>
+    </section>
+
+    <section class="section wide" id="method" aria-labelledby="method-title">
+      <p class="eyebrow">From problem to solution</p><h2 id="method-title">A common geometry for changing policies</h2>
+      <div class="method-grid">
+        <div>
+          <h3>Represent the update exactly</h3>
+          <p>For any pair of parameters, a suitable stochastic policy μ represents the difference between their mean updates:</p>
+          <div class="equation"><math display="block" aria-label="T alpha of theta minus T alpha of theta bar equals A mu times theta minus theta bar"><mrow><msub><mi>T</mi><mi>α</mi></msub><mo>(</mo><mi>θ</mi><mo>)</mo><mo>−</mo><msub><mi>T</mi><mi>α</mi></msub><mo>(</mo><mover><mi>θ</mi><mo>¯</mo></mover><mo>)</mo><mo>=</mo><msub><mi>A</mi><mi>μ</mi></msub><mo>(</mo><mi>θ</mi><mo>−</mo><mover><mi>θ</mi><mo>¯</mo></mover><mo>)</mo></mrow></math></div>
+          <p>Each stochastic-policy mode lies in the convex hull of the finite deterministic-policy family 𝒜<sub>α</sub>. The JSR is unchanged by this convexification.</p>
+          <h3>Measure growth across products</h3>
+          <div class="equation"><math display="block" aria-label="The joint spectral radius is the limit of the largest norm of a length k mode product to the power one over k"><mrow><mi>ρ</mi><mo>(</mo><msub><mi>𝒜</mi><mi>α</mi></msub><mo>)</mo><mo>=</mo><munder><mi>lim</mi><mrow><mi>k</mi><mo>→</mo><mi>∞</mi></mrow></munder><munder><mi>max</mi><mrow><msub><mi>A</mi><mi>i</mi></msub><mo>∈</mo><msub><mi>𝒜</mi><mi>α</mi></msub></mrow></munder><msup><mrow><mo>‖</mo><msub><mi>A</mi><mi>k</mi></msub><mo>⋯</mo><msub><mi>A</mi><mn>1</mn></msub><mo>‖</mo></mrow><mrow><mn>1</mn><mo>/</mo><mi>k</mi></mrow></msup></mrow></math></div>
+          <p>Unlike a one-step norm bound, this quantity captures the long-run effect of switching. The resulting certificate is sufficient for the actual Bellman-generated recursion.</p>
+          <p class="source-note"><a href="https://arxiv.org/html/2605.11021v3#Thmproposition1">Proposition 1</a> · <a href="https://arxiv.org/html/2605.11021v3#Thmtheorem1">Theorem 1</a></p>
+        </div>
+        <figure class="paper-figure">
+          <a href="../../assets/projects/linear-q-switching/lyapunov-norm-ball.png" aria-label="Open the original Lyapunov norm-ball figure"><img src="../../assets/projects/linear-q-switching/lyapunov-norm-ball.png" width="560" height="598" alt="Three-dimensional red truncated JSR Lyapunov norm ball, illustrating the non-Euclidean geometry induced by switched matrix products." loading="lazy"></a>
+          <figcaption><strong>The geometry of the certificate.</strong> Original figure from Example 3: three features, eight deterministic-policy modes, truncation depth T = 4, and β = 0.975. The displayed ball approximates the infinite-horizon Lyapunov norm; it is not an empirical learning curve. <a href="https://arxiv.org/html/2605.11021v3#S4.F1">Lee &amp; Lim, 2026</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section band" id="results" aria-labelledby="results-title">
+      <div class="wide"><p class="eyebrow">Main theoretical results</p><h2 id="results-title">What the switching view establishes</h2>
+        <div class="result-row"><div><span class="result-label">Deterministic dynamics</span><h3>A unique fixed point and exponential convergence</h3></div><div><p>If ρ(𝒜<sub>α</sub>) &lt; 1, the mean update is a global contraction in the constructed Lyapunov norm. It has a unique projected Bellman fixed point θ<sup>⋆</sup>, and the deterministic iterates approach it exponentially.</p><p class="math result-equation">‖θ<sub>k</sub> − θ<sup>⋆</sup>‖<sub>2</sub> ≤ √C<sub>ε</sub> β<sub>ε</sub><sup>k</sup> ‖θ<sub>0</sub> − θ<sup>⋆</sup>‖<sub>2</sub></p><p class="source-note">β<sub>ε</sub> = ρ(𝒜<sub>α</sub>) + ε, with 0 &lt; ε &lt; 1 − ρ(𝒜<sub>α</sub>). <a href="https://arxiv.org/html/2605.11021v3#Thmtheorem1">Theorem 1</a>.</p></div></div>
+        <div class="result-row"><div><span class="result-label">Stochastic dynamics</span><h3>Finite-time error with a small-step residual bound</h3></div><div><p>Under i.i.d. sampling, the error splits into a decaying initial-condition term, a switching-related transient, and a noise term. With fixed problem data, stability at a reference step size, and a sufficiently small constant α, the unprojected recursion is mean-square bounded.</p><p class="math result-equation">Expected error ≤ decaying transients + O(√α)</p><p>The O(√α) statement describes the final error-bound term as α tends to zero, with the initialization fixed. At a fixed nonzero step size, the bound generally retains a residual term; it does not establish a positive lower bound on the actual error.</p><p class="source-note"><a href="https://arxiv.org/html/2605.11021v3#Thmtheorem5">Theorem 5</a> · <a href="https://arxiv.org/html/2605.11021v3#Thmtheorem6">Theorem 6</a>.</p></div></div>
+        <div class="result-row"><div><span class="result-label">Regularization</span><h3>Shift the modes, then check the step size</h3></div><div><p>Adding an ℓ<sub>2</sub> penalty with weight η shifts every direct mode by −αηI. This yields regularization-dependent JSR bounds and sufficient stability conditions.</p><p class="math result-equation">A<sub>π</sub><sup>η</sup> = A<sub>π</sub> − αηI</p><p>Regularization and step size must be considered together: stronger regularization can improve one part of the stability bound while tightening the admissible step-size range.</p><p class="source-note"><a href="https://arxiv.org/html/2605.11021v3#S6">Section 6</a> · <a href="https://arxiv.org/html/2605.11021v3#Thmcorollary1">Corollary 1</a>.</p></div></div>
+        <details class="conditions"><summary>Read the assumptions behind the stochastic result</summary><div><p>The setup uses a finite discounted MDP, a feature matrix with full column rank, positive state-action sampling probabilities, and i.i.d. observations. For Theorems 5–6, the transition kernel, rewards, discount, features, and sampling distribution remain fixed as α varies; a reference step size ᾱ must satisfy ρ(𝒜<sub>ᾱ</sub>) &lt; 1.</p><p>The result applies to a deterministic initialization and 0 &lt; α ≤ min{ᾱ, 1/(2C<sub>1</sub>σ<sub>1</sub><sup>2</sup>)}, with the constants defined in the paper. The second term in the minimum is interpreted as +∞ when σ<sub>1</sub> = 0. These small-step results establish boundedness without assuming bounded iterates in advance. The earlier Theorems 3–4 instead impose a bounded-iterate assumption.</p><p>The target is the projected Bellman fixed point within the feature class. The stated guarantees do not cover arbitrary Markovian sampling or unrestricted step sizes.</p><p><a href="https://arxiv.org/html/2605.11021v3#Thmtheorem6">See the complete statement and constants in Theorem 6</a>.</p></div></details>
+      </div>
+    </section>
+
+    <section class="section prose" id="interpretation" aria-labelledby="interpretation-title">
+      <p class="eyebrow">Interpreting the certificate</p><h2 id="interpretation-title">Sufficient does not mean necessary</h2>
+      <p>The JSR allows every switching sequence. Actual Q-learning follows only the modes selected by its Bellman dynamics. A family can therefore fail the arbitrary-switching test while its Bellman-generated trajectory still converges.</p>
+      <div class="example">
+        <div><h3>One state. Two actions.</h3><p>In the paper’s Example 4, the two scalar modes are <strong>0.397</strong> and <strong>−1.304</strong>, so their JSR is <strong>1.304 &gt; 1</strong>.</p><p>A negative parameter uses the second mode once and becomes positive. Every later update then uses the contracting mode 0.397.</p></div>
+        <div class="trajectory" aria-label="Illustration of Example 4 starting from theta zero equals minus one"><p class="trajectory-label">Bellman-generated path · θ<sub>0</sub> = −1</p><p class="trajectory-values">−1 <span>→</span> 1.304 <span>→</span> 0.518 <span>→</span> 0.206 <span>→</span> 0</p><p class="trajectory-note">First steps rounded; the final arrow denotes the limit.</p><hr><p class="trajectory-label">Arbitrary switching can repeat the unstable mode</p><p class="math">x<sub>k</sub> = (−1.304)<sup>k</sup>x<sub>0</sub></p><p class="trajectory-note">Allowed by the switching family, but not repeatedly realized by this Bellman recursion.</p></div>
+      </div>
+      <p class="source-note">Numerical illustration of the exact recurrence in <a href="https://arxiv.org/html/2605.11021v3#Thmexample4">Example 4</a>; not a benchmark experiment. The JSR gives the exact worst-case exponential rate of the associated switching family, rather than necessarily the rate of an individual Q-learning trajectory.</p>
+    </section>
+
+    <section class="section band" id="video" aria-labelledby="video-title">
+      <div class="prose"><p class="eyebrow">Paper presentation</p><h2 id="video-title">Watch the explanation</h2><p>A video presentation of this paper on the <a href="https://www.youtube.com/@nextstateai3">Next State AI channel</a>, covering the connection between Q-learning, switching systems, and stability analysis.</p>
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/pR0qhoFVWBo" title="A Switching System Theory of Q-Learning with Linear Function Approximation — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p class="video-fallback"><a href="https://www.youtube.com/watch?v=pR0qhoFVWBo">Watch on YouTube</a></p>
+      </div>
+    </section>
+
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title">
+      <div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">Copy BibTeX</button></div>
+      <pre><code id="citation">@misc{lee2026switchingtheoryqlearninglinear,
+  title={A Switching System Theory of Q-Learning with
+         Linear Function Approximation},
+  author={Donghwan Lee and Han-Dong Lim},
+  year={2026},
+  eprint={2605.11021},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2605.11021}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <footer class="project-footer"><p><a href="../../index.html">Reinforced Decision Intelligence Lab</a> · <a href="../../publication.html">All publications</a> · <a href="#top">Back to top</a></p><p>Content based on <a href="https://arxiv.org/abs/2605.11021v3">arXiv:2605.11021v3</a> (3 July 2026), by Donghwan Lee and Han-Dong Lim. Abstract and original figure reproduced under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Explanatory summaries and the overview diagram are adapted for this page.</p><p>Page structure inspired by <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

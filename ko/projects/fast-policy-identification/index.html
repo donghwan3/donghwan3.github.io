@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="가치 함수는 수치적으로 Bellman 고정점에 수렴하기 전에 최적 행동을 식별할 수 있습니다.">
+  <meta property="og:title" content="Beyond the Bellman Fixed Point: Geometry and Fast Policy Identification in Value Iteration">
+  <meta property="og:description" content="가치 함수는 수치적으로 Bellman 고정점에 수렴하기 전에 최적 행동을 식별할 수 있습니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/fast-policy-identification/index.html">
+  
+  <title>Beyond the Bellman Fixed Point: Geometry and Fast Policy Identification in Value Iteration</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/fast-policy-identification/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/fast-policy-identification/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/fast-policy-identification/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2604.17457">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#video">영상</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/fast-policy-identification/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">가치 반복 · 정책 식별 · 불변 집합 · 공동 스펙트럴 반지름</p><h1>Beyond the Bellman Fixed Point: Geometry and Fast Policy Identification in Value Iteration</h1>
+      <p class="publication-status">arXiv:2604.17457 · 2026</p><p class="authors"><a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, Korea Advanced Institute of Science and Technology (KAIST), Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2604.17457">논문 PDF</a> <a href="https://arxiv.org/abs/2604.17457">arXiv</a> <a href="#video">영상</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>아핀 집합에 접근</h2><p>행동 선호를 바꾸는 오차를 줄입니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>불변 튜브에 진입</h2><p>이후의 모든 탐욕적 선택은 최적 행동 집합에 속합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>가치 정밀화</h2><p>더 느린 균일 이동 모드를 따를 수도 있지만, 정확한 고정점을 향해 계속 진행합니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">가치 함수는 수치적으로 Bellman 고정점에 수렴하기 전에 최적 행동을 식별할 수 있습니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>정책 식별을 위한 기하학적 목표</h3><p>실질적 최적해 집합은 동률 처리 규칙을 적용한 탐욕 정책이 최적인 Q-함수들을 포함합니다. 상수 이동 아핀 집합 주위의 불변 튜브는 이 더 큰 목표 집합 안에서 다루기 쉬운 부분집합을 제공합니다.</p></article>
+<article><h3>수직 방향의 정확한 오차 시스템</h3><p>확률 정책 표현으로 결정론적 Bellman-max 오차를 정확하게 나타냅니다. 투영을 통해 균일 이동을 제거하면, 남은 정책 관련 방향을 제한된 공동 스펙트럴 반지름으로 분석할 수 있습니다.</p></article>
+<article><h3>더 빠른 식별에 대한 조건부 설명</h3><p>논문은 수직 방향 수렴률이 할인율보다 엄밀히 작아지는 혼합 조건과 이를 방해하는 요인을 밝힙니다. 또한 최적 정책이 활성화되기 전후의 동역학을 구분합니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>통상적인 축약 논증은 Q-가치 반복이 하나의 최적 가치 벡터에 접근하는 속도를 측정합니다. 이 연구는 대신 탐욕적 행동이 언제 최적이 되는지를 살펴봅니다. 모든 최적 Q-값에 같은 상수를 더해도 행동은 바뀌지 않아 정책이 동등한 가치들의 아핀 집합이 생깁니다. 그 집합 주위의 작은 불변 튜브는 최적 행동 선택을 보장합니다. 상수 이동 방향을 투영으로 제거하면 보통의 할인율보다 빠를 수 있는 제한된 전환 시스템 수렴률이 드러납니다. 이 이론은 유한 시간의 정책 식별과 이후 가치 자체의 수치적 정밀화를 분리합니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">가치가 아직 수렴하지 않아도 행동은 언제 수렴할까요?</h2><p>행동 순위가 이미 정확해진 뒤에도 가치 반복은 모든 Q-값을 거의 같은 양만큼 계속 바꿀 수 있습니다. 하나의 최적 벡터까지의 거리 상한만으로는 이 현상을 분리하지 못합니다. 최적 행동 선택이 영구적으로 유지됨을 보장하고, 정책이 동등한 집합으로의 접근을 정량화하며, 그 접근이 전체 가치 수렴보다 언제 더 빨라지는지 밝히는 것이 문제입니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>최적 정책을 유지하는 불변 튜브 구성</h3><p>최적 행동 집합과 비최적 행동 집합 사이의 최소 격차를 사용합니다. 그 격차의 절반보다 작은 튜브 반지름은 최적 탐욕 선택을 보장하며, Bellman 연산자는 이 튜브를 더 작은 튜브로 보냅니다. 최적 행동들 사이의 동률은 허용됩니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.17457v4#page=7">Section 5, Assumption 1 and Proposition 2, pp. 6-7</a></p></article>
+<article class="method-step"><h3>균일 이동 모드를 투영으로 제거</h3><p>각 오차 갱신을 보조 확률 정책으로 표현한 뒤 모든 성분이 1인 벡터에 수직으로 투영합니다. 공통 Lyapunov 노름으로 제한된 행렬들의 곱을 분석합니다. 이 표현은 가치 반복 자체를 확률화하지 않습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.17457v4#page=8">Section 6, Lemmas 5-6 and Theorem 1, pp. 7-8</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">X<sub>1</sub> = Q<sup>*</sup> + span(1)</div><p class="source-note">이 아핀 집합의 모든 점은 최적 Q-값 전체에 같은 상수를 더한 것입니다. 이러한 이동은 행동 순서를 보존하므로 최적 탐욕 행동도 유지합니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>유한 시간 이후 지속되는 최적 행동 선택</h3></div><div><p>결정론적 반복값은 유한 시간 안에 충분히 작은 불변 튜브에 진입합니다. Q-벡터가 아직 Bellman 고정점과 같지 않더라도, 이후 동률 처리 규칙을 적용한 모든 탐욕 정책은 최적입니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.17457v4#page=7">Proposition 2, Section 6 and Appendix D, Corollary 2</a></p></div></article>
+<article class="result-row"><div><h3>스펙트럴 간격이 허용하는 더 빠른 수직 방향 상한</h3></div><div><p>아핀 집합까지의 거리는 제한된 공동 스펙트럴 반지름보다 큰 허용 수렴률로 감소합니다. 할인율보다 빠른 수렴률은 그 반지름이 엄밀히 작을 때만 가능하며, 앞에 곱해지는 상수도 유한 시간 비교에 영향을 줍니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.17457v4#page=8">Theorem 1 and following discussion, p. 8</a></p></div></article>
+<article class="result-row"><div><h3>최적 정책이 결정하는 두 번째 단계</h3></div><div><p>정책 식별 이후에는 최적 정책의 모드만 활성화됩니다. 최적 정책이 유일하면 하나의 선형 시스템이 됩니다. 수직 방향 오차가 빠르게 줄어도 전체 가치 오차에는 더 느린 상수 이동 성분이 남을 수 있습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.17457v4#page=9">Section 7 and Appendix D, Theorem 2 and Corollary 3</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>증명된 식별 결과는 결정론적 표 기반 할인 Q-가치 반복에 관한 것입니다. Q-learning 실험은 관련 기하 구조를 보여 주지만 정리를 잡음이 있는 갱신으로 확장하지는 않습니다. 엄밀한 수직 방향 가속에는 추가적인 전환 행렬군 조건이 필요하며, 개별 정책 연쇄의 에르고딕성만으로는 충분하지 않습니다. 상수와 초기 거리에 따라 유한 시간 상한의 개선 여부가 달라집니다. 제시된 단일 Q-가치 반복 경로는 처음부터 최적 탐욕 정책을 가지므로, 최적 정책의 최초 발견이 아닌 튜브 진입을 보여 줍니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2604.17457v4">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    <section class="section band" id="video" aria-labelledby="video-title"><div class="prose">
+      <p class="eyebrow">논문 발표</p><h2 id="video-title">설명 영상 보기</h2>
+      <p>이 논문의 발표 채널: <a href="https://www.youtube.com/@nextstateai3">Next State AI</a>.</p>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/FR9dqwOioq4" title="Beyond the Bellman Fixed Point: Geometry and Fast Policy Identification in Value Iteration — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=FR9dqwOioq4">YouTube에서 보기</a></p></div></section>
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2026_260417457,
+  title={Beyond the Bellman Fixed Point: Geometry and Fast Policy Identification in Value Iteration},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2604.17457},
+  archivePrefix={arXiv},
+  primaryClass={math.OC},
+  url={https://arxiv.org/abs/2604.17457}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2604.17457v4">arXiv:2604.17457v4</a>, 저자: Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

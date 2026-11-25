@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="정확한 전환 시스템 표현으로 표 기반 Q-learning의 문제별 수렴률을 밝힙니다.">
+  <meta property="og:title" content="Switching Theory for Q-Learning">
+  <meta property="og:description" content="정확한 전환 시스템 표현으로 표 기반 Q-learning의 문제별 수렴률을 밝힙니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/switching-theory-q-learning/index.html">
+  
+  <title>Switching Theory for Q-Learning</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/switching-theory-q-learning/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/switching-theory-q-learning/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/switching-theory-q-learning/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2604.19569">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#video">영상</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/switching-theory-q-learning/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Q-learning · 공동 스펙트럴 반지름 · 전환 시스템 · 선형계획법</p><h1>Switching Theory for Q-Learning</h1>
+      <p class="publication-status">arXiv:2604.19569 · 2026</p><p class="authors"><a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, Korea Advanced Institute of Science and Technology (KAIST), Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2604.19569">논문 PDF</a> <a href="https://arxiv.org/abs/2604.19569">arXiv</a> <a href="#video">영상</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>오차의 정확한 선형화</h2><p>확률 정책으로 Bellman-max 차이를 표현합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>정책 행렬군 분석</h2><p>선형계획법의 가능성 검사를 통해 공동 스펙트럴 반지름을 계산합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>표본 효과 추가</h2><p>드리프트 과도 항과 독립 또는 Markov 잡음의 상한을 결합합니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">정확한 전환 시스템 표현으로 표 기반 Q-learning의 문제별 수렴률을 밝힙니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>정확한 오차 표현</h3><p>상태별 볼록성 논증으로 Bellman-max 차이를 적절한 확률 정책하의 평균으로 대체합니다. 마팅게일 잡음을 유지하면서 아핀 오차 오프셋을 제거합니다.</p></article>
+<article><h3>계산 가능한 스펙트럼 수렴률</h3><p>공동 스펙트럴 반지름은 결정론적 정책 모드들의 일반 스펙트럴 반지름 중 최댓값과 같습니다. 동등한 선형계획 표현을 통해 모든 결정론적 정책을 명시적으로 열거하지 않아도 됩니다.</p></article>
+<article><h3>표본 특성을 반영한 유한 시간 상한</h3><p>독립 표본과 기하적으로 혼합되는 단일 Markov 연쇄를 별도로 분석합니다. 두 경우 모두 드리프트가 제어하는 과도 항과 표본 잡음이 만드는 추가 항을 유지합니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>이 연구는 이전 비교 분석의 아핀 오프셋 없이 Q-learning 오차를 확률적 선형 전환 시스템으로 다시 표현합니다. 결정론적 드리프트는 정책 의존 비음수 행렬군이 결정합니다. 이 행렬군의 공동 스펙트럴 반지름으로 문제별 지수 수렴률을 얻고, 확률 상한은 표본 잡음을 별도로 반영합니다. 특수한 구조 덕분에 선형계획 가능성 검사와 이분법으로 수렴률을 계산할 수 있습니다. 독립 관측과 기하적으로 혼합되는 Markov 관측을 다루며, 더 정밀한 드리프트 수렴률이 항상 더 나은 유한 시간 상한을 뜻하지 않는 이유를 보여 줍니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">학습 동역학 자체의 수렴률은 무엇일까요?</h2><p>편리한 행 합 추정은 Q-learning을 구성하는 행렬들의 실제 최악 성장을 가릴 수 있습니다. 이전 전환 표현은 보조 비교가 필요한 아핀 오프셋도 도입합니다. 이 논문은 원래 오차 드리프트를 직접 표현할 수 있는지, 행렬군 고유의 수렴률을 특징지을 수 있는지, 잡음이나 과도 상수를 무시하지 않고 그 수렴률을 유한 시간 추정에 반영할 수 있는지를 연구합니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>아핀 오프셋 제거</h3><p>두 행동 최댓값의 차이를 행동별 오차의 볼록 결합으로 표현합니다. 얻어진 예측 가능한 확률 정책 행렬은 결정론적 정책 행렬군의 볼록 껍질 안에 있어 정확한 확률 점화식을 제공합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.19569v5#page=5">Section 4, Theorem 1, p. 5</a></p></article>
+<article class="method-step"><h3>공통 축약 조건 계산</h3><p>비음수 정책 구조를 이용해 공동 스펙트럴 반지름을 특징짓습니다. 시험 수렴률에 대해 상태–행동 및 상태 가중치의 선형 부등식을 검사합니다. 이분법으로 수렴률에 접근하면서 가중 노름 보장 조건도 얻습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.19569v5#page=7">Section 6, Theorems 3-4, p. 7</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">e<sub>k+1</sub> = M<sub>μk</sub>e<sub>k</sub> + αw<sub>k</sub></div><p class="source-note">오차는 예측 가능한 정책 의존 선형 사상과 표본 잡음을 따릅니다. 독립 표본에서는 잡음이 마팅게일 차분이며, Markov 확장에는 별도의 분해가 필요합니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>독립 표본의 오차 상한</h3></div><div><p>전체 방문과 명시된 범위의 고정 스텝 크기에서 기대 오차는 공동 스펙트럴 반지름에 따른 과도 항과 잔차 상한을 갖습니다. 문제 자료를 고정하면 잔차 항은 스텝 크기의 제곱근에 따라 줄어듭니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.19569v5#page=6">Section 5, Theorem 2, p. 6</a></p></div></article>
+<article class="result-row"><div><h3>Markov 관측으로의 확장</h3></div><div><p>행동 정책이 유도하는 기약적·비주기적 연쇄가 기하적 혼합을 만족하면 Poisson 방정식으로 시간적 의존성을 제어합니다. 같은 드리프트 수렴률을 유지하면서 혼합 시간 의존 잡음 항이 추가됩니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.19569v5#page=8">Section 7, Theorem 5, pp. 7-8</a></p></div></article>
+<article class="result-row"><div><h3>구성된 예제의 더 정밀한 수렴률</h3></div><div><p>작은 유한 MDP에서 공동 스펙트럴 반지름이 행 합 상한보다 엄밀히 작습니다. 시뮬레이션은 이 차이를 설명합니다. 표시된 정규화 수렴률 곡선은 경험적 표본 복잡도 상한이나 보편적인 실용적 우월성 주장이 아닙니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2604.19569v5#page=8">Section 8 and Figure 1, pp. 8-9</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>결과는 양의 표본 빈도와 고정 스텝 크기를 갖는 유한 할인 표 기반 Q-learning에 적용됩니다. Markov 확장에는 명시적인 혼합 가정이 필요합니다. 더 작은 지수 밑만으로 모든 반복에서 더 작은 상한을 보장할 수는 없습니다. 행렬 곱 성장 상수, 다항 과도 인자, 잔차 상한도 중요합니다. 스펙트럼 수렴률은 해당 전환 행렬군에 대해 정확하며, 모든 Q-learning 경로가 최악 수렴률을 달성한다는 뜻은 아닙니다. 큰 선형계획 문제는 여전히 계산 부담이 클 수 있습니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2604.19569v5">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    <section class="section band" id="video" aria-labelledby="video-title"><div class="prose">
+      <p class="eyebrow">논문 발표</p><h2 id="video-title">설명 영상 보기</h2>
+      <p>이 논문의 발표 채널: <a href="https://www.youtube.com/@nextstateai3">Next State AI</a>.</p>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/ougApUewVOg" title="Switching Theory for Q-Learning — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=ougApUewVOg">YouTube에서 보기</a></p></div></section>
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2026_260419569,
+  title={Switching Theory for Q-Learning},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2604.19569},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2604.19569}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2604.19569v5">arXiv:2604.19569v5</a>, 저자: Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

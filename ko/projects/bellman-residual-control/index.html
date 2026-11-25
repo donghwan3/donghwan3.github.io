@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="제어 Bellman 잔차의 기하학을 통해 하강법이 어떤 정상점에 도달할 수 있는지 설명합니다.">
+  <meta property="og:title" content="Bellman Residual Minimization for Control: Geometry, Stationarity, and Convergence">
+  <meta property="og:description" content="제어 Bellman 잔차의 기하학을 통해 하강법이 어떤 정상점에 도달할 수 있는지 설명합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/bellman-residual-control/index.html">
+  
+  <title>Bellman Residual Minimization for Control: Geometry, Stationarity, and Convergence</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/bellman-residual-control/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/bellman-residual-control/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/bellman-residual-control/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2601.18840">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#video">영상</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/bellman-residual-control/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Bellman 잔차 최소화 · 비매끄러운 최적화 · 선형 함수 근사 · Soft 제어</p><h1>Bellman Residual Minimization for Control: Geometry, Stationarity, and Convergence</h1>
+      <p class="publication-status">arXiv:2601.18840 · 2026</p><p class="authors"><a href="/ko/pi.html">Donghwan Lee</a>, Hyukjun Yang</p><p class="affiliation">School of Electrical Engineering, Korea Advanced Institute of Science and Technology (KAIST), Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2601.18840">논문 PDF</a> <a href="https://arxiv.org/abs/2601.18840">arXiv</a> <a href="https://neurips.cc/virtual/2026/poster/152752">학회</a> <a href="#video">영상</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>잔차 구성</h2><p>후보 Q 함수와 제어 Bellman 갱신값을 비교합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>이론적으로 정당화된 하강 규칙</h2><p>최소 노름 일반화 경사 또는 매끄러운 soft 제어 경사를 사용합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>도달점의 해석</h2><p>근사 설정의 정상성과 표 형식 설정의 정확한 고정점 복원을 구분합니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">제어 Bellman 잔차의 기하학을 통해 하강법이 어떤 정상점에 도달할 수 있는지 설명합니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>제어 목적함수의 기하학</h3><p>Hard-max 목적함수는 연속이며 정책 영역별로 이차식입니다. 하나의 정책이 계속 활성화된다고 가정하지 않고, 일반화 경사를 통해 탐욕 행동 사이의 동률을 다룹니다.</p></article>
+<article><h3>투영 방정식으로 해석하기</h3><p>명시된 비특이성 조건 아래 정상성은 비스듬히 투영된 제어 Bellman 방정식을 의미합니다. 투영 Bellman 사상의 수축성을 요구하지 않고 근사해를 설명합니다.</p></article>
+<article><h3>함수 근사와 표 형식의 보장 구분</h3><p>선형 근사에서 정상점으로의 수렴과 표 형식에서 유일한 Bellman 해로의 수렴을 구분합니다. 매끄러운 soft 제어 목적함수에서는 더 강한 수렴률 보장이 가능합니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>Bellman 잔차 최소화는 최적화에 기반한 제어 접근이지만 행동 최대화 때문에 목적함수가 비볼록·비매끄러워집니다. 이 논문은 그 기하학을 규명하고 Clarke 부분미분을 도출하며 정상점을 비스듬한 투영 Bellman 방정식과 연결합니다. 최소 노름 일반화 경사하강법과 미분 가능한 soft 변형을 분석합니다. 선형 근사에서 보장하는 것은 전역 최적성이 아니라 정상성입니다. 표 형식에서는 유일한 정상점이 해당 Bellman 고정점이므로 더 강한 수렴 결과를 얻으며, 매끄러운 정식화에서는 목적함수 오차의 기하급수적 감소를 보입니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">비볼록 잔차에서도 유용한 제어 보장을 얻을 수 있을까?</h2><p>Bellman 잔차의 제곱은 일반 최소제곱처럼 보이지만 탐욕 정책이 바뀔 때마다 행동 최적화가 목적함수의 형태를 바꿉니다. 근사 가치 함수를 사용하면 정상점이 반드시 전역 최적 정책을 나타내지는 않습니다. 논문은 이러한 점의 의미, 비매끄러운 경계에서 정당화되는 하강 규칙, 표 형식 구조를 이용해 정확한 Bellman 해를 복원하는 조건을 연구합니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>정책 영역과 일반화 경사 분석</h3><p>탐욕 정책에 따라 파라미터 공간을 나누고 Clarke 부분미분을 도출합니다. 비매끄러운 하강에서는 최소 노름 일반화 경사와 Armijo 후퇴 선 탐색을 사용합니다. 임의의 부분경사가 항상 하강 방향인 것은 아닙니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2601.18840v4#page=5">Sections 4.1-4.2, Theorems 1-3, pp. 4-6</a></p></article>
+<article class="method-step"><h3>제어 최대화 연산의 평활화</h3><p>최댓값을 log-sum-exp soft 연산자로 대체합니다. 일반 경사를 도출하고 반복값을 포함하는 콤팩트 집합에서 국소 Lipschitz 상수를 분석합니다. 스텝 크기 제약은 이 집합에 의존합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2601.18840v4#page=8">Section 5, Theorems 6-10, pp. 7-9</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">f(θ) = ½ ‖TQ<sub>θ</sub> − Q<sub>θ</sub>‖<sub>2</sub><sup>2</sup></div><p class="source-note">제어 Bellman 잔차 목적함수는 근사 가치와 최적성 갱신 사이 차이의 제곱을 측정합니다. T 안의 최대화 연산으로 인해 목적함수는 비매끄럽고 일반적으로 비볼록입니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>선형 근사에서의 정상성</h3></div><div><p>지정된 비매끄러운 방법의 모든 극한점은 Clarke 정상점입니다. 매끄러운 방법은 스텝 크기 조건 아래 경사 노름을 0으로 보냅니다. 어느 결과도 전역 최적 근사 정책을 보장하지는 않습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2601.18840v4#page=6">Theorems 3 and 8, pp. 6 and 8</a></p></div></article>
+<article class="result-row"><div><h3>표 형식 설정의 정확한 해</h3></div><div><p>Hard 목적함수의 유일한 정상점은 Q*이며, Armijo 후퇴 선 탐색을 사용하는 최소 노름 일반화 경사하강법은 그 점에 수렴합니다. Soft 목적함수 역시 자체 soft Bellman 해를 유일한 정상점으로 가집니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2601.18840v4#page=6">Theorems 4-5 and 9, pp. 6 and 8</a></p></div></article>
+<article class="result-row"><div><h3>조건부 기하급수적 목적함수 상계</h3></div><div><p>표 형식의 soft 목적함수는 콤팩트 집합에서 Polyak–Łojasiewicz 부등식을 만족합니다. 명시된 매끄러움·스텝 크기 조건과 결합하면 목적함수 오차의 기하급수적 감소를 얻습니다. 수렴 목표는 soft 고정점입니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2601.18840v4#page=9">Lemma 1 and Theorem 10, p. 9</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>보장은 정확한 Bellman 잔차와 유한 할인 MDP를 사용하며, 모델 없는 학습의 표본 복잡도 정리가 아닙니다. 선형 특징은 열들이 선형 독립이어야 하고 비스듬한 투영 관련 결과에는 지정된 행렬의 비특이성이 필요합니다. 근사 정상점은 유일하지 않을 수 있습니다. 비매끄러운 수렴 정리는 특정 최소 노름 방향과 선 탐색을 사용합니다. 매끄러운 수렴에는 적절한 스텝 크기가 필요하며, 그 해는 일반 최적 Q 함수와 자동으로 같아지는 것이 아니라 soft 제어 문제의 해입니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2601.18840v4">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    <section class="section band" id="video" aria-labelledby="video-title"><div class="prose">
+      <p class="eyebrow">논문 발표</p><h2 id="video-title">설명 영상 보기</h2>
+      <p>이 논문의 발표 채널: <a href="https://www.youtube.com/@nextstateai3">Next State AI</a>.</p>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/OVbYocBEGl8" title="Bellman Residual Minimization for Control: Geometry, Stationarity, and Convergence — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=OVbYocBEGl8">YouTube에서 보기</a></p></div></section>
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2026_260118840,
+  title={Bellman Residual Minimization for Control: Geometry, Stationarity, and Convergence},
+  author={Donghwan Lee and Hyukjun Yang},
+  year={2026},
+  eprint={2601.18840},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2601.18840}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2601.18840v4">arXiv:2601.18840v4</a>, 저자: Donghwan Lee, Hyukjun Yang. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

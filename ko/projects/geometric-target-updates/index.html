@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="연속적인 타깃 주기 매개변수가 한 단계 선형 Q-learning과 투영 Q-가치 반복을 연결합니다.">
+  <meta property="og:title" content="Geometrically Averaged Hard Target Updates for Linear Q-Learning">
+  <meta property="og:description" content="연속적인 타깃 주기 매개변수가 한 단계 선형 Q-learning과 투영 Q-가치 반복을 연결합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/geometric-target-updates/index.html">
+  
+  <title>Geometrically Averaged Hard Target Updates for Linear Q-Learning</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/geometric-target-updates/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/geometric-target-updates/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/geometric-target-updates/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2606.10835">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/geometric-target-updates/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">선형 Q-learning · 타깃 네트워크 · 기하 가중 평균 · 공동 스펙트럴 반지름</p><h1>Geometrically Averaged Hard Target Updates for Linear Q-Learning</h1>
+      <p class="publication-status">arXiv:2606.10835 · 2026</p><p class="authors"><a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">School of Electrical Engineering, KAIST, Daejeon, Republic of Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2606.10835">논문 PDF</a> <a href="https://arxiv.org/abs/2606.10835">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>타깃 고정</h2><p>경계 시점의 매개변수와 그 탐욕 정책을 고정합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>후보 주기에 가중치 부여</h2><p>내부 갱신을 한 번, 두 번 또는 더 길게 수행한 결과를 기하 가중 평균합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>다음 경계값 계산</h2><p>정확한 보정 방정식 풀이 또는 별도로 분석한 역행렬 없는 점화식을 사용합니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">연속적인 타깃 주기 매개변수가 한 단계 선형 Q-learning과 투영 Q-가치 반복을 연결합니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>연속적인 타깃 주기 보간</h3><p>기하 가중치는 투영 Bellman 고정점 방정식을 유지하면서 이산 타깃 복사 주기를 연속적인 계열로 바꿉니다.</p></article>
+<article><h3>계산 가능한 구현</h3><p>정확한 선형 보정으로 개념적인 무한합을 대체합니다. 역행렬 없는 보조 반복은 다른 확장 동역학을 사용해 같은 보정 방정식을 추적합니다.</p></article>
+<article><h3>구현별로 구분한 안정성 보장</h3><p>끝점, 역행렬 없는 구현, 무작위 주기 결과는 각각 해당 구현에 적합한 전환 행렬군을 명시적으로 사용합니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>이 연구는 하나의 고정 타깃 복사 주기를 선택하는 대신, 고정 타깃의 경계 사상을 기하 가중치로 평균합니다. 얻어진 λ-타깃 계열은 λ = 0의 일반 결정론적 선형 Q-learning과 λ가 1에 접근할 때의 투영 Q-가치 반복을 연결합니다. 정확한 전환 시스템 모델로 끝점 부근에서 안정성 조건이 어떻게 전달되는지 설명합니다. 닫힌 형태의 보정은 선형 방정식 한 번으로 무한 평균을 계산하며, 보조 점화식은 역행렬을 피합니다. 별도의 무작위 주기 구현은 더 강한 균일 전환 조건하에서 경로별 상한과 평균제곱 상한을 제공합니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">타깃 주기를 평균하면 무엇이 달라질까요?</h2><p>타깃 네트워크에서는 복사 전에 온라인 갱신을 몇 번 수행할지 이산적으로 선택해야 합니다. 논문은 선형 Q-learning에서 이 선택을 연속적으로 바꾸는 방법과 그에 따른 안정성 원리를 연구합니다. 핵심 대상은 타깃 경계 사이의 사상이며, 각 후보 내부 주기 동안 타깃과 그 탐욕 정책을 고정합니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>고정 타깃의 경계 사상 평균</h3><p>0 ≤ λ &lt; 1에서 주기 m인 후보에 (1 − λ)λ^(m−1)의 가중치를 줍니다. 연속적인 λ = 1 끝점은 기하분포가 아니라 극한의 투영 Q-가치 반복 사상으로 정의합니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S7">Section 7, Eq. (17) and Lemma 7.4, pp. 11–15</a></p></article>
+<article class="method-step"><h3>하나의 보정 방정식을 풀거나 추적</h3><p>행렬 (1 − λ)I + λαΦᵀDΦ는 투영 Bellman 잔차를 정확한 평균 보정으로 변환합니다. Richardson 갱신으로 역행렬 없이 구현할 수 있으며, 타깃이 동시에 움직이면 전환 동역학이 달라집니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S8.Thmproposition1">Proposition 8.1 and Section 9, pp. 16–24</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">w<sub>m</sub> = (1 − λ)λ<sup>m−1</sup>, &nbsp; m ≥ 1, &nbsp; 0 ≤ λ &lt; 1</div><p class="source-note">가중치는 고정 타깃의 경계 사상을 평균합니다. λ = 0은 내부 갱신 한 번을 선택하며, 내부 스텝 안정성 조건하에서 λ가 1에 접근하면 연속적인 투영 Q-가치 반복 끝점에 도달합니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>끝점 안정성의 국소적 전달</h3></div><div><p>완전 랭크 특징, 양의 가중치, 0 &lt; α &lt; 2/λ_max(ΦᵀDΦ)에서 0 근처의 λ는 일반 선형 Q-learning의 공동 스펙트럴 반지름이 1보다 엄밀히 작거나 큰 상태를 이어받고, 1 근처의 λ는 투영 Q-가치 반복의 상태를 이어받습니다. 이는 근방에 대한 결과입니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S7.Thmtheorem1">Theorem 7.1, p. 15</a></p></div></article>
+<article class="result-row"><div><h3>역행렬 없는 구현의 안정성</h3></div><div><p>역행렬 형태의 전환 행렬군이 안정적이고 보조 Richardson 스텝이 고유값 상한을 만족하면, 충분히 작은 양의 경계 스텝 β가 확장된 두 줄 점화식을 안정화합니다. β = 0에서 공동 스펙트럴 반지름은 1입니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S9.Thmtheorem1">Theorem 9.1, p. 24</a></p></div></article>
+<article class="result-row"><div><h3>균일 조건을 갖는 무작위 주기</h3></div><div><p>모든 결정론적 정책과 유한 주기의 경계 행렬을 합친 집합의 공동 스펙트럴 반지름이 1보다 작으면, 무작위 주기 점화식은 유일하다고 가정한 투영 Bellman 해 주변에서 경로별 및 기댓값의 기하적 제곱 오차 상한을 만족합니다.</p><p class="source-note"><a href="https://arxiv.org/html/2606.10835v1#S10.Thmtheorem1">Theorem 10.1, p. 26</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>기하 가중 평균의 대상은 타깃 복사 주기이며, 다단계 보상 수익이나 적격성 흔적이 아닙니다. 끝점이 안정적이어도 모든 중간 λ의 안정성이 보장되지는 않으며, 공동 스펙트럴 반지름이 1보다 크다고 실제 탐욕 경로의 발산이 증명되는 것도 아닙니다. 무작위 주기 정리는 모델 기반 내부 갱신을 유지하면서 주기만 무작위화하므로 잡음이 있는 전이 자료의 유한 표본 정리가 아닙니다. 모든 주기에 대한 균일 조건은 평균 사상의 안정성보다 강합니다. 분석은 선형 특징을 대상으로 하며 비선형 심층 신경망 학습은 다루지 않습니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2606.10835v1">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lee2026_260610835,
+  title={Geometrically Averaged Hard Target Updates for Linear Q-Learning},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2606.10835},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2606.10835}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2606.10835v1">arXiv:2606.10835v1</a>, 저자: Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

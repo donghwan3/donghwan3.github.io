@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="유한 시간 상한으로 재생 버퍼 용량과 미니배치 크기가 표 기반 TD 학습의 오차를 제어하는 방식을 설명합니다.">
+  <meta property="og:title" content="Finite-Time Analysis of Temporal Difference Learning with Experience Replay">
+  <meta property="og:description" content="유한 시간 상한으로 재생 버퍼 용량과 미니배치 크기가 표 기반 TD 학습의 오차를 제어하는 방식을 설명합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/ko/projects/td-experience-replay/index.html">
+  
+  <title>Finite-Time Analysis of Temporal Difference Learning with Experience Replay</title>
+  <link rel="icon" href="/assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/projects/project.css?v=14e19d7f218e">
+  <script src="/assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/ko/projects/td-experience-replay/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/td-experience-replay/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/td-experience-replay/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2306.09746">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="project-nav" aria-label="논문 소개 페이지 메뉴"><a class="lab-link" href="/ko/index.html">REDI Lab</a><div><a href="#problem">문제</a><a href="#method">방법</a><a href="#results">결과</a><a href="#video">영상</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/projects/td-experience-replay/index.html" lang="en" hreflang="en" aria-label="Switch to English">English</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">시간차 학습 · 경험 재생 · Markov 연쇄 · 유한 시간 분석</p><h1>Finite-Time Analysis of Temporal Difference Learning with Experience Replay</h1>
+      <p class="publication-status">arXiv:2306.09746 · 2023</p><p class="authors">Han-Dong Lim, <a href="/ko/pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="논문 자료"><a href="https://arxiv.org/pdf/2306.09746">논문 PDF</a> <a href="https://arxiv.org/abs/2306.09746">arXiv</a> <a href="https://openreview.net/forum?id=A5ulGfDBON">학술지</a> <a href="#video">영상</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>핵심 아이디어</span><span>연구 질문에서 결과까지</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">문제</span><h2>수집</h2><p>Markov 경로에서 얻은 전이를 FIFO 버퍼에 저장합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">접근 방법</span><h2>재표본 추출</h2><p>균등 미니배치로 평균 TD 갱신을 구성합니다.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">핵심 통찰</span><h2>경계 설정</h2><p>배치 잡음과 버퍼 불일치를 분리해 오차를 정량화합니다.</p></div></div><figcaption>논문을 바탕으로 이 페이지를 위해 제작한 설명 도식이며 실험 결과가 아닙니다. 아래 방법 설명과 출처를 함께 확인하세요.</figcaption></figure>
+    <p class="takeaway">유한 시간 상한으로 재생 버퍼 용량과 미니배치 크기가 표 기반 TD 학습의 오차를 제어하는 방식을 설명합니다.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">주요 기여</h2><div class="contributions"><article><h3>표준 재생 방식 분석</h3><p>저장된 관측이 독립이라고 가정하는 대신, 하나의 Markov 경로에서 이동 FIFO 버퍼와 균등 미니배치 갱신을 사용하는 모델을 유지합니다.</p></article>
+<article><h3>두 오차 원인 분리</h3><p>잡음 분해는 무작위 미니배치 추출과 버퍼·정상분포의 불일치를 구분해 배치 크기와 메모리 용량의 역할을 명시합니다.</p></article>
+<article><h3>재생과 유한 시간 정확도 연결</h3><p>기대 오차 보장은 평균 가치 추정값과 최종 가치 추정값을 모두 포함합니다. 고정 스텝 크기를 0으로 보내지 않아도 큰 배치와 버퍼가 잔차 항을 줄이는 효과를 정량화합니다.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">논문 요약</h2><p class="source-note abstract-note">이 페이지를 위해 작성한 논문 요약입니다.</p><p>경험 재생은 최근 관측을 재사용하지만, 표본에는 그것을 생성한 경로의 의존성이 남아 있습니다. 이 논문은 FIFO 재생 버퍼와 균등 미니배치를 사용하는 on-policy 표 기반 시간차 학습을 분석합니다. 갱신 잡음을 미니배치 표본 오차와 버퍼 분포·정상분포의 차이로 분해합니다. 선형 시스템 표현으로 평균 및 최종 반복값의 유한 시간 상한을 얻습니다. 두 보장에서 서로 다른 초기화 가정을 사용하며, 버퍼와 배치 크기가 고정 스텝 학습의 잔차 오차를 줄이는 방식을 보여 줍니다.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">문제 정의</p><h2 id="problem-title">재생은 왜 잔차 오차를 바꿀 수 있을까요?</h2><p>고정 학습률은 계속 갱신할 수 있게 하지만 보통 0이 아닌 오차 근방을 남깁니다. 재생은 학습 개선에 사용되지만 유한 버퍼의 균등 추출이 시간적 의존성을 없애지는 않습니다. 어떤 오차 항이 배치에, 어떤 항이 메모리 용량에 의존하는지, 둘이 단일 경로의 유한 시간 정책 평가에 어떤 영향을 주는지 설명하는 것이 문제입니다.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">문제에서 해법으로</p><h2 id="method-title">방법의 작동 원리</h2><article class="method-step"><h3>이동 버퍼 사용</h3><p>초기 수집 단계 이후에는 새 관측마다 가장 오래된 전이를 교체합니다. 미니배치를 균등 추출하고, 0과 1 사이의 고정 스텝으로 평균 TD 오차를 이용해 표 기반 가치 벡터를 갱신합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2306.09746v2#page=5">Section 3.1, Algorithm 1, pp. 5–6</a></p></article>
+<article class="method-step"><h3>표본 잡음과 경로 잡음 제어</h3><p>추정 오차를 안정적인 선형 점화식과 잡음으로 표현합니다. 집중 부등식으로 버퍼의 표본 추출을 제어하고, Markov 연쇄 논증으로 분포 불일치를 제어합니다. 평균에는 Lyapunov 분석을, 최종 반복값에는 재귀 축약 추정을 사용합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2306.09746v2#page=7">Sections 3.2–3.3 and 3.6, pp. 6–11</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="핵심 수식">V<sub>k+1</sub> − V<sup>π</sup> = A(V<sub>k</sub> − V<sup>π</sup>) + αw<sub>k</sub></div><p class="source-note">Equation (7), pp. 6–7의 식입니다. w_k는 논문의 재생 의존 잡음 w(M_k^π,V_k)를 줄여 쓴 것이며, A = I − αD^π + αγD^πP^π입니다.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">주요 결과</p><h2 id="results-title">분석으로 확인한 결과</h2><article class="result-row"><div><h3>평균 반복값 보장</h3></div><div><p>Theorem 3.5는 명시된 혼합 임계값보다 큰 버퍼에서 임의의 초기 분포에 대해 평균 제곱 오차와 평균 추정값의 기대 오차를 제한합니다. 잔차 항은 배치와 버퍼의 별도 의존성을 드러냅니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2306.09746v2#page=9">Theorem 3.5, p. 9</a></p></div></article>
+<article class="result-row"><div><h3>최종 반복값 보장</h3></div><div><p>Theorem 3.6은 초기 오차 항의 기하적 감소와 재생 의존 잔차를 제공합니다. 평균 결과와 달리, 이 정리는 버퍼 수집 전 경로가 정상분포에서 시작한다고 가정합니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2306.09746v2#page=10">Theorem 3.6, pp. 10–11</a></p></div></article>
+<article class="result-row"><div><h3>정확도 개선에 필요한 자료 비용</h3></div><div><p>미니배치와 버퍼를 키우면 명시된 잔차 상한이 줄어들지만, 큰 초기 버퍼를 수집하는 데도 표본이 필요합니다. 이 수집 비용을 포함하면 전체 표본 복잡도가 다른 분석에 비해 최적이지 않을 수 있습니다.</p><p class="source-note"><a href="https://arxiv.org/pdf/2306.09746v2#page=12">Section 3.7, pp. 11–12</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">보장 내용을 읽는 법</p><h2 id="scope-title">가정과 적용 범위</h2><p>분석 대상은 유계 보상과 기약적·비주기적 Markov 연쇄를 갖는 할인 on-policy 표 기반 정책 평가입니다. 신경망, off-policy TD, 우선순위 표본 추출, 변화하는 정책에서 재생의 이점을 증명하지 않습니다. 최종 반복값 정리의 정상 시작 가정은 평균 정리보다 강합니다. 고정된 유한 버퍼와 배치는 이 상한들에 잔차 항을 남깁니다. 더 큰 메모리는 상한을 개선할 수 있지만 저장 공간과 초기 자료 수집 비용도 증가하며, 논문은 일률적으로 최적인 표본 복잡도를 주장하지 않습니다.</p><p class="source-note">자세한 내용은 <a href="https://arxiv.org/pdf/2306.09746v2">검토한 논문 버전</a> 에서 전체 가정, 상수 및 증명을 확인하세요.</p></section>
+    <section class="section band" id="video" aria-labelledby="video-title"><div class="prose">
+      <p class="eyebrow">논문 발표</p><h2 id="video-title">설명 영상 보기</h2>
+      <p>이 논문의 발표 채널: <a href="https://www.youtube.com/@nextstateai3">Next State AI</a>.</p>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/iODzA5DYN9U" title="Finite-Time Analysis of Temporal Difference Learning with Experience Replay — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=iODzA5DYN9U">YouTube에서 보기</a></p></div></section>
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">BibTeX 복사</button></div><p class="source-note">arXiv 버전의 인용 정보입니다.</p><pre><code id="citation">@misc{lim2023_230609746,
+  title={Finite-Time Analysis of Temporal Difference Learning with Experience Replay},
+  author={Han-Dong Lim and Donghwan Lee},
+  year={2023},
+  eprint={2306.09746},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2306.09746}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="/ko/index.html">Reinforced Decision Intelligence Lab</a> · <a href="/ko/publication.html">전체 논문</a> · <a href="#top">맨 위로</a></p>
+    <p>근거 논문: <a href="https://arxiv.org/abs/2306.09746v2">arXiv:2306.09746v2</a>, 저자: Han-Dong Lim, Donghwan Lee. 요약과 개념 도식은 이 페이지를 위해 작성했으며, 정확한 근거는 링크된 원문 논문입니다.</p>
+    <p>페이지 구성 참고: <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

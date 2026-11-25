@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Restore a shared constant direction to identify when momentum improves Q-learning&#x27;s spectral convergence rate.">
+  <meta property="og:title" content="Heavy-Ball Q-Learning with Residual Weighting Correction">
+  <meta property="og:description" content="Restore a shared constant direction to identify when momentum improves Q-learning&#x27;s spectral convergence rate.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/projects/corrected-heavy-ball-q/">
+  
+  <title>Heavy-Ball Q-Learning with Residual Weighting Correction</title>
+  <link rel="icon" href="../../assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="../../assets/fonts.css">
+  <link rel="stylesheet" href="../../assets/projects/project.css?v=14e19d7f218e">
+  <script src="../../assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/projects/corrected-heavy-ball-q/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/corrected-heavy-ball-q/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/corrected-heavy-ball-q/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2606.27112">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="project-nav" aria-label="Project navigation"><a class="lab-link" href="../../index.html">REDI Lab</a><div><a href="#problem">Problem</a><a href="#method">Method</a><a href="#results">Results</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/ko/projects/corrected-heavy-ball-q/index.html" lang="ko" hreflang="ko" aria-label="한국어 페이지로 전환">한국어</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Q-learning · Heavy-ball momentum · Residual weighting · Switching systems</p><h1>Heavy-Ball Q-Learning with Residual Weighting Correction</h1>
+      <p class="publication-status">arXiv:2606.27112 · 2026</p><p class="authors"><a href="../../pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="Paper resources"><a href="https://arxiv.org/pdf/2606.27112">Paper (PDF)</a> <a href="https://arxiv.org/abs/2606.27112">arXiv</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>The central idea</span><span>From the research question to the result</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">Problem</span><h2>Weighted Bellman residual</h2><p>Nonuniform state-action weights obscure a shared constant mode.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Approach</span><h2>Restore shared structure</h2><p>A low-rank correction separates constant and transverse dynamics.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Insight</span><h2>Add controlled momentum</h2><p>A strict spectral gap permits a provable improvement for small positive momentum.</p></div></div><figcaption>Explanatory diagram created for this page from the paper; not an experimental result. See the methods and source references below.</figcaption></figure>
+    <p class="takeaway">Restore a shared constant direction to identify when momentum improves Q-learning&#x27;s spectral convergence rate.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Key Contributions</h2><div class="contributions"><article><h3>A structured residual correction</h3><p>The correction preserves the tabular Bellman fixed point and gives every switching mode a common constant eigenvector, even with nonuniform state-action weights.</p></article>
+<article><h3>Conditional spectral improvement</h3><p>A decomposition isolates the constant-direction momentum dynamics from transverse switching dynamics, yielding explicit sufficient conditions for a smaller joint spectral radius.</p></article>
+<article><h3>Linear features and sampled updates</h3><p>The feature-space extension identifies its own corrected target and establishes a small-step expected-error bound for an i.i.d. stochastic implementation.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p class="source-note abstract-note">A summary of the paper, written for this page.</p><p>Nonuniform sampling weights obscure a common direction that makes momentum amenable to spectral analysis. This paper corrects the Bellman-residual weighting to restore that structure, then studies heavy-ball updates through exact switching linear systems. A strict gap between constant and transverse dynamics yields a conditional improvement in the joint spectral radius. The construction extends to linear features, where its target is a corrected fixed point. A separate analysis provides finite-time bounds for an i.i.d. sampled implementation under small-step and stability assumptions.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">The problem</p><h2 id="problem-title">When can momentum help weighted Q-learning?</h2><p>Standard weighted Q-learning need not share a constant eigenvector across policy modes. This blocks a direct transfer of spectral acceleration arguments from synchronous Q-value iteration. The paper asks whether a controlled change to residual weighting can restore that structure and support a rigorous momentum analysis, while distinguishing the tabular optimum from the target induced by linear approximation.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">From problem to solution</p><h2 id="method-title">How the method works</h2><article class="method-step"><h3>Correct the residual weighting</h3><p>Set H = δ1dᵀ + D(I − 1dᵀ), with D = diag(d), positive sampling weights summing to one, and δ &gt; 0. Then H1 = δ1; in the tabular case H is nonsingular and leaves Q* unchanged.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S4">Definition 4.1 and Lemmas 4.1–4.3, pp. 7–8</a></p></article>
+<article class="method-step"><h3>Separate constant and transverse dynamics</h3><p>Augment the error state with its previous value and decompose the switching family. The update uses momentum coefficient αη. For linear features, a representable constant feature produces an analogous decomposition around the unique corrected fixed point.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S10">Sections 5 and 10, pp. 12–16 and 24–30</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="Key equation">Q<sub>k+1</sub> = Q<sub>k</sub> + αH[F(Q<sub>k</sub>) − Q<sub>k</sub>] + αη(Q<sub>k</sub> − Q<sub>k−1</sub>)</div><p class="source-note">The deterministic corrected heavy-ball update. F is the Bellman optimality map; H is the residual-weighting correction; the actual momentum coefficient is αη.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">Main results</p><h2 id="results-title">What the analysis establishes</h2><article class="result-row"><div><h3>Momentum improves the corrected mean recursion under a gap</h3></div><div><p>If 0 &lt; 1 − αδ(1 − γ) &lt; 1 and the transverse joint spectral radius is strictly smaller, sufficiently small positive αη gives a strictly smaller full joint spectral radius than corrected Q-learning without momentum.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S5.Thmtheorem1">Theorem 5.1, p. 16</a></p></div></article>
+<article class="result-row"><div><h3>Comparison with ordinary Q-learning needs extra conditions</h3></div><div><p>The strict comparison also holds against standard deterministic Q-learning when 0 &lt; αd(s,a) ≤ 1 and d_max ≤ δ &lt; 1/[α(1 − γ)], together with the strict transverse gap and admissible small momentum.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S6.Thmcorollary1">Corollary 6.1, pp. 18–19</a></p></div></article>
+<article class="result-row"><div><h3>A finite-time stochastic guarantee</h3></div><div><p>With a unique corrected feature-space fixed point, fixed problem and momentum parameters, a stable reference corrected switching family, and sufficiently small α, the i.i.d. sampled recursion has decaying transients plus an O(√α) expected-error residual for fixed initialization.</p><p class="source-note"><a href="https://arxiv.org/html/2606.27112v2#S12.Thmtheorem1">Theorem 12.1 and Assumptions 12.1–12.2, pp. 34–41</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">Reading the guarantees</p><h2 id="scope-title">Assumptions and scope</h2><p>The acceleration statements are conditional, not a universal benefit of momentum or residual correction. Joint-spectral-radius stability is a sufficient certificate for the state-dependent recursion. In linear approximation, the corrected fixed point generally differs from both Q* and the ordinary projected Bellman solution. The stochastic result assumes i.i.d. sampling and small constant step size; its residual bound does not establish exact convergence at fixed α. For fixed η, the small-α improvement is second order rather than a leading-order acceleration.</p><p class="source-note">See the <a href="https://arxiv.org/pdf/2606.27112v2">reviewed paper version</a> for complete hypotheses, constants, and proofs.</p></section>
+    
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">Copy BibTeX</button></div><p class="source-note">Citation for the arXiv version.</p><pre><code id="citation">@misc{lee2026_260627112,
+  title={Heavy-Ball Q-Learning with Residual Weighting Correction},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2606.27112},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2606.27112}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="../../index.html">Reinforced Decision Intelligence Lab</a> · <a href="../../publication.html">All publications</a> · <a href="#top">Back to top</a></p>
+    <p>Based on <a href="https://arxiv.org/abs/2606.27112v2">arXiv:2606.27112v2</a>, by Donghwan Lee. The summaries and conceptual diagram were prepared for this page. The linked paper is the authoritative source.</p>
+    <p>Page structure inspired by <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>

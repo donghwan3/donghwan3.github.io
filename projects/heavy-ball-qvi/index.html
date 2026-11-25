@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A shared constant mode and a transverse spectral gap explain when momentum accelerates Q-value iteration.">
+  <meta property="og:title" content="Spectral Analysis of Heavy-Ball Q-value Iteration">
+  <meta property="og:description" content="A shared constant mode and a transverse spectral gap explain when momentum accelerates Q-value iteration.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donghwan3.github.io/projects/heavy-ball-qvi/">
+  
+  <title>Spectral Analysis of Heavy-Ball Q-value Iteration</title>
+  <link rel="icon" href="../../assets/images/992ff41771035a85a67b.jpg">
+  <link rel="stylesheet" href="../../assets/fonts.css">
+  <link rel="stylesheet" href="../../assets/projects/project.css?v=14e19d7f218e">
+  <script src="../../assets/projects/project.js?v=2b91f5470cef" defer></script>
+<link rel="canonical" href="https://donghwan3.github.io/projects/heavy-ball-qvi/index.html"><link rel="alternate" hreflang="en" href="https://donghwan3.github.io/projects/heavy-ball-qvi/index.html"><link rel="alternate" hreflang="ko" href="https://donghwan3.github.io/ko/projects/heavy-ball-qvi/index.html"><script src="/assets/language.js?v=e21047110b34" defer></script>
+</head>
+<body data-paper="2607.22627">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="project-nav" aria-label="Project navigation"><a class="lab-link" href="../../index.html">REDI Lab</a><div><a href="#problem">Problem</a><a href="#method">Method</a><a href="#results">Results</a><a href="#video">Video</a><a href="#bibtex">BibTeX</a></div><a class="language-switch" href="/ko/projects/heavy-ball-qvi/index.html" lang="ko" hreflang="ko" aria-label="한국어 페이지로 전환">한국어</a></nav>
+  <main id="main">
+    <header class="hero" id="top"><p class="eyebrow">Q-value iteration · Heavy-ball momentum · Spectral analysis · Switching systems</p><h1>Spectral Analysis of Heavy-Ball Q-value Iteration</h1>
+      <p class="publication-status">arXiv:2607.22627 · 2026</p><p class="authors"><a href="../../pi.html">Donghwan Lee</a></p><p class="affiliation">Department of Electrical Engineering, KAIST, Daejeon, South Korea</p>
+      <div class="resource-links" aria-label="Paper resources"><a href="https://arxiv.org/pdf/2607.22627">Paper (PDF)</a> <a href="https://arxiv.org/abs/2607.22627">arXiv</a> <a href="#video">Video</a> <a href="#bibtex">BibTeX</a></div>
+    </header>
+    <figure class="overview wide"><div class="overview-heading"><span>The central idea</span><span>From the research question to the result</span></div>
+      <div class="concept-flow"><div class="concept"><span class="concept-tag">Problem</span><h2>Add one lag</h2><p>Represent current and previous Bellman errors as one augmented state.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Approach</span><h2>Separate the common mode</h2><p>A scalar offset becomes a two-dimensional companion system.</p></div><div class="flow-connector" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M0 12h42m-8-7 8 7-8 7"/></svg></div><div class="concept"><span class="concept-tag">Insight</span><h2>Check the transverse gap</h2><p>Both spectral contributions must improve to certify full-family acceleration.</p></div></div><figcaption>Explanatory diagram created for this page from the paper; not an experimental result. See the methods and source references below.</figcaption></figure>
+    <p class="takeaway">A shared constant mode and a transverse spectral gap explain when momentum accelerates Q-value iteration.</p>
+    <section class="section wide" id="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Key Contributions</h2><div class="contributions"><article><h3>An exact augmented switching model</h3><p>Stacking consecutive Q-errors captures momentum and Bellman policy switching while retaining the optimal Bellman fixed point.</p></article>
+<article><h3>Necessary and sufficient ingredients kept separate</h3><p>Improving the constant-direction block supplies a necessary condition for full-family acceleration. A strict transverse gap and sufficiently small positive momentum give a sufficient full-family result.</p></article>
+<article><h3>A projected linear-feature extension</h3><p>When the feature space contains constants, the same decomposition yields a conditional small-momentum improvement for projected Q-value iteration with full-rank features and positive weighting.</p></article></div></section>
+    <section class="section prose abstract" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p class="source-note abstract-note">A summary of the paper, written for this page.</p><p>Adding heavy-ball momentum to Q-value iteration creates a switching system with memory, so a single fixed-policy eigenvalue calculation cannot establish global acceleration. This work derives the exact augmented error dynamics and separates a shared constant-direction block from the policy-dependent transverse family. It identifies an exact improvement interval for the constant block and a sufficient spectral-gap condition for improvement of the full joint spectral radius. An appendix extends the construction to projected iteration with linear features, and finite-state examples illustrate numerical value-error reductions.</p></section>
+    <section class="section band" id="problem" aria-labelledby="problem-title"><div class="prose"><p class="eyebrow">The problem</p><h2 id="problem-title">Can a scalar momentum gain improve a switching process?</h2><p>Greedy actions can change as Q-value iteration progresses, so its error follows a family of matrices rather than one fixed linear model. Heavy-ball momentum adds a lagged state and changes both constant and transverse dynamics. The paper asks which spectral conditions certify a smaller worst-case convergence factor, beyond an improvement seen for one policy or one direction.</p></div></section>
+    <section class="section prose" id="method" aria-labelledby="method-title"><p class="eyebrow">From problem to solution</p><h2 id="method-title">How the method works</h2><article class="method-step"><h3>Augment with the previous error</h3><p>Use the recursion Q_next = Q + α(F(Q) − Q) + η(Q − Q_previous), with 0 &lt; α ≤ 1. Bellman-difference selectors give an exact switching representation whose fixed point is (Q*, Q*).</p><p class="source-note"><a href="https://arxiv.org/html/2607.22627v2#S5">Section 5, Eqs. (5.1)–(5.4), p. 5</a></p></article>
+<article class="method-step"><h3>Separate two spectral contributions</h3><p>The constant direction becomes a two-dimensional companion block. The full joint spectral radius is the maximum of that block&#x27;s spectral radius and the projected heavy-ball family&#x27;s joint spectral radius.</p><p class="source-note"><a href="https://arxiv.org/html/2607.22627v2#S6.Thmlemma2">Lemmas 5.3–5.4 and 6.2, pp. 5–6</a></p></article><div class="equation math featured-equation" tabindex="0" role="region" aria-label="Key equation">Q<sub>k+1</sub> = Q<sub>k</sub> + α[F(Q<sub>k</sub>) − Q<sub>k</sub>] + η(Q<sub>k</sub> − Q<sub>k−1</sub>)</div><p class="source-note">The deterministic heavy-ball Q-value iteration update. F is the Bellman optimality map, α is the relaxation step, and η is the momentum coefficient. Here the coefficient is η, unlike the αη convention in the residual-correction paper.</p></section>
+    <section class="section band" id="results" aria-labelledby="results-title"><div class="wide"><p class="eyebrow">Main results</p><h2 id="results-title">What the analysis establishes</h2><article class="result-row"><div><h3>The constant-mode interval is necessary, not sufficient</h3></div><div><p>Writing r = 1 − α(1 − γ), the constant companion block improves on standard relaxed Q-value iteration exactly when 0 &lt; η &lt; r². Full-family improvement additionally requires control of the transverse switching dynamics.</p><p class="source-note"><a href="https://arxiv.org/html/2607.22627v2#S5.Thmproposition1">Proposition 5.1, p. 5</a></p></div></article>
+<article class="result-row"><div><h3>A strict gap yields full-family improvement</h3></div><div><p>If the projected standard family has joint spectral radius strictly below r, there exists η₀ &gt; 0 such that 0 &lt; η &lt; min(r², η₀) gives a heavy-ball joint spectral radius below r and global exponential convergence of the deterministic error.</p><p class="source-note"><a href="https://arxiv.org/html/2607.22627v2#S6.Thmtheorem1">Theorem 6.1, p. 6</a></p></div></article>
+<article class="result-row"><div><h3>A small MDP illustrates the numerical effect</h3></div><div><p>For the reported two-state, two-action example with γ = 0.95, α = 1, η = 0.60 and zero initialization, the sup-norm error at iteration 120 is approximately 2.779 × 10⁻² for standard Q-value iteration and 1.211 × 10⁻¹⁰ for heavy-ball iteration.</p><p class="source-note"><a href="https://arxiv.org/pdf/2607.22627v2#page=7">Section 7 and Figure 1, p. 7</a></p></div></article></div></section>
+    <section class="section prose" id="scope" aria-labelledby="scope-title"><p class="eyebrow">Reading the guarantees</p><h2 id="scope-title">Assumptions and scope</h2><p>Momentum is not uniformly beneficial. The exact constant-mode interval alone does not control the transverse family, and the theorem&#x27;s positive momentum threshold depends on a strict projected spectral gap. Joint spectral radius measures worst-case switching products, so an individual trajectory may converge faster than its certificate. The analysis is deterministic and model based; nonuniform coordinate sampling can destroy the common eigenvector structure and requires separate stochastic analysis. The numerical comparison is one finite-state example, not a general speedup guarantee.</p><p class="source-note">See the <a href="https://arxiv.org/pdf/2607.22627v2">reviewed paper version</a> for complete hypotheses, constants, and proofs.</p></section>
+    <section class="section band" id="video" aria-labelledby="video-title"><div class="prose">
+      <p class="eyebrow">Paper presentation</p><h2 id="video-title">Watch the explanation</h2>
+      <p>A presentation of this paper on <a href="https://www.youtube.com/@nextstateai3">Next State AI</a>.</p>
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/kj_hl04g598" title="Spectral Analysis of Heavy-Ball Q-value Iteration — paper presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-fallback"><a href="https://www.youtube.com/watch?v=kj_hl04g598">Watch on YouTube</a></p></div></section>
+    <section class="section prose" id="bibtex" aria-labelledby="bibtex-title"><div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button type="button" id="copy-bibtex">Copy BibTeX</button></div><p class="source-note">Citation for the arXiv version.</p><pre><code id="citation">@misc{lee2026_260722627,
+  title={Spectral Analysis of Heavy-Ball Q-value Iteration},
+  author={Donghwan Lee},
+  year={2026},
+  eprint={2607.22627},
+  archivePrefix={arXiv},
+  primaryClass={math.OC},
+  url={https://arxiv.org/abs/2607.22627}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="project-footer"><p><a href="../../index.html">Reinforced Decision Intelligence Lab</a> · <a href="../../publication.html">All publications</a> · <a href="#top">Back to top</a></p>
+    <p>Based on <a href="https://arxiv.org/abs/2607.22627v2">arXiv:2607.22627v2</a>, by Donghwan Lee. The summaries and conceptual diagram were prepared for this page. The linked paper is the authoritative source.</p>
+    <p>Page structure inspired by <a href="https://vigor-gen.github.io/">VIGOR</a>.</p></footer>
+</body>
+</html>
