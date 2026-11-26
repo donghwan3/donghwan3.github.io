@@ -12,6 +12,7 @@ document.querySelectorAll('.language-switch').forEach(link=>{
  if (document.querySelector('script[data-redi-chat]') || document.querySelector('script[src*="lab-chatbot.js"]')) return;
  const base = new URL('.', document.currentScript.src);
  const script=document.createElement('script');
- script.src=new URL('lab-chatbot.js',base); script.dataset.rediChat='true';
+ script.src=new URL('lab-chatbot.js?v=redi-20261126b',base); script.dataset.rediChat='true';
  document.head.append(script);
 })();
+

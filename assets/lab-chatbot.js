@@ -1,7 +1,7 @@
 (() => {
   if (document.getElementById('lab-chat-launch')) return;
   const base = new URL('.', document.currentScript.src);
-  const css = document.createElement('link'); css.rel='stylesheet'; css.href=new URL('lab-chatbot.css',base); document.head.append(css);
+  const css = document.createElement('link'); css.rel='stylesheet'; css.href=new URL('lab-chatbot.css?v=redi-20261126b',base); document.head.append(css);
   const host=document.createElement('div'); host.id='lab-chat';
   host.innerHTML='<button id="lab-chat-launch" aria-expanded="false" aria-controls="lab-chat-panel"><img class="lab-chat-mascot" alt="" aria-hidden="true"><span>✦ 레디봇 · 연구실 챗봇</span></button><section id="lab-chat-panel" aria-label="레디봇 · 연구실 AI 챗봇" hidden><header><img class="lab-chat-robot" alt="웃는 연구실 로봇"><div><strong>레디봇 · 연구실 AI 챗봇</strong><small>LAB ASSISTANT · 연구실 안내와 가벼운 대화</small></div><button type="button" id="lab-chat-close" aria-label="닫기">×</button></header><div id="lab-chat-messages" role="log" aria-live="polite"></div><form><label for="lab-chat-input">연구실에 궁금한 점</label><div class="lab-chat-compose"><input id="lab-chat-input" maxlength="1000" autocomplete="off" placeholder="연구 분야나 지원 방법을 물어보세요" required><button type="submit">전송</button></div><small>개인정보를 입력하지 마세요. 연구실 안내와 짧은 인사·잡담을 도와드려요.</small></form></section>';
   host.querySelectorAll('.lab-chat-robot,.lab-chat-mascot').forEach(img=>img.src=new URL('lab-robot.svg',base));
