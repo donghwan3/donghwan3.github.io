@@ -3,12 +3,12 @@
   const base = new URL('.', document.currentScript.src);
   const css = document.createElement('link'); css.rel='stylesheet'; css.href=new URL('lab-chatbot.css',base); document.head.append(css);
   const host=document.createElement('div'); host.id='lab-chat';
-  host.innerHTML='<button id="lab-chat-launch" aria-expanded="false" aria-controls="lab-chat-panel">✦ 레디봇 · 연구실 챗봇</button><section id="lab-chat-panel" aria-label="레디봇 · 연구실 AI 챗봇" hidden><header><img class="lab-chat-robot" alt="웃는 연구실 로봇"><div><strong>레디봇 · 연구실 AI 챗봇</strong><small>LAB ASSISTANT · 연구실 관련 질문 전용</small></div><button type="button" id="lab-chat-close" aria-label="닫기">×</button></header><div id="lab-chat-messages" role="log" aria-live="polite"></div><form><label for="lab-chat-input">연구실에 궁금한 점</label><div class="lab-chat-compose"><input id="lab-chat-input" maxlength="1000" autocomplete="off" placeholder="연구 분야나 지원 방법을 물어보세요" required><button type="submit">전송</button></div><small>개인정보를 입력하지 마세요. 답변은 등록된 연구실 자료에 한정됩니다.</small></form></section>';
-  host.querySelector('.lab-chat-robot').src=new URL('lab-robot.svg',base);
+  host.innerHTML='<button id="lab-chat-launch" aria-expanded="false" aria-controls="lab-chat-panel"><img class="lab-chat-mascot" alt="" aria-hidden="true"><span>✦ 레디봇 · 연구실 챗봇</span></button><section id="lab-chat-panel" aria-label="레디봇 · 연구실 AI 챗봇" hidden><header><img class="lab-chat-robot" alt="웃는 연구실 로봇"><div><strong>레디봇 · 연구실 AI 챗봇</strong><small>LAB ASSISTANT · 연구실 안내와 가벼운 대화</small></div><button type="button" id="lab-chat-close" aria-label="닫기">×</button></header><div id="lab-chat-messages" role="log" aria-live="polite"></div><form><label for="lab-chat-input">연구실에 궁금한 점</label><div class="lab-chat-compose"><input id="lab-chat-input" maxlength="1000" autocomplete="off" placeholder="연구 분야나 지원 방법을 물어보세요" required><button type="submit">전송</button></div><small>개인정보를 입력하지 마세요. 연구실 안내와 짧은 인사·잡담을 도와드려요.</small></form></section>';
+  host.querySelectorAll('.lab-chat-robot,.lab-chat-mascot').forEach(img=>img.src=new URL('lab-robot.svg',base));
   document.body.append(host);
   const panel=host.querySelector('section'), launch=host.querySelector('#lab-chat-launch'), input=host.querySelector('input'), form=host.querySelector('form'), send=form.querySelector('button'), log=host.querySelector('[role=log]');
   const add=(text,role='assistant')=>{const p=document.createElement('p');p.className=role;p.textContent=text;log.append(p);log.scrollTop=log.scrollHeight;return p;};
-  add('안녕하세요, 연구실 챗봇 레디봇이에요 🤖 연구실 소개·연구·구성원·지원·연락처에 관해 질문해 주세요. / Ask about our laboratory.');
+  add('안녕하세요, 연구실 챗봇 레디봇이에요 🤖 연구실 소개·연구·구성원·지원·연락처에 관해 질문해 주세요. 가벼운 인사도 좋아요! / Ask about our lab or say hello!');
   const toggle=open=>{panel.hidden=!open;launch.setAttribute('aria-expanded',String(open));(open?input:launch).focus();};
   launch.onclick=()=>toggle(panel.hidden);host.querySelector('#lab-chat-close').onclick=()=>toggle(false);
   host.addEventListener('keydown',e=>{if(e.key==='Escape')toggle(false);});
