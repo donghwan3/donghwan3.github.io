@@ -21,13 +21,16 @@ for(const p of vertices){
   const front=smooth((p.z-.4)/.35),x=Math.abs(p.x);
   const corner=p.k===0?Math.exp(-(((x-.29)/.22)**2+((p.y+.35)/.19)**2))*front:0;
   const cheek=p.k===0?Math.exp(-(((x-.51)/.30)**2+((p.y+.02)/.30)**2))*front:0;
+  const lipWeight=Math.exp(-((p.x/.43)**2+((p.y+.39)/.24)**2))*front;
+  const lower=smooth((-.32-p.y)/.12);
+  p.speech=(p.k===0||p.k===1||p.k===4||p.k===5)?lipWeight*(.055*(1-lower)-.38*lower):0;
   p.smile=[Math.sign(p.x)*(.044*corner+.007*cheek),.105*corner+.030*cheek,-.018*corner+.014*cheek];
 }
 export const faceTopology={model:rain.name,license:rain.license,points:vertices.length,edges:edges.length,
   hairPoints:vertices.filter(p=>p.k===3).length,skinPoints:vertices.filter(p=>p.k===0).length,
   blinkPoints:vertices.filter(p=>p.blink.some(x=>Math.abs(x)>.001)).length};
 
-export function faceFrame({time=0,yaw=0,pitch=0,gazeX=0,gazeY=0,open=1,smile=0}={},width=1400,height=900){
+export function faceFrame({time=0,yaw=0,pitch=0,gazeX=0,gazeY=0,open=1,smile=0,mouth=.025}={},width=1400,height=900){
   const mobile=width<700,scale=Math.min(height*(mobile?.41:.355),width*(mobile?.64:.36)),cx=width*(mobile?.5:.72),cy=height*.59;
   const sy=Math.sin(yaw),co=Math.cos(yaw),sp=Math.sin(pitch),cp=Math.cos(pitch);
   const surprise=clamp((open-1)/.45,0,1),expression=clamp(smile,0,1)*(1-surprise);
@@ -40,6 +43,7 @@ export function faceFrame({time=0,yaw=0,pitch=0,gazeX=0,gazeY=0,open=1,smile=0}=
   const projected=vertices.map(p=>{
     const blink=baseBlink+((p.k===0||p.k===5)?smilingEyes:0);
     let x=p.x+p.blink[0]*blink+p.surprise[0]*surprise+p.smile[0]*expression,y=p.y+p.blink[1]*blink+p.surprise[1]*surprise+p.smile[1]*expression,z=p.z+p.blink[2]*blink+p.surprise[2]*surprise+p.smile[2]*expression;
+    y+=p.speech*clamp((mouth-.025)*3,0,1);
     if(p.k===2){
       const eye=rain.eyes[p.x>0?0:1],dx=x-eye[0],dy=y-eye[1],dz=z-eye[2],rx=dx*cgx+dz*sgx,rz=-dx*sgx+dz*cgx;
       x=eye[0]+rx;y=eye[1]+dy*cgy+rz*sgy;z=eye[2]-dy*sgy+rz*cgy;
@@ -91,3 +95,4 @@ export function createFaceSvg(options={}){
   frame.lines.forEach(l=>groups[Math.min(9,Math.floor(l.alpha*10))].push(`M${f(l.a.x)} ${f(l.a.y)}L${f(l.b.x)} ${f(l.b.y)}`));
   return `<svg viewBox="0 0 1400 900" width="1400" height="900" aria-hidden="true" focusable="false"><g fill="none" stroke="#67b9ed" stroke-width=".8">${groups.map((g,i)=>`<path d="${g.join('')}" opacity="${(i+.5)/10}"/>`).join('')}</g><g fill="#a1dcff">${frame.dots.filter(p=>p.alpha>.03).map(p=>`<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${f(p.r)}" opacity="${p.alpha.toFixed(2)}"/>`).join('')}</g></svg>`;
 }
+

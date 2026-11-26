@@ -1,4 +1,4 @@
-import {faceFrame} from './rain-face.js?v=d8c7c5a97536';
+import {faceFrame} from './rain-face.js?v=neuri-mouth-1';
 let stopCurrent=()=>{};
 document.addEventListener('neuri-speaking',event=>{
  stopCurrent();const scene=document.querySelector('[data-neural-face]'),stage=scene?.querySelector('.neural-stage'),canvas=stage?.querySelector('canvas');
