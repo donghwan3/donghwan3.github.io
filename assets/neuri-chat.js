@@ -1,10 +1,10 @@
 (() => {
  if(document.getElementById('neuri-chat'))return;
  const base=new URL('.',document.currentScript.src),ko=document.documentElement.lang==='ko';
- const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('neuri-chat.css?v=1',base);document.head.append(css);
+ const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('neuri-chat.css?v=3',base);document.head.append(css);
  const host=document.createElement('section');host.id='neuri-chat';host.setAttribute('aria-labelledby','neuri-title');
  host.innerHTML=`<header><span class="neuri-orb" aria-hidden="true">✧</span><div><p class="neuri-kicker">NEURAL FACE · AI CHAT</p><h2 id="neuri-title">${ko?'뉴리':'Neuri'} <span>${ko?'Neuri':'뉴리'}</span></h2></div><span class="neuri-badge">${ko?'안내 준비 중':'Getting ready'}</span></header><p class="neuri-intro">${ko?'Neural Face의 작은 대화 친구, 뉴리예요. 이곳에서 편하게 말을 걸어 주세요.':'Meet Neuri, your little conversation companion for Neural Face. Say hello right here.'}</p><div class="neuri-messages" role="log" aria-live="polite" aria-label="${ko?'뉴리와의 대화':'Conversation with Neuri'}"></div><form><label for="neuri-input">${ko?'뉴리에게 말하기':'Message Neuri'}</label><div class="neuri-compose"><input id="neuri-input" maxlength="1000" autocomplete="off" placeholder="${ko?'안녕, 뉴리!':'Hello, Neuri!'}" required><button type="submit">${ko?'보내기':'Send'} <span aria-hidden="true">↗</span></button></div><small>${ko?'전용 안내를 준비하고 있어요. 지금은 간단한 인사만 가능해요. 개인정보는 입력하지 마세요.':'Dedicated guidance is being prepared. For now, you can say hello. Please do not enter personal information.'}</small></form>`;
- const anchor=document.querySelector('.neural-scene');if(!anchor)return;anchor.insertAdjacentElement('afterend',host);
+ const anchor=document.querySelector('.neural-intro');if(!anchor)return;anchor.append(host);
  const speechReady=import(new URL('neuri-face-speech.js?v=1',base)).catch(()=>null);
  const log=host.querySelector('[role=log]'),input=host.querySelector('input');
  const add=(text,role)=>{const p=document.createElement('p');p.className=role;p.textContent=text;log.append(p);log.scrollTop=log.scrollHeight;};
@@ -19,4 +19,3 @@
  const chars=Array.from(answer),began=performance.now();
  const type=()=>{const progress=Math.min(1,(performance.now()-began)/duration);bubble.textContent=chars.slice(0,Math.ceil(chars.length*progress)).join('');log.scrollTop=log.scrollHeight;if(progress<1){requestAnimationFrame(type);}else{button.disabled=false;input.disabled=false;input.focus();}};type();};
 })();
-

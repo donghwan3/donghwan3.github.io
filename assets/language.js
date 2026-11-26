@@ -10,7 +10,7 @@ document.querySelectorAll('.language-switch').forEach(link=>{
 // REDI lab assistant: available from every page using this shared script.
 (() => {
  if (document.body.dataset.page === 'neural-face') {
- const script=document.createElement('script'); script.src=new URL('neuri-chat.js?v=2',document.currentScript.src); document.head.append(script); return;
+ const script=document.createElement('script'); script.src=new URL('neuri-chat.js?v=3',document.currentScript.src); document.head.append(script); return;
  }
  if (document.querySelector('script[data-redi-chat]') || document.querySelector('script[src*="lab-chatbot.js"]')) return;
  const base = new URL('.', document.currentScript.src);
