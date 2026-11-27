@@ -13,3 +13,15 @@
 .neural-intro>p:last-of-type{font-size:16px;line-height:1.85;color:#aebdcd;max-width:260px}
 @media(min-width:701px){.neural-intro{top:45px;max-width:340px;width:calc(42% - var(--gutter))}.neural-intro h1{font-size:clamp(55px,6vw,76px);margin-bottom:18px}.neural-intro .neural-kicker{margin-bottom:16px}.neural-stage{height:max(880px,90vh)}.neural-footer{bottom:30px}}
 @media(max-width:700px){#neuri-chat{max-width:380px;margin-top:20px}.neural-intro>p:last-of-type{max-width:430px}}
+
+/* Limit only the embedded chat on narrow screens. */
+@media(max-width:700px){
+ #neuri-chat{box-sizing:border-box;width:100%;max-width:min(380px,100%);min-width:0}
+ #neuri-chat header{flex-wrap:wrap}
+ #neuri-chat header>div{min-width:0;flex:1;overflow-wrap:anywhere}
+ #neuri-chat .neuri-badge{max-width:100%;white-space:normal}
+ #neuri-chat .neuri-compose{min-width:0}
+ #neuri-chat input{width:0;min-width:0;font-size:16px}
+ #neuri-chat button{flex-shrink:0}
+ #neuri-chat .neuri-messages p{flex-shrink:0;max-width:100%}
+}
